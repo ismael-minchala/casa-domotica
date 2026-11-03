@@ -1,0 +1,738 @@
+% Documentación técnica — Sistema domótico de la casa (openHAB + LCN + solar)
+% Compilar: pdflatex documentacion-tecnica.tex  (dos veces, para índice y referencias)
+\documentclass[11pt,a4paper]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[spanish,es-noshorthands,es-tabla]{babel}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric,shapes.misc,shapes.symbols,arrows.meta,fit,backgrounds,calc,shadows}
+\usepackage[colorlinks=true,linkcolor=azul,urlcolor=azul]{hyperref}
+
+% ---------------------------------------------------------------- colores
+\definecolor{azul}{HTML}{1F5FA8}
+\definecolor{solar}{HTML}{E8A317}
+\definecolor{verde}{HTML}{2E8B57}
+\definecolor{rojo}{HTML}{C0392B}
+\definecolor{gris}{HTML}{5D6D7E}
+\definecolor{lila}{HTML}{7D3C98}
+\definecolor{cian}{HTML}{138D90}
+\definecolor{fondo}{HTML}{F4F6F8}
+
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{gris}{Sistema domótico — Documentación técnica}}
+\fancyhead[R]{\small\textcolor{gris}{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single,backgroundcolor=\color{fondo},
+  rulecolor=\color{gris!40},columns=fullflexible,keepspaces=true,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {ñ}{{\~n}}1}
+
+% ---------------------------------------------------------------- estilos TikZ
+\tikzset{
+  >={Stealth[length=2.2mm]},
+  caja/.style={draw=#1!80!black,fill=#1!12,rounded corners=3pt,thick,align=center,
+               minimum height=9mm,inner sep=4pt,font=\small},
+  caja/.default=azul,
+  nube/.style={draw=#1!80!black,fill=#1!10,cloud,cloud puffs=11,aspect=2.2,thick,align=center,font=\small,inner sep=1pt},
+  nube/.default=gris,
+  disp/.style={draw=#1!80!black,fill=white,rounded corners=2pt,align=center,font=\scriptsize,
+               minimum width=17mm,minimum height=7mm},
+  disp/.default=gris,
+  grupo/.style={draw=#1!70!black,dashed,rounded corners=6pt,inner sep=8pt},
+  grupo/.default=gris,
+  etq/.style={font=\scriptsize\itshape,text=gris},
+  flujo/.style={->,thick,draw=#1},
+  flujo/.default=gris,
+  bus/.style={line width=2.2pt,draw=verde},
+  estado/.style={draw=#1!80!black,fill=#1!15,circle,minimum size=21mm,thick,align=center,font=\small},
+  linea/.style={draw=gris!70,dashed},
+  activ/.style={fill=azul!20,draw=azul,minimum width=2.4mm},
+}
+
+\title{\vspace{-1cm}\textcolor{azul}{\Huge\bfseries Sistema domótico de la casa}\\[6pt]
+       \Large Documentación técnica y de ingeniería de software\\[4pt]
+       \large openHAB 5.2.3 · bus LCN · energía solar · cámaras · Tuya}
+\author{Ismael Minchala}
+\date{Versión 1.0 — 3 de noviembre de 2026}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\color{azul}\rule{\linewidth}{1.2pt}}\\[0.6cm]
+{\Huge\bfseries\color{azul} Sistema domótico de la casa}\\[0.4cm]
+{\Large Documentación técnica y de ingeniería de software}\\[0.3cm]
+{\color{azul}\rule{\linewidth}{1.2pt}}\\[1.2cm]
+
+\begin{tikzpicture}[scale=1.0]
+  \node[caja=azul,minimum width=34mm,minimum height=14mm,font=\large\bfseries] (oh) at (0,0) {openHAB\\[-2pt]\small 5.2.3};
+  \node[caja=verde,minimum width=26mm] (lcn) at (-4.6,1.9) {Bus LCN\\\scriptsize 7 módulos};
+  \node[caja=solar,minimum width=26mm] (sol) at (4.6,1.9) {Energía solar\\\scriptsize DessMonitor};
+  \node[caja=lila,minimum width=26mm] (cam) at (-4.6,-1.9) {Cámaras\\\scriptsize NVR Amcrest};
+  \node[caja=cian,minimum width=26mm] (tuya) at (4.6,-1.9) {Tuya · TV\\\scriptsize Wi-Fi};
+  \node[caja=rojo,minimum width=26mm] (app) at (0,3.2) {App iPhone · MainUI};
+  \node[caja=gris,minimum width=26mm] (db) at (0,-3.2) {InfluxDB · Grafana};
+  \foreach \n/\c in {lcn/verde,sol/solar,cam/lila,tuya/cian,app/rojo,db/gris}
+    \draw[<->,very thick,draw=\c] (oh) -- (\n);
+\end{tikzpicture}
+
+\vfill
+{\large Ismael Minchala}\\[4pt]
+{\large Versión 1.0 — 3 de noviembre de 2026}\\[8pt]
+{\small Repositorio privado: \url{https://github.com/ismael-minchala/casa-domotica}}
+\end{titlepage}
+
+\tableofcontents
+
+% =====================================================================
+\chapter{Introducción}
+
+\section{Propósito}
+Este documento describe la arquitectura, la topología de red, los componentes de software, los flujos de
+datos, la operación y el mantenimiento del sistema domótico de la casa. Sirve como referencia para
+operar el sistema, diagnosticar fallos, restaurarlo desde el respaldo y planificar su evolución.
+
+\section{Alcance}
+El sistema integra en una sola plataforma (openHAB) los siguientes subsistemas:
+\begin{itemize}[nosep]
+  \item \textbf{Iluminación y persianas} sobre el bus cableado \textbf{LCN} (7 módulos, pasarela LCN-PKE).
+  \item \textbf{Energía solar}: inversor aislado de 24\,V con baterías y controlador de carga, monitorizado
+        mediante la API en la nube de DessMonitor; historial en InfluxDB y paneles en Grafana.
+  \item \textbf{Ahorro automático de energía}: reglas que atenúan o apagan cargas según el estado de la batería.
+  \item \textbf{Videovigilancia}: grabador NVR Amcrest con 3 cámaras activas, servidas como MJPEG a la app.
+  \item \textbf{Dispositivos Wi-Fi Tuya}: interruptores, atenuador del garaje, panel y sensor de gas.
+  \item \textbf{Multimedia}: Google TV / Android TV y Chromecast.
+  \item \textbf{Acceso móvil} (app openHAB para iOS, local y remoto vía myopenHAB) y notificaciones push.
+\end{itemize}
+
+\section{Convenciones}
+\begin{itemize}[nosep]
+  \item Las direcciones IP sin prefijo pertenecen a la red \code{192.168.18.0/24} (p.\,ej. \code{.30} = \code{192.168.18.30}).
+  \item Los nombres de \emph{Items}, \emph{Things} y archivos se escriben en \code{monoespaciado}.
+  \item Este documento \textbf{no contiene credenciales}. En el repositorio aparecen como \code{<REDACTED>}.
+\end{itemize}
+
+\section{Glosario}
+\begin{longtable}{@{}p{3.2cm}p{11.8cm}@{}}
+\toprule
+\textbf{Término} & \textbf{Definición}\\\midrule\endhead
+Binding & Complemento de openHAB que habla el protocolo de una tecnología (LCN, Tuya, ipcamera\ldots).\\
+Thing & Representación de un dispositivo físico o servicio dentro de openHAB.\\
+Channel & Función concreta de un Thing (salida de un módulo, volumen de un TV\ldots).\\
+Item & Variable de openHAB enlazada a un Channel; es lo que ven las interfaces y las reglas.\\
+Sitemap & Descripción textual de la interfaz para la app móvil nativa.\\
+MainUI & Interfaz web de openHAB (páginas, widgets, administración).\\
+LCN & \emph{Local Control Network}: bus domótico cableado de Issendorff.\\
+PCK & Protocolo de texto de LCN sobre TCP (puerto 4114).\\
+PKE / PCHK & Pasarela Ethernet–LCN (hardware LCN-PKE que ejecuta el servicio PCHK 3.2.2).\\
+SOC & \emph{State of Charge}: porcentaje de carga de la batería.\\
+NVR & Grabador de vídeo en red; concentra las cámaras.\\
+MJPEG & Vídeo como secuencia de imágenes JPEG; compatible con la app y los navegadores.\\
+Flux & Lenguaje de consultas de InfluxDB 2.\\
+\bottomrule
+\end{longtable}
+
+% =====================================================================
+\chapter{Requisitos}
+
+\section{Requisitos funcionales}
+\begin{longtable}{@{}p{1.3cm}p{10.2cm}p{3.3cm}@{}}
+\toprule
+\textbf{ID} & \textbf{Requisito} & \textbf{Estado}\\\midrule\endhead
+RF-01 & Encender, apagar y regular cada luz LCN desde la app (interruptor + deslizador de intensidad). & Implementado\\
+RF-02 & Subir y bajar la persiana del dormitorio principal. & Implementado\\
+RF-03 & Controlar las luces Tuya de los dormitorios, el panel y el garaje. & Implementado (Alejandro sin conexión)\\
+RF-04 & Mostrar en tiempo real generación solar, consumo, SOC, modo y alarmas del inversor. & Implementado\\
+RF-05 & Diagrama animado del flujo de energía (solar, red, inversor, batería, casa). & Implementado\\
+RF-06 & Gráficos históricos y energía diaria generada/consumida (kWh). & Implementado\\
+RF-07 & Ahorro automático: atenuar luces al 40\,\% con batería baja y apagar cargas con batería crítica. & Implementado\\
+RF-08 & Avisos push al móvil ante cambios de ahorro, alarmas del inversor y pérdida de datos. & Implementado\\
+RF-09 & Ver en vivo las cámaras Calle, Entrada e Interior desde la app. & Implementado\\
+RF-10 & Controlar TV de Sala, MIBOX3 y TV Alejandro (encendido, volumen, reproducción). & Parcial (falta emparejar PIN)\\
+RF-11 & Sincronizar la hora del bus LCN. & Implementado (PKE)\\
+RF-12 & Respaldo semanal automático de la configuración, sin secretos. & Implementado\\
+\bottomrule
+\end{longtable}
+
+\section{Requisitos no funcionales}
+\begin{longtable}{@{}p{1.3cm}p{4cm}p{9.5cm}@{}}
+\toprule
+\textbf{ID} & \textbf{Atributo} & \textbf{Criterio}\\\midrule\endhead
+RNF-01 & Latencia & Un comando de luz debe ejecutarse en menos de 1\,s en condiciones normales.\\
+RNF-02 & Disponibilidad & openHAB arranca como servicio de Windows; InfluxDB y Grafana arrancan solos.\\
+RNF-03 & Robustez & Un flujo de cámara caído no debe bloquear el servidor (Thing deshabilitado $\Rightarrow$ 404 inmediato).\\
+RNF-04 & Licencias & No abrir conexiones extra a la PKE (licencia limitada a 3 sesiones PCK).\\
+RNF-05 & Seguridad & Las credenciales nunca se escriben en código, documentos ni en el repositorio.\\
+RNF-06 & Usabilidad & Interfaz en español, agrupada por plantas y habitaciones.\\
+RNF-07 & Mantenibilidad & Configuración por archivos versionados en Git; respaldo y restauración documentados.\\
+RNF-08 & Rendimiento & Las cámaras se transcodifican a 1280\,px y 4\,fps ($\approx$\,41\,\% CPU con 3 flujos abiertos).\\
+\bottomrule
+\end{longtable}
+
+% =====================================================================
+\chapter{Arquitectura del sistema}
+
+\section{Diagrama de contexto}
+La figura~\ref{fig:contexto} muestra el sistema como una caja negra y los actores externos con los que
+interactúa.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=1.2cm and 1.4cm]
+  \node[caja=azul,minimum width=48mm,minimum height=22mm,font=\bfseries] (sys) {Sistema domótico\\[-1pt]\normalfont\small servidor openHAB};
+  \node[caja=rojo,above left=1.4cm and 0.6cm of sys] (usr) {Habitantes\\\scriptsize app iOS · navegador};
+  \node[caja=rojo,above right=1.4cm and 0.6cm of sys] (adm) {Administrador\\\scriptsize MainUI · LCN-PRO};
+  \node[nube=gris,left=1.6cm of sys] (cloud) {myopenHAB\\\scriptsize acceso remoto · push};
+  \node[nube=solar,right=1.6cm of sys] (dess) {DessMonitor\\\scriptsize API del inversor};
+  \node[nube=cian,below right=1.3cm and 0.3cm of sys] (tuyac) {Tuya Cloud\\\scriptsize alta de equipos};
+  \node[caja=verde,below left=1.4cm and 0.2cm of sys] (fis) {Equipos físicos\\\scriptsize LCN · cámaras · Tuya · TV};
+  \node[nube=gris,below=1.9cm of sys] (gh) {GitHub\\\scriptsize respaldo privado};
+  \draw[flujo=rojo,<->] (usr) -- node[etq,left]{comandos / estado} (sys);
+  \draw[flujo=rojo,<->] (adm) -- node[etq,right]{configuración} (sys);
+  \draw[flujo,<->] (cloud) -- node[etq,above]{HTTPS} (sys);
+  \draw[flujo=solar,<-] (sys) -- node[etq,above]{cada 2 min} (dess);
+  \draw[flujo=cian,<->] (sys) -- (tuyac);
+  \draw[flujo=verde,<->] (sys) -- node[etq,left]{LAN} (fis);
+  \draw[flujo,->] (sys) -- node[etq,right]{semanal} (gh);
+\end{tikzpicture}
+\caption{Diagrama de contexto.}
+\label{fig:contexto}
+\end{figure}
+
+\section{Arquitectura lógica en capas}
+openHAB separa el acceso al hardware (bindings y Things) de la lógica (Items y reglas) y de la
+presentación (sitemap, MainUI). La figura~\ref{fig:capas} resume las capas y sus componentes.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \def\capa#1#2#3#4{%
+    \fill[#3!10,draw=#3!70!black,rounded corners=4pt,thick] (0,#1) rectangle (15,#1+1.45);
+    \node[anchor=west,font=\bfseries\small,text=#3!70!black] at (0.2,#1+1.1) {#2};
+    \node[anchor=west,font=\scriptsize,text width=14.4cm] at (0.2,#1+0.45) {#4};}
+  \capa{7.6}{Presentación}{rojo}{Sitemap \code{casa} (app iOS) · MainUI: páginas \code{overview}, \code{energia}, \code{energia_graficos}, \code{seguridad}, \code{variables} · Páginas HTML estáticas \code{flujo-energia.html}, \code{energia-diaria.html} · Grafana «Energía -- Casa»}
+  \capa{5.9}{Lógica y automatización}{lila}{Reglas JS Scripting: \code{dessmonitor.js} (lectura del inversor), \code{ahorro-energia.js} (3 reglas: evaluar batería, alarmas, vigilancia de datos) · Perfiles · Notificaciones openHAB Cloud}
+  \capa{4.2}{Modelo de datos}{azul}{95 Items (79 de valor + 16 grupos) · modelo semántico por plantas y habitaciones · grupos \code{gEnergia}, \code{gInversor}, \code{gAhorro} · 48 enlaces Item--Channel · metadatos}
+  \capa{2.5}{Integración}{verde}{22 Things · bindings \code{lcn}, \code{tuya}, \code{ipcamera}, \code{androidtv}, \code{chromecast}, \code{androiddebugbridge}, \code{amazonechocontrol} · HTTP a DessMonitor · \code{ffmpeg}}
+  \capa{0.8}{Persistencia e infraestructura}{gris}{InfluxDB 2.7 (org \code{Home}, bucket \code{data}) · Windows 10 · Java Zulu 21 · Karaf 4.4 · servicio \code{openHAB} · Git + tarea programada de respaldo}
+  \foreach \y in {2.25,3.95,5.65,7.35} \draw[<->,thick,gris] (7.5,\y) -- ++(0,0.3);
+\end{tikzpicture}
+\caption{Arquitectura lógica en capas.}
+\label{fig:capas}
+\end{figure}
+
+\section{Diagrama de componentes}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.55cm and 0.6cm]
+  % núcleo
+  \node[caja=azul,minimum width=36mm,minimum height=12mm] (bus) {Bus de eventos\\\scriptsize openHAB core};
+  \node[caja=azul,above=0.7cm of bus,minimum width=36mm] (items) {Registro de Items};
+  \node[caja=lila,left=1.6cm of items] (rules) {Motor de reglas\\\scriptsize JS Scripting};
+  \node[caja=gris,right=1.6cm of items] (pers) {Persistencia\\\scriptsize influxdb};
+  \node[caja=rojo,above=0.8cm of items,minimum width=36mm] (ui) {REST / SSE\\\scriptsize :8080};
+  \node[caja=rojo,left=1.1cm of ui] (app) {App iOS\\\scriptsize sitemap};
+  \node[caja=rojo,right=1.1cm of ui] (main) {MainUI\\\scriptsize navegador};
+  \node[caja=gris,right=1.1cm of pers] (influx) {InfluxDB\\\scriptsize 127.0.0.1:8086};
+  \node[caja=gris,above=0.8cm of influx] (graf) {Grafana\\\scriptsize :3000};
+  % bindings
+  \node[caja=verde,below left=1.1cm and 2.2cm of bus] (b1) {LCN};
+  \node[caja=cian,right=0.4cm of b1] (b2) {Tuya};
+  \node[caja=lila,right=0.4cm of b2] (b3) {ipcamera};
+  \node[caja=cian,right=0.4cm of b3] (b4) {Android TV};
+  \node[caja=cian,right=0.4cm of b4] (b5) {Chromecast};
+  \node[caja=solar,left=0.5cm of b1] (b0) {HTTP\\\scriptsize DessMonitor};
+  \node[grupo=verde,fit=(b0)(b5),label={[etq]below:bindings}] {};
+  \draw[flujo=azul,<->] (items) -- (bus);
+  \draw[flujo=lila,<->] (rules) -- (items);
+  \draw[flujo=gris,->] (items) -- (pers);
+  \draw[flujo=gris,->] (pers) -- (influx);
+  \draw[flujo=gris,<-] (graf) -- node[etq,right]{Flux} (influx);
+  \draw[flujo=rojo,<->] (ui) -- (items);
+  \draw[flujo=rojo,<->] (app) -- (ui);
+  \draw[flujo=rojo,<->] (main) -- (ui);
+  \foreach \b in {b0,b1,b2,b3,b4,b5} \draw[flujo=verde,<->] (\b.north) -- (bus.south);
+\end{tikzpicture}
+\caption{Componentes principales y sus dependencias.}
+\label{fig:componentes}
+\end{figure}
+
+\section{Diagrama de despliegue}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.4cm]
+  \node[caja=azul,minimum width=38mm] (oh) {Servicio \code{openHAB}\\\scriptsize Java Zulu 21 · Karaf · :8080/:8443};
+  \node[caja=gris,right=0.5cm of oh,minimum width=34mm] (ifx) {InfluxDB 2.7\\\scriptsize tarea programada (SYSTEM)};
+  \node[caja=gris,right=0.5cm of ifx,minimum width=30mm] (gf) {Grafana 13\\\scriptsize servicio · :3000};
+  \node[caja=lila,below=0.5cm of oh,minimum width=38mm] (ff) {ffmpeg\\\scriptsize \texttt{C:\textbackslash ffmpeg\textbackslash bin}};
+  \node[caja=verde,right=0.5cm of ff,minimum width=34mm] (lpro) {LCN-PRO 6.9\\\scriptsize proyecto \code{Casa.lp3}};
+  \node[caja=gris,right=0.5cm of lpro,minimum width=30mm] (git) {Git 2.56\\\scriptsize respaldo semanal};
+  \node[grupo=azul,fit=(oh)(gf)(ff)(git),inner sep=12pt,label={[font=\bfseries\small,text=azul]above:PC servidor «CASA-ISMAEL» · Windows 10 Pro · Wi-Fi .254}] (pc) {};
+  \node[caja=verde,below=1.6cm of ff,minimum width=34mm] (pke) {LCN-PKE (.30)\\\scriptsize PCHK 3.2.2 · TCP 4114};
+  \node[caja=lila,right=0.9cm of pke,minimum width=34mm] (nvr) {NVR Amcrest (.31)\\\scriptsize RTSP 554 · HTTP 80};
+  \node[caja=cian,right=0.9cm of nvr,minimum width=30mm] (tuy) {Equipos Tuya\\\scriptsize TCP 6668 · UDP 6666/7};
+  \draw[flujo=verde,<->] (pke) -- node[etq,left]{PCK} (pke |- pc.south);
+  \draw[flujo=lila,<->] (nvr) -- node[etq,left]{RTSP} (nvr |- pc.south);
+  \draw[flujo=cian,<->] (tuy) -- node[etq,left]{Tuya 3.3} (tuy |- pc.south);
+\end{tikzpicture}
+\caption{Despliegue físico del software.}
+\label{fig:despliegue}
+\end{figure}
+
+% =====================================================================
+\chapter{Topología de red}
+
+\section{Diagrama de red}
+
+\begin{figure}[H]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+  % troncal
+  \node[nube=gris,minimum width=26mm] (inet) at (0,0.2) {Internet};
+  \node[caja=gris] (rt) at (0,-1.5) {Router Huawei\\\scriptsize .1 · DHCP};
+  \node[caja=azul] (srv) at (-5.6,-1.5) {Servidor openHAB\\\scriptsize .254 (Wi-Fi, IP fija)};
+  \node[disp] (ip) at (-5.6,0.2) {iPhone\\\scriptsize app openHAB};
+  \node[caja=gris] (rep) at (6.1,-1.5) {Repetidor Wi-Fi\\\scriptsize proxy ARP};
+  \node[caja=verde] (pke) at (-2.9,-3.3) {LCN-PKE\\\scriptsize .30 · Ethernet};
+  \node[caja=lila] (nvr) at (1.7,-3.3) {NVR Amcrest\\\scriptsize .31 · NV2104E-HS};
+  \draw[thick] (inet) -- (rt);
+  \draw[thick,dashed] (rt) -- node[etq,above]{Wi-Fi} (srv);
+  \draw[thick,dashed] (rt) -- node[etq,above]{Wi-Fi} (rep);
+  \draw[thick] (rt.south) |- ++(0,-0.45) -| (pke.north);
+  \draw[thick] (rt.south) |- ++(0,-0.45) -| (nvr.north);
+  \draw[rojo,dashed] (srv) -- (ip);
+  % bus LCN
+  \draw[bus] (-7.8,-4.6) -- (-1.4,-4.6);
+  \draw[bus] (pke.south) -- (pke.south |- 0,-4.6);
+  \node[etq,anchor=south west] at (-7.8,-4.6) {bus LCN};
+  \foreach \i/\m in {0/M5,1/M6,2/M7,3/M8,4/M9,5/M10,6/M102} {
+    \node[disp=verde,minimum width=7mm,inner sep=2pt] (m\i) at (-7.5+1.0*\i,-5.35) {\m};
+    \draw[verde,thick] (m\i.north) -- ++(0,0.43);
+  }
+  \node[etq,text width=7.4cm,align=center] at (-4.5,-6.05) {entrada · cocina · comedor · persianas · sala · alarma · dormitorio};
+  % cámaras
+  \node[disp=lila] (c1) at (0.5,-5.2) {Interior\\\scriptsize PoE 10.1.1.129};
+  \node[disp=lila] (c4) at (2.6,-5.2) {Calle\\\scriptsize PoE 10.1.1.128};
+  \node[disp=lila] (c3) at (4.7,-5.2) {Entrada\\\scriptsize Wi-Fi .204};
+  \draw[lila,thick] (nvr) -- node[etq,left]{ch1} (c1);
+  \draw[lila,thick] (nvr) -- node[etq,right]{ch4} (c4);
+  \draw[lila,thick,dashed] (nvr) -- node[etq,right]{ch3} (c3);
+  % clientes Wi-Fi
+  \foreach \n/\t/\x in {t1/{Panel\\\scriptsize .104}/4.6,t2/{Garaje\\\scriptsize .105}/6.1,t3/{Julián\\\scriptsize .199}/7.6}
+    { \node[disp=cian] (\n) at (\x,0.2) {\t}; \draw[cian,dashed] (rep) -- (\n); }
+  \foreach \n/\t/\x in {v1/{MIBOX3\\\scriptsize .188}/4.6,v2/{TV Ale\\\scriptsize .166}/6.1,v3/{TV Sala\\\scriptsize .155}/7.6}
+    { \node[disp=cian] (\n) at (\x,-3.3) {\t}; \draw[cian,dashed] (rep) -- (\n); }
+\end{tikzpicture}}
+\caption{Topología física y lógica de la red doméstica.}
+\label{fig:red}
+\end{figure}
+
+\section{Plan de direccionamiento}
+\begin{longtable}{@{}lllp{6.2cm}@{}}
+\toprule
+\textbf{IP} & \textbf{Equipo} & \textbf{Enlace} & \textbf{Observaciones}\\\midrule\endhead
+.1 & Router Huawei & — & Puerta de enlace y DHCP.\\
+.30 & LCN-PKE & Ethernet & IP fija; PCHK 3.2.2, firmware 2.06; licencia de 3 conexiones.\\
+.31 & NVR Amcrest NV2104E-HS & Ethernet & IP fija; PoE para las cámaras 10.1.1.x.\\
+.104 & Tuya «Panel» & Wi-Fi & Interruptor (\code{switch_1}).\\
+.105 & Tuya «Garaje» & Wi-Fi & Atenuador (\code{bright_value}).\\
+.136 & Tuya «Interruptor ale» & Wi-Fi & Sin conexión desde el 2/11/2026.\\
+.155 & TV de Sala (Google TV) & Wi-Fi & Pendiente de emparejar (PIN).\\
+.166 & TV Alejandro & Wi-Fi & Chromecast activo; Google TV pendiente de PIN.\\
+.188 & MIBOX3 & Wi-Fi & Chromecast activo; Google TV pendiente de PIN.\\
+.199 & Tuya «Interruptor Julián» & Wi-Fi & A través del repetidor.\\
+.204 & Cámara Entrada ASH42-B & Wi-Fi & IP fija; canal 3 del NVR.\\
+.254 & Servidor openHAB & Wi-Fi & IP fija; perfil de red «Público» (pendiente).\\
+\bottomrule
+\end{longtable}
+
+\section{Puertos y servicios}
+\begin{longtable}{@{}lllp{6.5cm}@{}}
+\toprule
+\textbf{Puerto} & \textbf{Equipo} & \textbf{Protocolo} & \textbf{Uso}\\\midrule\endhead
+8080 / 8443 & Servidor & HTTP(S) & openHAB: REST, MainUI, app, \code{/static}, \code{/ipcamera}.\\
+8086 & Servidor (local) & HTTP & InfluxDB 2.7, solo \code{127.0.0.1}.\\
+3000 & Servidor & HTTP & Grafana.\\
+4114 & PKE & TCP (PCK) & Pasarela LCN; openHAB mantiene una sesión permanente.\\
+80 & PKE & HTTP & Configuración web de la PKE.\\
+554 & NVR & RTSP & Flujos de vídeo por canal (\code{subtype=0} principal, \code{1} secundario).\\
+80 & NVR & HTTP/ONVIF & API Amcrest y ONVIF.\\
+6668 & Tuya & TCP & Control local cifrado (protocolo 3.3).\\
+6666/6667 & Tuya & UDP & Anuncios de descubrimiento de IP.\\
+6466/6467 & Google TV & TLS & Control remoto / emparejamiento con PIN.\\
+8009 & Chromecast & TLS & Cast.\\
+\bottomrule
+\end{longtable}
+
+% =====================================================================
+\chapter{Subsistemas}
+
+\section{Iluminación y persianas (LCN)}
+El bus LCN es la columna vertebral de la iluminación. openHAB se conecta a la pasarela LCN-PKE
+(\code{lcn:pckGateway:LCN-PCHK}, modo \code{native200}, \code{timeoutMs=3500}) y expone cada salida
+como un Item de tipo \code{Dimmer}.
+
+{\small\begin{longtable}{@{}lp{2.6cm}p{1.6cm}p{8.4cm}@{}}
+\toprule
+\textbf{Módulo} & \textbf{Ubicación} & \textbf{Salida} & \textbf{Item}\\\midrule\endhead
+5 & Entrada & 1 / 2 & \code{Module_5_ENTRADA_Output_1/2} (escalera / laterales)\\
+6 & Cocina & 1 / 2 & \code{Module_6_COCINA_Output_1/2} (leds / luz)\\
+7 & Comedor & 1 / 2 & \code{Module_7_COMEDOR_Output_1/2}\\
+8 & Persianas & 1 / 2 & \code{Module_8_PERSIANAS_Output_1/2} (bajar / subir)\\
+9 & Sala & 1 / 2 & \code{Module_9_SALA_Output_1/2}\\
+10 & Alarma & 1 & \code{Module_10_ALARMA_Output_1} (sirena)\\
+102 & Dormitorio principal & 1 / 2, var.\,4 & \code{Module_102_CUARTO_PRINCIPAL_Output_1/2}, \code{Module102Var4}\\
+\bottomrule
+\end{longtable}}
+
+\paragraph{Secuencia de un comando.} La figura~\ref{fig:seq-luz} muestra qué ocurre al pulsar el
+interruptor de una luz en la app. El interruptor envía \code{ON}/\code{OFF} al mismo Item \code{Dimmer}
+que usa el deslizador de intensidad.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[x=2.55cm,y=-0.62cm]
+  \foreach \i/\n/\c in {0/App iOS/rojo,1/openHAB REST/azul,2/Binding LCN/verde,3/LCN-PKE/verde,4/Módulo LCN/verde} {
+    \node[caja=\c,minimum width=22mm] (h\i) at (\i,0) {\n};
+    \draw[linea] (\i,0.8) -- (\i,11.2);
+  }
+  \draw[flujo=rojo] (0,2) -- node[etq,above]{POST /items/X \code{OFF}} (1,2);
+  \draw[flujo=azul] (1,3) -- node[etq,above]{ItemCommandEvent} (2,3);
+  \draw[flujo=verde] (2,4) -- node[etq,above]{PCK \code{>M000005.A1DI000000}} (3,4);
+  \draw[flujo=verde] (3,5) -- node[etq,above]{telegrama bus} (4,5);
+  \draw[flujo=verde,dashed] (4,6.3) -- node[etq,above]{acuse} (3,6.3);
+  \draw[flujo=verde,dashed] (3,7.3) -- node[etq,above]{\code{-M000005!}} (2,7.3);
+  \draw[flujo=verde,dashed] (4,8.5) -- node[etq,above]{estado salida 0\,\%} (2,8.5);
+  \draw[flujo=azul,dashed] (2,9.5) -- node[etq,above]{ItemStateChangedEvent} (1,9.5);
+  \draw[flujo=rojo,dashed] (1,10.5) -- node[etq,above]{SSE: estado \code{0}} (0,10.5);
+  \node[etq,anchor=north,text width=10cm,align=center] at (2,11.5) {si el acuse no llega en 3,5\,s, el binding reintenta el comando};
+\end{tikzpicture}
+\caption{Diagrama de secuencia: apagar una luz LCN desde la app.}
+\label{fig:seq-luz}
+\end{figure}
+
+\paragraph{Hora del bus.} Desde el 2/11/2026 la PKE tiene su reloj ajustado (zona
+\code{America/Guayaquil}) y la opción «sync LCN bus time» activada, por lo que envía la hora al
+bus periódicamente. La PKE no tiene puerta de enlace ni DNS configurados (no usa NTP): tras un corte de
+energía hay que verificar su reloj en \url{http://192.168.18.30}.
+
+\section{Energía solar}
+
+\subsection{Hardware}
+Inversor aislado de 24\,V (dos baterías) con controlador de carga fotovoltaico separado y potencia
+nominal de 3000\,W. Un colector Wi-Fi Eybond envía los datos a la nube DessMonitor.
+
+\subsection{Adquisición de datos}
+El inversor no expone vatios; la regla \code{dessmonitor.js} los deriva:
+\[
+P_\text{solar} = V_\text{batería}\cdot I_\text{carga},\qquad
+P_\text{casa} = \frac{\text{Carga (\%)}}{100}\cdot 3000\,\text{W}.
+\]
+$P_\text{casa}$ solo es válida en «Inverter mode»; con red («Mains mode») el inversor
+informa carga 0\,\%.
+
+\begin{figure}[H]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[node distance=0.9cm and 1.25cm]
+  \node[caja=solar] (inv) {Inversor\\\scriptsize + controlador};
+  \node[caja=solar,right=of inv] (col) {Colector\\\scriptsize Eybond Wi-Fi};
+  \node[nube=solar,right=of col] (cloud) {API\\DessMonitor};
+  \node[caja=lila,right=of cloud] (js) {\code{dessmonitor.js}\\\scriptsize cron 2 min · SHA-1};
+  \node[caja=azul,below=1.1cm of js] (it) {Items \code{gInversor}\\\scriptsize SOC, potencias, modo\ldots};
+  \node[caja=gris,left=1.4cm of it] (ifx) {InfluxDB\\\scriptsize bucket \code{data}};
+  \node[caja=gris,left=of ifx] (gf) {Grafana\\\scriptsize kWh/día};
+  \node[caja=rojo,below=1.0cm of it] (ui) {Flujo animado\\\scriptsize \code{flujo-energia.html}};
+  \node[caja=rojo,left=1.4cm of ui] (dd) {Energía diaria\\\scriptsize \code{energia-diaria.html}};
+  \node[caja=lila,right=1.2cm of it] (ah) {\code{ahorro-energia.js}};
+  \draw[flujo=solar] (inv) -- node[etq,above]{RS232} (col);
+  \draw[flujo=solar] (col) -- node[etq,above]{TCP} (cloud);
+  \draw[flujo=solar] (js) -- node[etq,above]{HTTPS} (cloud);
+  \draw[flujo=solar,dashed] (cloud.south east) to[bend right=15] (js.south west);
+  \draw[flujo=azul] (js) -- (it);
+  \draw[flujo=gris] (it) -- node[etq,above]{everyChange} (ifx);
+  \draw[flujo=gris] (ifx) -- node[etq,above]{Flux} (gf);
+  \draw[flujo=rojo] (it) -- node[etq,right]{REST 15 s} (ui);
+  \draw[flujo=rojo] (ifx) -- node[etq,left]{historial} (dd);
+  \draw[flujo=lila] (it) -- (ah);
+\end{tikzpicture}}
+\caption{Flujo de datos de energía.}
+\label{fig:energia}
+\end{figure}
+
+\subsection{Energía diaria}
+\code{energia-diaria.html} consulta el historial de \code{Solar_Potencia} y \code{Casa_Consumo} y
+calcula la integral por día local (UTC$-5$) con la regla del trapecio, partiendo en medianoche y
+descartando huecos mayores de 30 minutos:
+\[
+E_\text{día} = \sum_{k} \frac{P_k + P_{k+1}}{2}\,(t_{k+1}-t_k), \qquad t_{k+1}-t_k \le 30\,\text{min}.
+\]
+El resultado coincide con el panel «Energía por día» de Grafana (p.\,ej. 1/11/2026: 5,67\,kWh
+generados, 4,17\,kWh consumidos).
+
+\section{Ahorro automático de energía}
+La regla \code{ahorro-energia.js} implementa la máquina de estados de la figura~\ref{fig:ahorro}. Solo
+actúa cuando el inversor funciona con batería («Inverter mode») y el Item \code{Ahorro_Auto} está
+activo. \code{Ahorro_Simulacion} permite probarla sin actuar.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=3.3cm]
+  \node[estado=verde] (n) {Normal};
+  \node[estado=solar,right=of n] (b) {Bajo\\\scriptsize luces $\le$40\,\%};
+  \node[estado=rojo,right=of b] (c) {Crítico\\\scriptsize cargas apagadas};
+  \draw[flujo=solar] (n) to[bend left=25] node[etq,above]{SOC $\le$ 30\,\%} (b);
+  \draw[flujo=rojo] (b) to[bend left=25] node[etq,above]{SOC $\le$ 20\,\%} (c);
+  \draw[flujo=verde] (b) to[bend left=25] node[etq,below]{SOC $\ge$ 35\,\% o red} (n);
+  \draw[flujo=verde] (c) to[bend left=40] node[etq,below]{SOC $\ge$ 35\,\% o red} (n);
+  \draw[flujo=solar] (c) to[bend left=25] node[etq,below]{SOC $\ge$ 25\,\%} (b);
+  \node[etq,below=1.9cm of b,text width=11cm,align=center] {Umbrales configurables desde la app: \code{Ahorro_UmbralBajo} (30), \code{Ahorro_UmbralCritico} (20), \code{Ahorro_Histeresis} (5), \code{Ahorro_NivelAtenuado} (40). La regla nunca vuelve a encender luces; cada transición envía un aviso push.};
+\end{tikzpicture}
+\caption{Máquina de estados del ahorro automático.}
+\label{fig:ahorro}
+\end{figure}
+
+\begin{longtable}{@{}p{4.5cm}p{3.3cm}p{7cm}@{}}
+\toprule
+\textbf{Regla} & \textbf{Disparador} & \textbf{Acción}\\\midrule\endhead
+DessMonitor: leer inversor & cron cada 2 min & Consulta la API, actualiza \code{gInversor} y \code{Energia_ApiEstado}.\\
+Ahorro: evaluar batería & cambio de SOC / modo & Aplica la máquina de estados y registra \code{Ahorro_UltimaAccion}.\\
+Ahorro: avisar alarmas & cambio de \code{Inversor_Alarma} & Envía un aviso push con la alarma.\\
+Ahorro: vigilar conexión & periódico & Avisa si DessMonitor pasa más de 15 min sin datos.\\
+\bottomrule
+\end{longtable}
+
+\section{Videovigilancia}
+Todas las cámaras se leen a través del NVR (\code{.31}). Cada canal es un Thing \code{ipcamera:amcrest}
+que convierte el flujo RTSP principal a MJPEG de 1280\,px y 4\,fps con \code{ffmpeg}. El servidor solo
+transcodifica mientras alguien está mirando.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.5cm and 0.7cm]
+  \node[caja=lila] (cam) {Cámara\\\scriptsize HEVC/H.264};
+  \node[caja=lila,right=of cam] (nvr) {NVR\\\scriptsize RTSP :554};
+  \node[caja=lila,right=of nvr] (ff) {ffmpeg\\\scriptsize \code{-r 4 scale=1280}};
+  \node[caja=azul,right=of ff] (ep) {\code{/ipcamera/<id>/}\\\code{ipcamera.mjpeg}};
+  \node[caja=rojo,above right=0.2cm and 0.8cm of ep] (web) {MainUI\\\scriptsize url relativa};
+  \node[caja=rojo,below right=0.2cm and 0.8cm of ep] (ios) {App iOS\\\scriptsize \code{/proxy?sitemap=}};
+  \draw[flujo=lila] (cam) -- (nvr);
+  \draw[flujo=lila] (nvr) -- (ff);
+  \draw[flujo=azul] (ff) -- (ep);
+  \draw[flujo=rojo] (ep) -- (web);
+  \draw[flujo=rojo] (ep) -- (ios);
+\end{tikzpicture}
+\caption{Cadena de vídeo de las cámaras.}
+\end{figure}
+
+\begin{longtable}{@{}llll@{}}
+\toprule
+\textbf{Thing} & \textbf{Cámara} & \textbf{Canal NVR} & \textbf{Estado}\\\midrule\endhead
+\code{ipcamera:amcrest:5a78ecb7e8} & Interior (IP8M-T2499E, PoE) & 1 & Activa\\
+\code{ipcamera:amcrest:nvr_ch3} & Entrada (ASH42-B, Wi-Fi) & 3 & Activa\\
+\code{ipcamera:amcrest:nvr_ch4} & Calle (IP8M-2496E, PoE) & 4 & Activa\\
+\bottomrule
+\end{longtable}
+
+\paragraph{Lección aprendida (incidente del 2/11/2026).} Cuando un canal deja de emitir, cada petición
+a su MJPEG bloquea un hilo de Jetty indefinidamente; las peticiones acumuladas agotaron el servidor y
+toda la API REST dejó de responder. Medidas adoptadas: el vigilante que sondeaba los flujos quedó
+desactivado, un canal caído se \emph{deshabilita} (responde 404 al instante) y, antes de reactivarlo, se
+comprueba el RTSP desde fuera de openHAB con \code{ffprobe}.
+
+\section{Dispositivos Tuya y multimedia}
+\begin{longtable}{@{}p{4.2cm}p{3.2cm}p{7.4cm}@{}}
+\toprule
+\textbf{Equipo} & \textbf{Binding} & \textbf{Items}\\\midrule\endhead
+Interruptor Julián & tuya & \code{Interruptor_Julian_switch_1/2}\\
+Interruptor ale & tuya & \code{Interruptor_Alejandro_switch_1/2} (sin conexión)\\
+Panel & tuya & \code{Panel_Luz}\\
+Garaje & tuya & \code{Garaje_Luz} (atenuador)\\
+Sensor de gas & tuya & \code{Gas_sensor_gas_sensor_value}\\
+TV de Sala / MIBOX3 / TV Alejandro & androidtv (Google TV) & \code{*_Encendido}, \code{*_Volumen}, \code{*_Silencio}, \code{*_Reproductor}, \code{*_Tecla}, \code{*_App}, \code{*_PIN}\\
+TV Alejandro & chromecast & \code{TV_Ale_CC_Control}, \code{TV_Ale_CC_Volumen}, \code{TV_Ale_CC_App}, \code{TV_Ale_CC_Titulo}\\
+\bottomrule
+\end{longtable}
+
+% =====================================================================
+\chapter{Modelo de datos e interfaces}
+
+\section{Modelo semántico}
+\begin{figure}[H]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  level 1/.style={sibling distance=10.8cm,level distance=1.5cm},
+  level 2/.style={sibling distance=2.8cm,level distance=1.6cm},
+  every node/.style={caja=azul,font=\scriptsize,minimum height=7mm},
+  edge from parent/.style={draw=gris,thick}]
+  \node[font=\small\bfseries] {Casa}
+    child { node[caja=verde] {Planta baja}
+      child { node {Entrada\\\tiny luces, garaje, sirena} }
+      child { node {Cocina\\\tiny luces, gas} }
+      child { node {Comedor} }
+      child { node {Sala} } }
+    child { node[caja=verde] {Primera planta}
+      child { node {Dormitorio\\\tiny luces, panel, persiana} }
+      child { node {Julián} }
+      child { node {Alejandro} } };
+\end{tikzpicture}}
+\caption{Jerarquía del modelo semántico de openHAB.}
+\end{figure}
+
+\section{Inventario de Items}
+\begin{longtable}{@{}lrp{9.5cm}@{}}
+\toprule
+\textbf{Tipo} & \textbf{Cantidad} & \textbf{Ejemplos}\\\midrule\endhead
+Group & 16 & \code{PlantaBaja}, \code{PrimeraPlanta}, \code{gInversor}, \code{gAhorro}\\
+Dimmer & 15 & salidas LCN, \code{Garaje_Luz}, volúmenes de TV\\
+Switch & 17 & interruptores Tuya, persianas, sirena, ajustes de ahorro\\
+String & 22 & \code{Inversor_Modo}, \code{Inversor_Alarma}, \code{Ahorro_Estado}, apps de TV\\
+Number:* & 20 & potencia, voltajes, corrientes, frecuencias, temperaturas, SOC, gas\\
+Player & 4 & reproductores de TV y Chromecast\\
+DateTime & 1 & \code{Energia_UltimaLectura}\\\midrule
+\textbf{Total} & \textbf{95} & \\
+\bottomrule
+\end{longtable}
+
+\section{Interfaces de usuario}
+\begin{itemize}[nosep]
+  \item \textbf{Sitemap \code{casa}} (app iOS): Energía (flujo animado, datos y gráficos), Ahorro automático,
+        Planta baja, Primera planta, Televisores, Seguridad (cámaras y sirena). Cada luz regulable tiene
+        interruptor y deslizador.
+  \item \textbf{MainUI}: páginas \code{overview}, \code{energia}, \code{energia_graficos},
+        \code{seguridad} y \code{variables}.
+  \item \textbf{Grafana}: tablero «Energía -- Casa» con potencias, SOC y kWh por día.
+  \item \textbf{Acceso remoto}: myopenHAB (\code{home.myopenhab.org}); avisos push vía openHAB Cloud.
+\end{itemize}
+
+% =====================================================================
+\chapter{Operación y mantenimiento}
+
+\section{Respaldo}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.6cm and 0.8cm]
+  \node[caja=gris] (task) {Tarea programada\\\scriptsize domingos 03:00};
+  \node[caja=azul,right=of task] (sc) {\code{respaldar.ps1}};
+  \node[caja=rojo,right=of sc] (red) {Eliminar secretos\\\scriptsize \code{<REDACTED>}};
+  \node[caja=verde,right=of red] (git) {git commit};
+  \node[nube=gris,right=of git] (gh) {GitHub\\\scriptsize privado};
+  \node[caja=gris,above=0.6cm of red,font=\scriptsize] (src) {\code{conf} · \code{jsondb} · \code{helpers} · \code{Casa.lp3}};
+  \draw[flujo] (task) -- (sc); \draw[flujo] (sc) -- (red); \draw[flujo] (red) -- (git); \draw[flujo] (git) -- node[etq,above]{push} (gh);
+  \draw[flujo] (src) -- (red);
+\end{tikzpicture}
+\caption{Proceso de respaldo automático.}
+\end{figure}
+
+\begin{itemize}[nosep]
+  \item Repositorio local \texttt{Documents\textbackslash casa-domotica}, remoto privado en GitHub.
+  \item Se excluyen \code{users.json}, \code{influxdb-token.txt} y \code{openhab-token.txt}; las propiedades
+        \code{password}, \code{localKey}, \code{accessSecret}, \code{token}\ldots{} se sustituyen por \code{<REDACTED>}.
+  \item Registro de cada ejecución en \code{respaldo.log} (no se sube).
+  \item Respaldo manual: \texttt{powershell -ExecutionPolicy Bypass -File scripts\textbackslash respaldar.ps1}.
+\end{itemize}
+
+\section{Restauración}
+\begin{enumerate}[nosep]
+  \item Instalar openHAB 5.2.3 con Java Zulu 21 y los add-ons de \code{addons.cfg}.
+  \item Con el servicio detenido, copiar \code{openhab/conf} a \texttt{C:\textbackslash openhab\textbackslash conf} y
+        \code{openhab/jsondb} a \texttt{C:\textbackslash openhab\textbackslash userdata\textbackslash jsondb}.
+  \item Volver a introducir las credenciales marcadas \code{<REDACTED>} (cámaras, LCN, Tuya) y los tokens
+        con los scripts de \code{helpers}.
+  \item Iniciar openHAB y esperar a que \code{/rest/} responda de forma estable antes de cualquier otra acción.
+  \item Comprobar en el registro que no aparezca «has errors, therefore ignoring it» (persistencia).
+\end{enumerate}
+
+\section{Procedimientos ante incidentes}
+\begin{longtable}{@{}p{4.2cm}p{10.6cm}@{}}
+\toprule
+\textbf{Síntoma} & \textbf{Procedimiento}\\\midrule\endhead
+La app no carga / REST no responde & Revisar si una cámara dejó de emitir; deshabilitar su Thing; si sigue bloqueado, reiniciar el servicio \code{openHAB} (requiere administrador).\\
+Una cámara sin imagen & Comprobar el canal en la app Amcrest o con \code{ffprobe}; si falla allí, es hardware/PoE/NVR. Reactivar el Thing solo cuando el RTSP funcione.\\
+Luces LCN lentas o no se apagan & Revisar \code{events.log}; no reiniciar la pasarela ni abrir conexiones de prueba a la PKE (límite de licencia).\\
+Tuya «Waiting for IP address» & Verificar que el equipo esté encendido y en la red; las reglas de cortafuegos para Java 21 deben permitir UDP 6666/6667.\\
+Gráficos con huecos & Buscar errores de sintaxis en \code{influxdb.persist} en \code{openhab.log}.\\
+Hora del bus incorrecta & Revisar el reloj de la PKE en su página web (sobre todo tras cortes de energía).\\
+\bottomrule
+\end{longtable}
+
+\section{Seguridad}
+\begin{itemize}[nosep]
+  \item Credenciales solo en la base de datos de openHAB y en archivos locales; nunca en el repositorio.
+  \item Pendientes: cambiar las credenciales por defecto de la pasarela LCN, eliminar el archivo de
+        contraseñas en texto plano del escritorio, revocar el token de API temporal, cambiar la contraseña
+        de DessMonitor, desactivar el servicio SMB de la PKE si no se usa y poner la red Wi-Fi en perfil
+        «Privado».
+  \item Recomendado: reservas DHCP para los equipos Tuya y TV, y un SAI (UPS) para el servidor, que ha
+        sufrido varios apagones bruscos.
+\end{itemize}
+
+% =====================================================================
+\chapter{Historial y hoja de ruta}
+
+\section{Cronología}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[x=1cm]
+  \draw[very thick,gris,->] (0,0) -- (15.5,0);
+  \foreach \x/\d/\t/\c in {
+      0.7/31 oct/{Auditoría\\Fases 0--4}/azul,
+      3.6/31 oct/{openHAB\\4.1 $\to$ 5.2.3}/verde,
+      6.5/1 nov/{Cámaras NVR\\Tuya · flujo}/lila,
+      9.4/2 nov/{Toggles · kWh/día\\incidente cámaras}/solar,
+      12.3/2 nov/{TV · hora\\bus LCN}/cian,
+      14.8/3 nov/{Git · GitHub\\documentación}/rojo} {
+    \fill[\c] (\x,0) circle (5pt);
+    \node[font=\scriptsize\bfseries,above=6pt,text=\c!80!black] at (\x,0) {\d};
+    \node[font=\scriptsize,below=7pt,align=center] at (\x,0) {\t};
+  }
+\end{tikzpicture}
+\caption{Hitos del proyecto.}
+\end{figure}
+
+\section{Problemas conocidos}
+\begin{longtable}{@{}p{5cm}p{9.8cm}@{}}
+\toprule
+\textbf{Problema} & \textbf{Estado / acción}\\\midrule\endhead
+Latencia de acuses LCN ($\approx$48\,s) el 2/11 & Desapareció tras reiniciar openHAB; vigilar pasivamente en los registros.\\
+Google TV sin emparejar & Requiere el equipo encendido para mostrar el PIN.\\
+Interruptor ale sin conexión & Comprobar alimentación y Wi-Fi; el Thing lo descubrirá solo.\\
+Consumo estimado 0\,W con red & Limitación del inversor (no informa carga en «Mains mode»).\\
+Reloj de la PKE sin NTP & Verificar tras cortes de energía.\\
+\bottomrule
+\end{longtable}
+
+\section{Hoja de ruta}
+\begin{enumerate}[nosep]
+  \item Integración con Alexa (voz, anuncios y rutinas en los Echo de la casa).
+  \item Emparejar los tres Google TV y crear escenas multimedia.
+  \item Reservas DHCP y perfil de red privado; SAI para el servidor.
+  \item Vigilante de cámaras pasivo (sin sondear flujos).
+  \item Medición directa de consumo y de la red eléctrica (medidor dedicado).
+\end{enumerate}
+
+\end{document}

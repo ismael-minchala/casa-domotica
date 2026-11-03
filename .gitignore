@@ -6,3 +6,12 @@ users.json
 *.key
 *.pem
 *.log
+
+# LaTeX auxiliares
+*.aux
+*.toc
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+docs/latex/*.pdf
