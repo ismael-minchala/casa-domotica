@@ -1,0 +1,58 @@
+{
+    "deduplicateSemanticTags":  {
+                                    "class":  "org.openhab.core.tools.UpgradeTool$UpgradeRecord",
+                                    "value":  {
+                                                  "executionDate":  "2026-10-31T22:48:46.533637600-05:00[America/Guayaquil]",
+                                                  "executionVersion":  "5.2.3"
+                                              }
+                                },
+    "homeAssistantAddonUpgrader":  {
+                                       "class":  "org.openhab.core.tools.UpgradeTool$UpgradeRecord",
+                                       "value":  {
+                                                     "executionDate":  "2026-10-31T22:48:46.415195700-05:00[America/Guayaquil]",
+                                                     "executionVersion":  "5.2.3"
+                                                 }
+                                   },
+    "homieAddonUpgrader":  {
+                               "class":  "org.openhab.core.tools.UpgradeTool$UpgradeRecord",
+                               "value":  {
+                                             "executionDate":  "2026-10-31T22:48:46.454172600-05:00[America/Guayaquil]",
+                                             "executionVersion":  "5.2.3"
+                                         }
+                           },
+    "itemCopyUnitToMetadata":  {
+                                   "class":  "org.openhab.core.tools.UpgradeTool$UpgradeRecord",
+                                   "value":  {
+                                                 "executionDate":  "2026-10-31T22:48:46.254290900-05:00[America/Guayaquil]",
+                                                 "executionVersion":  "5.2.3"
+                                             }
+                               },
+    "linkUpgradeJSProfile":  {
+                                 "class":  "org.openhab.core.tools.UpgradeTool$UpgradeRecord",
+                                 "value":  {
+                                               "executionDate":  "2026-10-31T22:48:46.303748100-05:00[America/Guayaquil]",
+                                               "executionVersion":  "5.2.3"
+                                           }
+                             },
+    "linkUpgradeScriptProfile":  {
+                                     "class":  "org.openhab.core.tools.UpgradeTool$UpgradeRecord",
+                                     "value":  {
+                                                   "executionDate":  "2026-10-31T22:48:46.320738800-05:00[America/Guayaquil]",
+                                                   "executionVersion":  "5.2.3"
+                                               }
+                                 },
+    "persistenceCopyDefaultStrategy":  {
+                                           "class":  "org.openhab.core.tools.UpgradeTool$UpgradeRecord",
+                                           "value":  {
+                                                         "executionDate":  "2026-10-31T22:48:46.470163200-05:00[America/Guayaquil]",
+                                                         "executionVersion":  "5.2.3"
+                                                     }
+                                       },
+    "yamlTagsListToMap":  {
+                              "class":  "org.openhab.core.tools.UpgradeTool$UpgradeRecord",
+                              "value":  {
+                                            "executionDate":  "2026-10-31T22:48:46.341239300-05:00[America/Guayaquil]",
+                                            "executionVersion":  "5.2.3"
+                                        }
+                          }
+}

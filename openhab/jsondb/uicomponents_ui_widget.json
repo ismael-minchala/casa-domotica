@@ -1,0 +1,539 @@
+{
+    "CameraHistory":  {
+                          "class":  "org.openhab.core.ui.components.RootUIComponent",
+                          "value":  {
+                                        "uid":  "CameraHistory",
+                                        "tags":  [
+                                                     "marketplace:138111"
+                                                 ],
+                                        "props":  {
+                                                      "parameters":  [
+                                                                         {
+                                                                             "context":  "item",
+                                                                             "label":  "Select the Camera (Equipment)",
+                                                                             "name":  "camera",
+                                                                             "required":  true,
+                                                                             "type":  "TEXT"
+                                                                         },
+                                                                         {
+                                                                             "description":  "example: http://192.168.1.2:8080/ipcamera/CameraUniqueID/",
+                                                                             "label":  "Base URL",
+                                                                             "name":  "cameraBaseURL",
+                                                                             "required":  true,
+                                                                             "type":  "TEXT"
+                                                                         }
+                                                                     ]
+                                                  },
+                                        "timestamp":  "Aug 14, 2022, 12:32:23 AM",
+                                        "component":  "f7-card",
+                                        "config":  {
+                                                       "key":  "=(vars.selected === undefined) ? Math.random() : Math.random() + vars.selected",
+                                                       "style":  {
+                                                                     "--f7-card-margin-horizontal":  "0px",
+                                                                     "--f7-card-margin-vertical":  "0px",
+                                                                     "border-radius":  "6px",
+                                                                     "height":  "9rem",
+                                                                     "width":  "16.7rem"
+                                                                 }
+                                                   },
+                                        "slots":  {
+                                                      "default":  [
+                                                                      {
+                                                                          "component":  "oh-video-card",
+                                                                          "config":  {
+                                                                                         "hideControls":  false,
+                                                                                         "startManually":  false,
+                                                                                         "url":  "=props.cameraBaseURL + items[props.camera + \u0027_MP4History\u0027].state.split(\",\")[vars.selected] +\".mp4\"",
+                                                                                         "visible":  "=vars.archive == 2"
+                                                                                     }
+                                                                      },
+                                                                      {
+                                                                          "component":  "oh-video-card",
+                                                                          "config":  {
+                                                                                         "hideControls":  false,
+                                                                                         "item":  "=[props.camera + \u0027_HLSURL\u0027]",
+                                                                                         "startManually":  false,
+                                                                                         "visible":  "=vars.archive != 2"
+                                                                                     }
+                                                                      },
+                                                                      {
+                                                                          "component":  "f7-row",
+                                                                          "config":  {
+                                                                                         "class":  "no-gap",
+                                                                                         "style":  {
+                                                                                                       "position":  "absolute",
+                                                                                                       "top":  "0px",
+                                                                                                       "width":  "99%",
+                                                                                                       "z-index":  2
+                                                                                                   }
+                                                                                     },
+                                                                          "slots":  {
+                                                                                        "default":  [
+                                                                                                        {
+                                                                                                            "component":  "oh-button",
+                                                                                                            "config":  {
+                                                                                                                           "action":  "variable",
+                                                                                                                           "actionVariable":  "archive",
+                                                                                                                           "actionVariableValue":  2,
+                                                                                                                           "iconColor":  "white",
+                                                                                                                           "iconF7":  "folder",
+                                                                                                                           "iconSize":  28,
+                                                                                                                           "style":  {
+                                                                                                                                         "margin":  "-2px"
+                                                                                                                                     },
+                                                                                                                           "visible":  "=(items[props.camera + \u0027_MP4History\u0027].state !== NULL ? vars.archive !== 2 : false)",
+                                                                                                                           "z-index":  2
+                                                                                                                       }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "component":  "Label",
+                                                                                                            "config":  {
+                                                                                                                           "style":  {
+                                                                                                                                         "color":  "white",
+                                                                                                                                         "font-size":  "9px",
+                                                                                                                                         "left":  "18px",
+                                                                                                                                         "position":  "absolute",
+                                                                                                                                         "top":  "12px",
+                                                                                                                                         "z-index":  -1
+                                                                                                                                     },
+                                                                                                                           "text":  "=items[props.camera+\u0027_MP4HistoryLength\u0027].state",
+                                                                                                                           "visible":  "=vars.archive != 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                       }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "component":  "Label",
+                                                                                                            "config":  {
+                                                                                                                           "style":  {
+                                                                                                                                         "color":  "white",
+                                                                                                                                         "font-size":  "9px",
+                                                                                                                                         "left":  "12px",
+                                                                                                                                         "position":  "absolute",
+                                                                                                                                         "top":  "9px",
+                                                                                                                                         "z-index":  -1
+                                                                                                                                     },
+                                                                                                                           "text":  "=(vars.selected+1)",
+                                                                                                                           "visible":  "=vars.archive == 2"
+                                                                                                                       }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "component":  "oh-button",
+                                                                                                            "config":  {
+                                                                                                                           "action":  "variable",
+                                                                                                                           "actionVariable":  "archive",
+                                                                                                                           "actionVariableValue":  1,
+                                                                                                                           "iconColor":  "white",
+                                                                                                                           "iconF7":  "videocam",
+                                                                                                                           "iconSize":  28,
+                                                                                                                           "style":  {
+                                                                                                                                         "margin":  "-2px"
+                                                                                                                                     },
+                                                                                                                           "visible":  "=(vars.archive == 2)"
+                                                                                                                       }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "component":  "oh-button",
+                                                                                                            "config":  {
+                                                                                                                           "action":  "variable",
+                                                                                                                           "actionVariable":  "selected",
+                                                                                                                           "actionVariableValue":  "=(items[props.camera +\u0027_MP4HistoryLength\u0027].state-1)",
+                                                                                                                           "iconColor":  "white",
+                                                                                                                           "iconF7":  "backward_end",
+                                                                                                                           "iconSize":  28,
+                                                                                                                           "style":  {
+                                                                                                                                         "margin":  "-2px"
+                                                                                                                                     },
+                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                       }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "component":  "oh-button",
+                                                                                                            "config":  {
+                                                                                                                           "action":  "variable",
+                                                                                                                           "actionVariable":  "selected",
+                                                                                                                           "actionVariableValue":  "=(vars.selected+1 \u003c items[props.camera +\u0027_MP4HistoryLength\u0027].state)?(vars.selected+1):(items[props.camera +\u0027_MP4HistoryLength\u0027].state-1)",
+                                                                                                                           "iconColor":  "white",
+                                                                                                                           "iconF7":  "arrowtriangle_left",
+                                                                                                                           "iconSize":  28,
+                                                                                                                           "style":  {
+                                                                                                                                         "margin":  "-2px"
+                                                                                                                                     },
+                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                       }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "component":  "oh-button",
+                                                                                                            "config":  {
+                                                                                                                           "action":  "variable",
+                                                                                                                           "actionVariable":  "selected",
+                                                                                                                           "actionVariableValue":  "=(vars.selected != 0)?(vars.selected-1):(0)",
+                                                                                                                           "iconColor":  "white",
+                                                                                                                           "iconF7":  "arrowtriangle_right",
+                                                                                                                           "iconSize":  28,
+                                                                                                                           "style":  {
+                                                                                                                                         "margin":  "-2px"
+                                                                                                                                     },
+                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                       }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "component":  "oh-button",
+                                                                                                            "config":  {
+                                                                                                                           "action":  "variable",
+                                                                                                                           "actionVariable":  "selected",
+                                                                                                                           "actionVariableValue":  0,
+                                                                                                                           "iconColor":  "white",
+                                                                                                                           "iconF7":  "forward_end",
+                                                                                                                           "iconSize":  28,
+                                                                                                                           "style":  {
+                                                                                                                                         "margin":  "-2px"
+                                                                                                                                     },
+                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                       }
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "component":  "oh-button",
+                                                                                                            "config":  {
+                                                                                                                           "action":  "toggle",
+                                                                                                                           "actionCommand":  "0",
+                                                                                                                           "actionItem":  "=props.camera+\u0027_MP4HistoryLength\u0027",
+                                                                                                                           "iconColor":  "white",
+                                                                                                                           "iconF7":  "clear",
+                                                                                                                           "iconSize":  28,
+                                                                                                                           "style":  {
+                                                                                                                                         "margin":  "-2px"
+                                                                                                                                     },
+                                                                                                                           "tooltip":  "Clear cameras mp4 history",
+                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                       }
+                                                                                                        }
+                                                                                                    ]
+                                                                                    }
+                                                                      }
+                                                                  ]
+                                                  }
+                                    }
+                      },
+    "ClickablePTZCamera":  {
+                               "class":  "org.openhab.core.ui.components.RootUIComponent",
+                               "value":  {
+                                             "uid":  "ClickablePTZCamera",
+                                             "tags":  [
+                                                          "marketplace:110942"
+                                                      ],
+                                             "props":  {
+                                                           "parameters":  [
+                                                                              {
+                                                                                  "context":  "item",
+                                                                                  "label":  "Select the Camera to Control",
+                                                                                  "name":  "camera",
+                                                                                  "required":  true,
+                                                                                  "type":  "TEXT"
+                                                                              },
+                                                                              {
+                                                                                  "label":  "Show Equipment Controls",
+                                                                                  "name":  "showSettings",
+                                                                                  "required":  true,
+                                                                                  "type":  "BOOLEAN"
+                                                                              },
+                                                                              {
+                                                                                  "label":  "Show PTZ Controls",
+                                                                                  "name":  "showControls",
+                                                                                  "required":  true,
+                                                                                  "type":  "BOOLEAN"
+                                                                              },
+                                                                              {
+                                                                                  "label":  "Show Stop Button",
+                                                                                  "name":  "showMoveStop",
+                                                                                  "required":  true,
+                                                                                  "type":  "BOOLEAN"
+                                                                              },
+                                                                              {
+                                                                                  "label":  "Show Preset Locations",
+                                                                                  "name":  "showPresets",
+                                                                                  "required":  true,
+                                                                                  "type":  "BOOLEAN"
+                                                                              },
+                                                                              {
+                                                                                  "label":  "Invert Tilt Control",
+                                                                                  "name":  "invertTilt",
+                                                                                  "required":  true,
+                                                                                  "type":  "BOOLEAN"
+                                                                              },
+                                                                              {
+                                                                                  "label":  "Invert Pan Control",
+                                                                                  "name":  "invertPan",
+                                                                                  "required":  true,
+                                                                                  "type":  "BOOLEAN"
+                                                                              },
+                                                                              {
+                                                                                  "label":  "Show Audio Alarms",
+                                                                                  "name":  "showAudioAlarms",
+                                                                                  "required":  true,
+                                                                                  "type":  "BOOLEAN"
+                                                                              },
+                                                                              {
+                                                                                  "label":  "Show Motion Alarms",
+                                                                                  "name":  "showMotionAlarms",
+                                                                                  "required":  true,
+                                                                                  "type":  "BOOLEAN"
+                                                                              },
+                                                                              {
+                                                                                  "context":  "item",
+                                                                                  "label":  "Item for Switch",
+                                                                                  "name":  "switchItem",
+                                                                                  "required":  false,
+                                                                                  "type":  "TEXT"
+                                                                              }
+                                                                          ]
+                                                       },
+                                             "component":  "f7-card",
+                                             "config":  {
+                                                            "class":  "no-margin",
+                                                            "expandable":  true,
+                                                            "style":  {
+                                                                          "--f7-card-margin-horizontal":  "0px",
+                                                                          "border-radius":  "6px",
+                                                                          "height":  "9rem",
+                                                                          "width":  "16rem"
+                                                                      }
+                                                        },
+                                             "slots":  {
+                                                           "default":  [
+                                                                           {
+                                                                               "component":  "f7-card-content",
+                                                                               "config":  {
+                                                                                              "class":  "card-opened-fade-out",
+                                                                                              "style":  {
+                                                                                                            "background-image":  "=\"url(\u0027\"+items[props.camera + \"_MJPEGURL\"].state+\"\u0027)\"",
+                                                                                                            "background-repeat":  "no-repeat",
+                                                                                                            "background-size":  "17rem 10rem",
+                                                                                                            "border-radius":  "6px",
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "z-index":  -1
+                                                                                                        }
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "f7-card-content",
+                                                                               "config":  {
+                                                                                              "class":  "card-opened-fade-in",
+                                                                                              "style":  {
+                                                                                                            "background-image":  "=\"url(\u0027\"+items[props.camera + \"_MJPEGURL\"].state+\"\u0027)\"",
+                                                                                                            "background-position":  "center",
+                                                                                                            "background-repeat":  "no-repeat",
+                                                                                                            "background-size":  "100% auto",
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "z-index":  -1
+                                                                                                        }
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "toggle",
+                                                                                              "actionCommand":  true,
+                                                                                              "actionCommandAlt":  false,
+                                                                                              "actionItem":  "=props.switchItem",
+                                                                                              "class":  "card-prevent-open",
+                                                                                              "iconF7":  "power",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "=(items[props.switchItem].state === \u0027OFF\u0027) ? \u0027white\u0027 : (items[props.switchItem].state === \u00270,0,0\u0027) ? \u0027white\u0027 : (items[props.switchItem].state === \u00270\u0027) ? \u0027white\u0027 : \u0027cyan\u0027",
+                                                                                                            "margin":  "0em 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.switchItem !== undefined"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "command",
+                                                                                              "actionCommand":  "=(props.invertPan) ? \u0027DECREASE\u0027 : \u0027INCREASE\u0027",
+                                                                                              "actionItem":  "=props.camera + \"_Pan\"",
+                                                                                              "class":  "card-prevent-open",
+                                                                                              "iconF7":  "arrow_left",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "margin":  "0 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.showControls === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "command",
+                                                                                              "actionCommand":  "=(props.invertTilt) ? \u0027INCREASE\u0027 : \u0027DECREASE\u0027",
+                                                                                              "actionItem":  "=props.camera + \"_Tilt\"",
+                                                                                              "class":  [
+                                                                                                            "card-prevent-open"
+                                                                                                        ],
+                                                                                              "iconF7":  "arrow_up",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "margin":  "0 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.showControls === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "command",
+                                                                                              "actionCommand":  false,
+                                                                                              "actionItem":  "=props.camera + \"_Pan\"",
+                                                                                              "class":  [
+                                                                                                            "card-prevent-open"
+                                                                                                        ],
+                                                                                              "iconF7":  "stop_circle",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "margin":  "0 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.showMoveStop === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "command",
+                                                                                              "actionCommand":  "=(props.invertTilt) ? \u0027DECREASE\u0027 : \u0027INCREASE\u0027",
+                                                                                              "actionItem":  "=props.camera + \"_Tilt\"",
+                                                                                              "class":  "card-prevent-open",
+                                                                                              "iconF7":  "arrow_down",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "margin":  "0 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.showControls === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "command",
+                                                                                              "actionCommand":  "=(props.invertPan) ? \u0027INCREASE\u0027 : \u0027DECREASE\u0027",
+                                                                                              "actionItem":  "=props.camera + \"_Pan\"",
+                                                                                              "class":  "card-prevent-open",
+                                                                                              "iconF7":  "arrow_right",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "margin":  "0 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.showControls === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "command",
+                                                                                              "actionCommand":  "INCREASE",
+                                                                                              "actionItem":  "=props.camera + \"_Zoom\"",
+                                                                                              "class":  "card-prevent-open",
+                                                                                              "iconF7":  "plus",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "margin":  "0 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.showControls === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "command",
+                                                                                              "actionCommand":  "DECREASE",
+                                                                                              "actionItem":  "=props.camera + \"_Zoom\"",
+                                                                                              "class":  [
+                                                                                                            "card-prevent-open"
+                                                                                                        ],
+                                                                                              "iconF7":  "minus",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "margin":  "0 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.showControls === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "options",
+                                                                                              "actionItem":  "=props.camera + \"_GoToPreset\"",
+                                                                                              "class":  "card-prevent-open",
+                                                                                              "iconF7":  "list_number",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "margin":  "0 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.showPresets === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "action":  "group",
+                                                                                              "actionGroupPopupItem":  "=props.camera",
+                                                                                              "class":  "card-prevent-open",
+                                                                                              "iconF7":  "gear_alt",
+                                                                                              "iconSize":  22,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "margin":  "0 0.2em",
+                                                                                                            "opacity":  0.5
+                                                                                                        },
+                                                                                              "visible":  "=props.showSettings === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "iconF7":  "eye",
+                                                                                              "iconSize":  18,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "opacity":  "=(items[props.camera + \u0027_MotionAlarm\u0027].state === \u0027ON\u0027) ? \u00270.5\u0027 : \u00270\u0027",
+                                                                                                            "position":  "absolute",
+                                                                                                            "right":  "0.2rem",
+                                                                                                            "top":  "7.8rem"
+                                                                                                        },
+                                                                                              "visible":  "=props.showMotionAlarms === true"
+                                                                                          }
+                                                                           },
+                                                                           {
+                                                                               "component":  "oh-link",
+                                                                               "config":  {
+                                                                                              "iconF7":  "ear",
+                                                                                              "iconSize":  18,
+                                                                                              "style":  {
+                                                                                                            "color":  "var(--f7-card-header-text-color)",
+                                                                                                            "left":  "0rem",
+                                                                                                            "opacity":  "=(items[props.camera + \u0027_AudioAlarm\u0027].state === \u0027ON\u0027) ? \u00270.5\u0027 : \u00270\u0027",
+                                                                                                            "position":  "absolute",
+                                                                                                            "top":  "7.7rem"
+                                                                                                        },
+                                                                                              "visible":  "=props.showAudioAlarms === true"
+                                                                                          }
+                                                                           }
+                                                                       ]
+                                                       }
+                                         }
+                           }
+}

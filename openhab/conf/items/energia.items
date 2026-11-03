@@ -1,0 +1,40 @@
+// Energía fotovoltaica (DessMonitor). Actualizado por conf/automation/js/dessmonitor.js
+// Inversor aislado (devcode 2462) con controlador solar aparte y batería de 24 V.
+// No reporta vatios: Solar_Potencia = corriente de carga x voltaje batería;
+// Casa_Consumo = % de carga x potenciaNominalW (en dessmonitor.json).
+
+Group  gEnergia  "Energía"  <energy>
+Group  gInversor "Sistema fotovoltaico"  <solarplant>  (gEnergia)  ["Inverter"]
+
+// Casa (salida del inversor)
+Number:Power             Casa_Consumo            "Consumo de la casa (estimado) [%.0f W]"  <energy>       (gInversor)  ["Measurement", "Power"]
+Number:Dimensionless     Casa_CargaPct           "Carga del inversor [%.0f %%]"            <line>         (gInversor)  ["Measurement"]  { unit="%" }
+Number:ElectricPotential Salida_Voltaje          "Voltaje de salida [%.1f V]"              <energy>       (gInversor)  ["Measurement", "Voltage"]
+Number:Frequency         Salida_Frecuencia       "Frecuencia de salida [%.1f Hz]"          <energy>       (gInversor)  ["Measurement"]
+
+// Solar (controlador de carga)
+Number:Power             Solar_Potencia          "Generación solar (estimada) [%.0f W]"    <solarplant>   (gInversor)  ["Measurement", "Power"]
+Number:ElectricPotential Solar_Voltaje           "Voltaje paneles [%.1f V]"                <solarplant>   (gInversor)  ["Measurement", "Voltage"]
+Number:ElectricCurrent   Solar_Corriente         "Corriente de carga solar [%.1f A]"       <solarplant>   (gInversor)  ["Measurement", "Current"]
+String                   Solar_CargaEstado       "Estado carga solar [%s]"                 <solarplant>   (gInversor)  ["Status"]
+
+// Batería
+Number:Dimensionless     Bateria_SOC             "Batería [%.0f %%]"                       <batterylevel> (gInversor)  ["Measurement", "Energy"]  { unit="%" }
+Number:ElectricPotential Bateria_Voltaje         "Voltaje batería [%.1f V]"                <battery>      (gInversor)  ["Measurement", "Voltage"]
+String                   Bateria_Llena           "Batería llena [%s]"                      <battery>      (gInversor)  ["Status"]
+
+// Red eléctrica (entrada del inversor)
+Number:ElectricPotential Red_Voltaje             "Voltaje red [%.0f V]"                    <energy>       (gInversor)  ["Measurement", "Voltage"]
+Number:Frequency         Red_Frecuencia          "Frecuencia red [%.1f Hz]"                <energy>       (gInversor)  ["Measurement"]
+String                   Red_CargaEstado         "Carga desde la red [%s]"                 <energy>       (gInversor)  ["Status"]
+
+// Inversor
+String                   Inversor_Modo           "Modo del inversor [%s]"                  <solarplant>   (gInversor)  ["Status"]
+String                   Inversor_Alarma         "Alarmas [%s]"                            <siren>        (gInversor)  ["Alarm"]
+Number:Temperature       Inversor_Temperatura    "Temperatura inversor [%.0f °C]"          <temperature>  (gInversor)  ["Measurement", "Temperature"]
+Number:Temperature       Controlador_Temperatura "Temperatura controlador [%.0f °C]"       <temperature>  (gInversor)  ["Measurement", "Temperature"]
+
+// Integración
+DateTime                 Energia_UltimaLectura   "Última lectura [%1$td/%1$tm %1$tH:%1$tM]"  <time>       (gInversor)  ["Status", "Timestamp"]
+String                   Energia_ApiEstado       "Estado API DessMonitor [%s]"             <network>      (gInversor)  ["Status"]
+String                   Energia_Datos           "Datos crudos del inversor"               <text>

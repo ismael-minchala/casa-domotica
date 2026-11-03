@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Energía por día</title>
+<!--
+  Energía generada y consumida por día (2026-11-02), igual que el panel "Energía por día" de Grafana.
+  Lee el historial de Solar_Potencia y Casa_Consumo (persistencia influxdb) por REST y lo integra
+  por día local (UTC-5) con la regla del trapecio. Huecos de más de 30 min sin datos no se integran.
+  Servida por openHAB en /static/energia-diaria.html; se muestra en Gráficos (sitemap) y en la página Energía.
+-->
+<style>
+  :root {
+    --bg: #f4f6f8; --text: #1d2733; --muted: #6b7785; --grid: #e1e6eb;
+    --solar: #d08a00; --consumo: #1e88e5; --node: #e9eef3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1e2a33; --text: #e9eef2; --muted: #93a3b1; --grid: #2f3d48;
+      --solar: #f6c945; --consumo: #4aa3ff; --node: #2c3c48;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1e2a33; --text: #e9eef2; --muted: #93a3b1; --grid: #2f3d48;
+    --solar: #f6c945; --consumo: #4aa3ff; --node: #2c3c48;
+  }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 760px; height: 100%; margin: 0 auto; padding: 8px 16px; box-sizing: border-box;
+    display: flex; flex-direction: column; gap: 6px; }
+  .head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .legend { display: flex; gap: 14px; font-size: 14px; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+  .tabs button { font: inherit; font-size: 13px; border: 0; padding: 4px 10px; border-radius: 12px;
+    background: var(--node); color: var(--text); cursor: pointer; }
+  .tabs button.sel { background: var(--consumo); color: #fff; }
+  .today { font-size: 14px; color: var(--muted); }
+  .today b { color: var(--text); font-variant-numeric: tabular-nums; }
+  #chart { flex: 1; min-height: 0; position: relative; }
+  svg { width: 100%; height: 100%; display: block; }
+  .axis { fill: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .gl { stroke: var(--grid); stroke-width: 1; }
+  .val { fill: var(--text); font-size: 11px; text-anchor: middle; font-variant-numeric: tabular-nums; }
+  .msg { color: var(--muted); font-size: 14px; padding: 20px 0; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="legend">
+      <span><i style="background:var(--solar)"></i>Generada (solar)</span>
+      <span><i style="background:var(--consumo)"></i>Consumida (casa)</span>
+    </div>
+    <div class="tabs"><button data-d="7" class="sel">7 días</button> <button data-d="30">30 días</button></div>
+  </div>
+  <div class="today" id="hoy">Cargando…</div>
+  <div id="chart"></div>
+</div>
+<script>
+(function () {
+  var TZ_OFFSET_MS = -5 * 3600 * 1000; // Ecuador, sin horario de verano
+  var DAY = 86400000;
+  var MAX_GAP_MS = 30 * 60 * 1000;     // no integrar a través de huecos largos
+  var dias = 7;
+
+  function $(id) { return document.getElementById(id); }
+  function diaLocal(t) { return Math.floor((t + TZ_OFFSET_MS) / DAY); }       // índice de día local
+  function inicioDia(d) { return d * DAY - TZ_OFFSET_MS; }                     // ms UTC del inicio
+
+  // Integra potencia (W) en kWh por día local, partiendo los tramos que cruzan medianoche
+  function kWhPorDia(datos) {
+    var out = {};
+    for (var i = 1; i < datos.length; i++) {
+      var t0 = datos[i - 1].t, v0 = datos[i - 1].v, t1 = datos[i].t, v1 = datos[i].v;
+      if (t1 <= t0 || t1 - t0 > MAX_GAP_MS) continue;
+      while (t0 < t1) {
+        var fin = Math.min(t1, inicioDia(diaLocal(t0) + 1));
+        var vf = v0 + (v1 - v0) * (fin - t0) / (t1 - t0);
+        var d = diaLocal(t0);
+        out[d] = (out[d] || 0) + (v0 + vf) / 2 * (fin - t0) / 3600000 / 1000;
+        v0 = vf; t0 = fin;
+      }
+    }
+    return out;
+  }
+
+  function historial(item, desde) {
+    var url = '/rest/persistence/items/' + item + '?serviceId=influxdb&starttime=' +
+      encodeURIComponent(new Date(desde).toISOString());
+    return fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) {
+        return (j.data || []).map(function (p) { return { t: +p.time, v: parseFloat(p.state) || 0 }; })
+          .sort(function (a, b) { return a.t - b.t; });
+      });
+  }
+
+  function fmt(k) { return k >= 10 ? k.toFixed(1) : k.toFixed(2); }
+
+  function dibujar(solar, consumo) {
+    var hoy = diaLocal(Date.now());
+    var ds = [];
+    for (var d = hoy - dias + 1; d <= hoy; d++) ds.push(d);
+    // descartar días iniciales sin ningún dato (antes de que empezara la persistencia)
+    while (ds.length > 1 && !solar[ds[0]] && !consumo[ds[0]]) ds.shift();
+
+    $('hoy').innerHTML = 'Hoy: generada <b>' + fmt(solar[hoy] || 0) + ' kWh</b> · consumida <b>' +
+      fmt(consumo[hoy] || 0) + ' kWh</b> <span>(estimadas)</span>';
+
+    var box = $('chart'), W = box.clientWidth || 600, H = Math.max(box.clientHeight, 180);
+    var m = { l: 34, r: 6, t: 16, b: 22 }, w = W - m.l - m.r, h = H - m.t - m.b;
+    var max = 0;
+    ds.forEach(function (d) { max = Math.max(max, solar[d] || 0, consumo[d] || 0); });
+    var paso = max <= 2 ? 0.5 : max <= 5 ? 1 : max <= 10 ? 2 : 5;
+    var top = Math.max(paso, Math.ceil(max / paso) * paso);
+    var y = function (v) { return m.t + h - v / top * h; };
+    var g = w / ds.length, bw = Math.max(2, Math.min(28, g * 0.36));
+    var conValores = ds.length <= 10;
+
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Energía generada y consumida por día">';
+    for (var v = 0; v <= top + 1e-9; v += paso) {
+      s += '<line class="gl" x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + y(v) + '" y2="' + y(v) + '"/>';
+      s += '<text class="axis" x="' + (m.l - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end">' + v + '</text>';
+    }
+    s += '<text class="axis" x="2" y="11">kWh</text>';
+    var cadaEtiqueta = Math.ceil(ds.length / 10);
+    ds.forEach(function (d, i) {
+      var cx = m.l + g * i + g / 2;
+      [[solar[d] || 0, 'var(--solar)', cx - bw - 1], [consumo[d] || 0, 'var(--consumo)', cx + 1]].forEach(function (b) {
+        var yy = y(b[0]);
+        s += '<rect x="' + b[2] + '" y="' + yy + '" width="' + bw + '" height="' + (m.t + h - yy) + '" rx="3" fill="' + b[1] + '">' +
+          '<title>' + fmt(b[0]) + ' kWh</title></rect>';
+        if (conValores && b[0] > 0) s += '<text class="val" x="' + (b[2] + bw / 2) + '" y="' + (yy - 4) + '">' + fmt(b[0]) + '</text>';
+      });
+      if (i % cadaEtiqueta === 0) {
+        var f = new Date(inicioDia(d) - TZ_OFFSET_MS); // medianoche local expresada en UTC
+        var et = d === hoy ? 'Hoy' : f.getUTCDate() + '/' + (f.getUTCMonth() + 1);
+        s += '<text class="axis" x="' + cx + '" y="' + (H - 6) + '" text-anchor="middle">' + et + '</text>';
+      }
+    });
+    box.innerHTML = s + '</svg>';
+  }
+
+  var ultimo = null;
+  function cargar() {
+    var desde = inicioDia(diaLocal(Date.now()) - dias + 1) - 3600000;
+    Promise.all([historial('Solar_Potencia', desde), historial('Casa_Consumo', desde)])
+      .then(function (r) { ultimo = [kWhPorDia(r[0]), kWhPorDia(r[1])]; dibujar(ultimo[0], ultimo[1]); })
+      .catch(function () { $('hoy').textContent = 'Sin conexión con openHAB'; });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.tabs button'), function (b) {
+    b.addEventListener('click', function () {
+      dias = +b.getAttribute('data-d');
+      document.querySelectorAll('.tabs button').forEach(function (x) { x.classList.toggle('sel', x === b); });
+      cargar();
+    });
+  });
+  window.addEventListener('resize', function () { if (ultimo) dibujar(ultimo[0], ultimo[1]); });
+  cargar();
+  setInterval(cargar, 5 * 60 * 1000);
+})();
+</script>
+</body>
+</html>

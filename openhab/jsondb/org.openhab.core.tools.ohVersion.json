@@ -1,0 +1,13 @@
+{
+    "UpgradeTool":  {
+                        "class":  "org.openhab.core.tools.UpgradeTool$VersionRecord",
+                        "value":  {
+                                      "executionDate":  "2026-10-31T22:48:46.110194800-05:00[America/Guayaquil]",
+                                      "build":  "Release Build",
+                                      "distro":  "5.2.3",
+                                      "core":  "5.2.3",
+                                      "addons":  "5.2.3",
+                                      "karaf":  "4.4.11"
+                                  }
+                    }
+}

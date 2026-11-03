@@ -1,0 +1,30 @@
+{
+    "022003606001947348b6":  {
+                                 "class":  "java.lang.String",
+                                 "value":  "[{\"id\":1,\"code\":\"switch_1\",\"type\":\"bool\"},{\"id\":11,\"code\":\"countdown_1\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0}]"
+                             },
+    "27106120bcff4d27014c":  {
+                                 "class":  "java.lang.String",
+                                 "value":  "[{\"id\":1,\"code\":\"switch_1\",\"type\":\"bool\"},{\"id\":2,\"code\":\"switch_2\",\"type\":\"bool\"},{\"id\":3,\"code\":\"switch_3\",\"type\":\"bool\"},{\"id\":9,\"code\":\"countdown_1\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0},{\"id\":10,\"code\":\"countdown_2\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0},{\"id\":11,\"code\":\"countdown_3\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0}]"
+                             },
+    "45383322e09806e05fa3":  {
+                                 "class":  "java.lang.String",
+                                 "value":  "[{\"id\":1,\"code\":\"switch_1\",\"type\":\"bool\"},{\"id\":2,\"code\":\"switch_2\",\"type\":\"bool\"},{\"id\":9,\"code\":\"countdown_1\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0},{\"id\":10,\"code\":\"countdown_2\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0}]"
+                             },
+    "72016014bcddc2a368bf":  {
+                                 "class":  "java.lang.String",
+                                 "value":  "[{\"id\":1,\"code\":\"switch_led\",\"type\":\"bool\"},{\"id\":2,\"code\":\"bright_value\",\"type\":\"value\",\"min\":25.0,\"max\":255.0}]"
+                             },
+    "eb1fa459e0e3dc1d98fxft":  {
+                                   "class":  "java.lang.String",
+                                   "value":  "[{\"id\":1,\"code\":\"switch_1\",\"type\":\"bool\"},{\"id\":2,\"code\":\"switch_2\",\"type\":\"bool\"},{\"id\":7,\"code\":\"countdown_1\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0},{\"id\":8,\"code\":\"countdown_2\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0},{\"id\":14,\"code\":\"relay_status\",\"type\":\"enum\",\"range\":[\"power_off\",\"power_on\",\"last\"]},{\"id\":16,\"code\":\"switch_backlight\",\"type\":\"bool\"},{\"id\":17,\"code\":\"cycle_time\",\"type\":\"raw\"},{\"id\":18,\"code\":\"random_time\",\"type\":\"raw\"},{\"id\":19,\"code\":\"switch_inching\",\"type\":\"raw\"}]"
+                               },
+    "eb7301b5776696aca8nhm3":  {
+                                   "class":  "java.lang.String",
+                                   "value":  "[{\"id\":7,\"code\":\"alarm_time\",\"type\":\"value\",\"min\":0.0,\"max\":60.0},{\"id\":8,\"code\":\"self_checking\",\"type\":\"bool\"},{\"id\":16,\"code\":\"muffling\",\"type\":\"bool\"},{\"id\":1,\"code\":\"gas_sensor_state\",\"type\":\"enum\",\"range\":[\"1\",\"2\"]},{\"id\":2,\"code\":\"gas_sensor_value\",\"type\":\"value\",\"min\":0.0,\"max\":100.0},{\"id\":9,\"code\":\"checking_result\",\"type\":\"enum\",\"range\":[\"checking\",\"check_success\",\"check_failure\",\"others\"]},{\"id\":10,\"code\":\"preheat\",\"type\":\"bool\"},{\"id\":12,\"code\":\"lifecycle\",\"type\":\"bool\"},{\"id\":18,\"code\":\"co_state\",\"type\":\"enum\",\"range\":[\"alarm\",\"normal\"]},{\"id\":19,\"code\":\"co_value\",\"type\":\"value\",\"min\":-55.0,\"max\":125.0}]"
+                               },
+    "ebaa9a4c836c2261d0aobc":  {
+                                   "class":  "java.lang.String",
+                                   "value":  "[{\"id\":1,\"code\":\"switch_1\",\"type\":\"bool\"},{\"id\":2,\"code\":\"switch_2\",\"type\":\"bool\"},{\"id\":7,\"code\":\"countdown_1\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0},{\"id\":8,\"code\":\"countdown_2\",\"type\":\"value\",\"min\":0.0,\"max\":86400.0},{\"id\":14,\"code\":\"relay_status\",\"type\":\"enum\",\"range\":[\"power_off\",\"power_on\",\"last\"]},{\"id\":16,\"code\":\"switch_backlight\",\"type\":\"bool\"},{\"id\":17,\"code\":\"cycle_time\",\"type\":\"raw\"},{\"id\":18,\"code\":\"random_time\",\"type\":\"raw\"},{\"id\":19,\"code\":\"switch_inching\",\"type\":\"raw\"}]"
+                               }
+}

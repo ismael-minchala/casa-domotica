@@ -1,0 +1,976 @@
+{
+    "Amcrest_Camera_with_API_HLS_URL -\u003e ipcamera:amcrest:5a78ecb7e8:hlsUrl":  {
+                                                                                       "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                       "value":  {
+                                                                                                     "channelUID":  {
+                                                                                                                        "segments":  [
+                                                                                                                                         "ipcamera",
+                                                                                                                                         "amcrest",
+                                                                                                                                         "5a78ecb7e8",
+                                                                                                                                         "hlsUrl"
+                                                                                                                                     ],
+                                                                                                                        "uid":  "ipcamera:amcrest:5a78ecb7e8:hlsUrl"
+                                                                                                                    },
+                                                                                                     "configuration":  {
+                                                                                                                           "properties":  {
+
+                                                                                                                                          }
+                                                                                                                       },
+                                                                                                     "itemName":  "Amcrest_Camera_with_API_HLS_URL"
+                                                                                                 }
+                                                                                   },
+    "CamaraPTZ -\u003e ipcamera:amcrest:5a78ecb7e8:mjpegUrl":  {
+                                                                   "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                   "value":  {
+                                                                                 "channelUID":  {
+                                                                                                    "segments":  [
+                                                                                                                     "ipcamera",
+                                                                                                                     "amcrest",
+                                                                                                                     "5a78ecb7e8",
+                                                                                                                     "mjpegUrl"
+                                                                                                                 ],
+                                                                                                    "uid":  "ipcamera:amcrest:5a78ecb7e8:mjpegUrl"
+                                                                                                },
+                                                                                 "configuration":  {
+                                                                                                       "properties":  {
+
+                                                                                                                      }
+                                                                                                   },
+                                                                                 "itemName":  "CamaraPTZ"
+                                                                             }
+                                                               },
+    "Garaje_Luz -\u003e tuya:tuyaDevice:72016014bcddc2a368bf:bright_value":  {
+                                                                                 "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                 "value":  {
+                                                                                               "channelUID":  {
+                                                                                                                  "segments":  [
+                                                                                                                                   "tuya",
+                                                                                                                                   "tuyaDevice",
+                                                                                                                                   "72016014bcddc2a368bf",
+                                                                                                                                   "bright_value"
+                                                                                                                               ],
+                                                                                                                  "uid":  "tuya:tuyaDevice:72016014bcddc2a368bf:bright_value"
+                                                                                                              },
+                                                                                               "configuration":  {
+                                                                                                                     "properties":  {
+
+                                                                                                                                    }
+                                                                                                                 },
+                                                                                               "itemName":  "Garaje_Luz"
+                                                                                           }
+                                                                             },
+    "Gas_sensor_gas_sensor_value -\u003e tuya:tuyaDevice:eb7301b5776696aca8nhm3:gas_sensor_value":  {
+                                                                                                        "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                                        "value":  {
+                                                                                                                      "channelUID":  {
+                                                                                                                                         "segments":  [
+                                                                                                                                                          "tuya",
+                                                                                                                                                          "tuyaDevice",
+                                                                                                                                                          "eb7301b5776696aca8nhm3",
+                                                                                                                                                          "gas_sensor_value"
+                                                                                                                                                      ],
+                                                                                                                                         "uid":  "tuya:tuyaDevice:eb7301b5776696aca8nhm3:gas_sensor_value"
+                                                                                                                                     },
+                                                                                                                      "configuration":  {
+                                                                                                                                            "properties":  {
+
+                                                                                                                                                           }
+                                                                                                                                        },
+                                                                                                                      "itemName":  "Gas_sensor_gas_sensor_value"
+                                                                                                                  }
+                                                                                                    },
+    "Interruptor_Alejandro_switch_1 -\u003e tuya:tuyaDevice:ebaa9a4c836c2261d0aobc:switch_1":  {
+                                                                                                   "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                                   "value":  {
+                                                                                                                 "channelUID":  {
+                                                                                                                                    "segments":  [
+                                                                                                                                                     "tuya",
+                                                                                                                                                     "tuyaDevice",
+                                                                                                                                                     "ebaa9a4c836c2261d0aobc",
+                                                                                                                                                     "switch_1"
+                                                                                                                                                 ],
+                                                                                                                                    "uid":  "tuya:tuyaDevice:ebaa9a4c836c2261d0aobc:switch_1"
+                                                                                                                                },
+                                                                                                                 "configuration":  {
+                                                                                                                                       "properties":  {
+
+                                                                                                                                                      }
+                                                                                                                                   },
+                                                                                                                 "itemName":  "Interruptor_Alejandro_switch_1"
+                                                                                                             }
+                                                                                               },
+    "Interruptor_Alejandro_switch_2 -\u003e tuya:tuyaDevice:ebaa9a4c836c2261d0aobc:switch_2":  {
+                                                                                                   "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                                   "value":  {
+                                                                                                                 "channelUID":  {
+                                                                                                                                    "segments":  [
+                                                                                                                                                     "tuya",
+                                                                                                                                                     "tuyaDevice",
+                                                                                                                                                     "ebaa9a4c836c2261d0aobc",
+                                                                                                                                                     "switch_2"
+                                                                                                                                                 ],
+                                                                                                                                    "uid":  "tuya:tuyaDevice:ebaa9a4c836c2261d0aobc:switch_2"
+                                                                                                                                },
+                                                                                                                 "configuration":  {
+                                                                                                                                       "properties":  {
+
+                                                                                                                                                      }
+                                                                                                                                   },
+                                                                                                                 "itemName":  "Interruptor_Alejandro_switch_2"
+                                                                                                             }
+                                                                                               },
+    "Interruptor_Julian_switch_1 -\u003e tuya:tuyaDevice:eb1fa459e0e3dc1d98fxft:switch_1":  {
+                                                                                                "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                                "value":  {
+                                                                                                              "channelUID":  {
+                                                                                                                                 "segments":  [
+                                                                                                                                                  "tuya",
+                                                                                                                                                  "tuyaDevice",
+                                                                                                                                                  "eb1fa459e0e3dc1d98fxft",
+                                                                                                                                                  "switch_1"
+                                                                                                                                              ],
+                                                                                                                                 "uid":  "tuya:tuyaDevice:eb1fa459e0e3dc1d98fxft:switch_1"
+                                                                                                                             },
+                                                                                                              "configuration":  {
+                                                                                                                                    "properties":  {
+
+                                                                                                                                                   }
+                                                                                                                                },
+                                                                                                              "itemName":  "Interruptor_Julian_switch_1"
+                                                                                                          }
+                                                                                            },
+    "Interruptor_Julian_switch_2 -\u003e tuya:tuyaDevice:eb1fa459e0e3dc1d98fxft:switch_2":  {
+                                                                                                "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                                "value":  {
+                                                                                                              "channelUID":  {
+                                                                                                                                 "segments":  [
+                                                                                                                                                  "tuya",
+                                                                                                                                                  "tuyaDevice",
+                                                                                                                                                  "eb1fa459e0e3dc1d98fxft",
+                                                                                                                                                  "switch_2"
+                                                                                                                                              ],
+                                                                                                                                 "uid":  "tuya:tuyaDevice:eb1fa459e0e3dc1d98fxft:switch_2"
+                                                                                                                             },
+                                                                                                              "configuration":  {
+                                                                                                                                    "properties":  {
+
+                                                                                                                                                   }
+                                                                                                                                },
+                                                                                                              "itemName":  "Interruptor_Julian_switch_2"
+                                                                                                          }
+                                                                                            },
+    "MIBOX3_App -\u003e androidtv:googletv:3CBD3E38DF23:app":  {
+                                                                   "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                   "value":  {
+                                                                                 "channelUID":  {
+                                                                                                    "segments":  [
+                                                                                                                     "androidtv",
+                                                                                                                     "googletv",
+                                                                                                                     "3CBD3E38DF23",
+                                                                                                                     "app"
+                                                                                                                 ],
+                                                                                                    "uid":  "androidtv:googletv:3CBD3E38DF23:app"
+                                                                                                },
+                                                                                 "configuration":  {
+                                                                                                       "properties":  {
+
+                                                                                                                      }
+                                                                                                   },
+                                                                                 "itemName":  "MIBOX3_App"
+                                                                             }
+                                                               },
+    "MIBOX3_Encendido -\u003e androidtv:googletv:3CBD3E38DF23:power":  {
+                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                           "value":  {
+                                                                                         "channelUID":  {
+                                                                                                            "segments":  [
+                                                                                                                             "androidtv",
+                                                                                                                             "googletv",
+                                                                                                                             "3CBD3E38DF23",
+                                                                                                                             "power"
+                                                                                                                         ],
+                                                                                                            "uid":  "androidtv:googletv:3CBD3E38DF23:power"
+                                                                                                        },
+                                                                                         "configuration":  {
+                                                                                                               "properties":  {
+
+                                                                                                                              }
+                                                                                                           },
+                                                                                         "itemName":  "MIBOX3_Encendido"
+                                                                                     }
+                                                                       },
+    "MIBOX3_PIN -\u003e androidtv:googletv:3CBD3E38DF23:pincode":  {
+                                                                       "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                       "value":  {
+                                                                                     "channelUID":  {
+                                                                                                        "segments":  [
+                                                                                                                         "androidtv",
+                                                                                                                         "googletv",
+                                                                                                                         "3CBD3E38DF23",
+                                                                                                                         "pincode"
+                                                                                                                     ],
+                                                                                                        "uid":  "androidtv:googletv:3CBD3E38DF23:pincode"
+                                                                                                    },
+                                                                                     "configuration":  {
+                                                                                                           "properties":  {
+
+                                                                                                                          }
+                                                                                                       },
+                                                                                     "itemName":  "MIBOX3_PIN"
+                                                                                 }
+                                                                   },
+    "MIBOX3_Reproductor -\u003e androidtv:googletv:3CBD3E38DF23:player":  {
+                                                                              "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                              "value":  {
+                                                                                            "channelUID":  {
+                                                                                                               "segments":  [
+                                                                                                                                "androidtv",
+                                                                                                                                "googletv",
+                                                                                                                                "3CBD3E38DF23",
+                                                                                                                                "player"
+                                                                                                                            ],
+                                                                                                               "uid":  "androidtv:googletv:3CBD3E38DF23:player"
+                                                                                                           },
+                                                                                            "configuration":  {
+                                                                                                                  "properties":  {
+
+                                                                                                                                 }
+                                                                                                              },
+                                                                                            "itemName":  "MIBOX3_Reproductor"
+                                                                                        }
+                                                                          },
+    "MIBOX3_Silencio -\u003e androidtv:googletv:3CBD3E38DF23:mute":  {
+                                                                         "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                         "value":  {
+                                                                                       "channelUID":  {
+                                                                                                          "segments":  [
+                                                                                                                           "androidtv",
+                                                                                                                           "googletv",
+                                                                                                                           "3CBD3E38DF23",
+                                                                                                                           "mute"
+                                                                                                                       ],
+                                                                                                          "uid":  "androidtv:googletv:3CBD3E38DF23:mute"
+                                                                                                      },
+                                                                                       "configuration":  {
+                                                                                                             "properties":  {
+
+                                                                                                                            }
+                                                                                                         },
+                                                                                       "itemName":  "MIBOX3_Silencio"
+                                                                                   }
+                                                                     },
+    "MIBOX3_Tecla -\u003e androidtv:googletv:3CBD3E38DF23:keypress":  {
+                                                                          "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                          "value":  {
+                                                                                        "channelUID":  {
+                                                                                                           "segments":  [
+                                                                                                                            "androidtv",
+                                                                                                                            "googletv",
+                                                                                                                            "3CBD3E38DF23",
+                                                                                                                            "keypress"
+                                                                                                                        ],
+                                                                                                           "uid":  "androidtv:googletv:3CBD3E38DF23:keypress"
+                                                                                                       },
+                                                                                        "configuration":  {
+                                                                                                              "properties":  {
+
+                                                                                                                             }
+                                                                                                          },
+                                                                                        "itemName":  "MIBOX3_Tecla"
+                                                                                    }
+                                                                      },
+    "MIBOX3_Volumen -\u003e androidtv:googletv:3CBD3E38DF23:volume":  {
+                                                                          "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                          "value":  {
+                                                                                        "channelUID":  {
+                                                                                                           "segments":  [
+                                                                                                                            "androidtv",
+                                                                                                                            "googletv",
+                                                                                                                            "3CBD3E38DF23",
+                                                                                                                            "volume"
+                                                                                                                        ],
+                                                                                                           "uid":  "androidtv:googletv:3CBD3E38DF23:volume"
+                                                                                                       },
+                                                                                        "configuration":  {
+                                                                                                              "properties":  {
+
+                                                                                                                             }
+                                                                                                          },
+                                                                                        "itemName":  "MIBOX3_Volumen"
+                                                                                    }
+                                                                      },
+    "Module102Var4 -\u003e lcn:module:LCN-PCHK:S000M102:variable#4":  {
+                                                                          "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                          "value":  {
+                                                                                        "channelUID":  {
+                                                                                                           "segments":  [
+                                                                                                                            "lcn",
+                                                                                                                            "module",
+                                                                                                                            "LCN-PCHK",
+                                                                                                                            "S000M102",
+                                                                                                                            "variable#4"
+                                                                                                                        ],
+                                                                                                           "uid":  "lcn:module:LCN-PCHK:S000M102:variable#4"
+                                                                                                       },
+                                                                                        "configuration":  {
+                                                                                                              "properties":  {
+
+                                                                                                                             }
+                                                                                                          },
+                                                                                        "itemName":  "Module102Var4"
+                                                                                    }
+                                                                      },
+    "Module_102_CUARTO_PRINCIPAL_Output_1 -\u003e lcn:module:LCN-PCHK:S000M102:output#1":  {
+                                                                                               "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                               "value":  {
+                                                                                                             "channelUID":  {
+                                                                                                                                "segments":  [
+                                                                                                                                                 "lcn",
+                                                                                                                                                 "module",
+                                                                                                                                                 "LCN-PCHK",
+                                                                                                                                                 "S000M102",
+                                                                                                                                                 "output#1"
+                                                                                                                                             ],
+                                                                                                                                "uid":  "lcn:module:LCN-PCHK:S000M102:output#1"
+                                                                                                                            },
+                                                                                                             "configuration":  {
+                                                                                                                                   "properties":  {
+
+                                                                                                                                                  }
+                                                                                                                               },
+                                                                                                             "itemName":  "Module_102_CUARTO_PRINCIPAL_Output_1"
+                                                                                                         }
+                                                                                           },
+    "Module_102_CUARTO_PRINCIPAL_Output_2 -\u003e lcn:module:LCN-PCHK:S000M102:output#2":  {
+                                                                                               "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                               "value":  {
+                                                                                                             "channelUID":  {
+                                                                                                                                "segments":  [
+                                                                                                                                                 "lcn",
+                                                                                                                                                 "module",
+                                                                                                                                                 "LCN-PCHK",
+                                                                                                                                                 "S000M102",
+                                                                                                                                                 "output#2"
+                                                                                                                                             ],
+                                                                                                                                "uid":  "lcn:module:LCN-PCHK:S000M102:output#2"
+                                                                                                                            },
+                                                                                                             "configuration":  {
+                                                                                                                                   "properties":  {
+
+                                                                                                                                                  }
+                                                                                                                               },
+                                                                                                             "itemName":  "Module_102_CUARTO_PRINCIPAL_Output_2"
+                                                                                                         }
+                                                                                           },
+    "Module_10_ALARMA_Output_1 -\u003e lcn:module:LCN-PCHK:S000M010:output#1":  {
+                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                    "value":  {
+                                                                                                  "channelUID":  {
+                                                                                                                     "segments":  [
+                                                                                                                                      "lcn",
+                                                                                                                                      "module",
+                                                                                                                                      "LCN-PCHK",
+                                                                                                                                      "S000M010",
+                                                                                                                                      "output#1"
+                                                                                                                                  ],
+                                                                                                                     "uid":  "lcn:module:LCN-PCHK:S000M010:output#1"
+                                                                                                                 },
+                                                                                                  "configuration":  {
+                                                                                                                        "properties":  {
+
+                                                                                                                                       }
+                                                                                                                    },
+                                                                                                  "itemName":  "Module_10_ALARMA_Output_1"
+                                                                                              }
+                                                                                },
+    "Module_5_ENTRADA_Output_1 -\u003e lcn:module:LCN-PCHK:S000M005:output#1":  {
+                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                    "value":  {
+                                                                                                  "channelUID":  {
+                                                                                                                     "segments":  [
+                                                                                                                                      "lcn",
+                                                                                                                                      "module",
+                                                                                                                                      "LCN-PCHK",
+                                                                                                                                      "S000M005",
+                                                                                                                                      "output#1"
+                                                                                                                                  ],
+                                                                                                                     "uid":  "lcn:module:LCN-PCHK:S000M005:output#1"
+                                                                                                                 },
+                                                                                                  "configuration":  {
+                                                                                                                        "properties":  {
+
+                                                                                                                                       }
+                                                                                                                    },
+                                                                                                  "itemName":  "Module_5_ENTRADA_Output_1"
+                                                                                              }
+                                                                                },
+    "Module_5_ENTRADA_Output_2 -\u003e lcn:module:LCN-PCHK:S000M005:output#2":  {
+                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                    "value":  {
+                                                                                                  "channelUID":  {
+                                                                                                                     "segments":  [
+                                                                                                                                      "lcn",
+                                                                                                                                      "module",
+                                                                                                                                      "LCN-PCHK",
+                                                                                                                                      "S000M005",
+                                                                                                                                      "output#2"
+                                                                                                                                  ],
+                                                                                                                     "uid":  "lcn:module:LCN-PCHK:S000M005:output#2"
+                                                                                                                 },
+                                                                                                  "configuration":  {
+                                                                                                                        "properties":  {
+
+                                                                                                                                       }
+                                                                                                                    },
+                                                                                                  "itemName":  "Module_5_ENTRADA_Output_2"
+                                                                                              }
+                                                                                },
+    "Module_6_COCINA_Output_1 -\u003e lcn:module:LCN-PCHK:S000M006:output#1":  {
+                                                                                   "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                   "value":  {
+                                                                                                 "channelUID":  {
+                                                                                                                    "segments":  [
+                                                                                                                                     "lcn",
+                                                                                                                                     "module",
+                                                                                                                                     "LCN-PCHK",
+                                                                                                                                     "S000M006",
+                                                                                                                                     "output#1"
+                                                                                                                                 ],
+                                                                                                                    "uid":  "lcn:module:LCN-PCHK:S000M006:output#1"
+                                                                                                                },
+                                                                                                 "configuration":  {
+                                                                                                                       "properties":  {
+
+                                                                                                                                      }
+                                                                                                                   },
+                                                                                                 "itemName":  "Module_6_COCINA_Output_1"
+                                                                                             }
+                                                                               },
+    "Module_6_COCINA_Output_2 -\u003e lcn:module:LCN-PCHK:S000M006:output#2":  {
+                                                                                   "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                   "value":  {
+                                                                                                 "channelUID":  {
+                                                                                                                    "segments":  [
+                                                                                                                                     "lcn",
+                                                                                                                                     "module",
+                                                                                                                                     "LCN-PCHK",
+                                                                                                                                     "S000M006",
+                                                                                                                                     "output#2"
+                                                                                                                                 ],
+                                                                                                                    "uid":  "lcn:module:LCN-PCHK:S000M006:output#2"
+                                                                                                                },
+                                                                                                 "configuration":  {
+                                                                                                                       "properties":  {
+
+                                                                                                                                      }
+                                                                                                                   },
+                                                                                                 "itemName":  "Module_6_COCINA_Output_2"
+                                                                                             }
+                                                                               },
+    "Module_7_COMEDOR_Output_1 -\u003e lcn:module:LCN-PCHK:S000M007:output#1":  {
+                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                    "value":  {
+                                                                                                  "channelUID":  {
+                                                                                                                     "segments":  [
+                                                                                                                                      "lcn",
+                                                                                                                                      "module",
+                                                                                                                                      "LCN-PCHK",
+                                                                                                                                      "S000M007",
+                                                                                                                                      "output#1"
+                                                                                                                                  ],
+                                                                                                                     "uid":  "lcn:module:LCN-PCHK:S000M007:output#1"
+                                                                                                                 },
+                                                                                                  "configuration":  {
+                                                                                                                        "properties":  {
+
+                                                                                                                                       }
+                                                                                                                    },
+                                                                                                  "itemName":  "Module_7_COMEDOR_Output_1"
+                                                                                              }
+                                                                                },
+    "Module_7_COMEDOR_Output_2 -\u003e lcn:module:LCN-PCHK:S000M007:output#2":  {
+                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                    "value":  {
+                                                                                                  "channelUID":  {
+                                                                                                                     "segments":  [
+                                                                                                                                      "lcn",
+                                                                                                                                      "module",
+                                                                                                                                      "LCN-PCHK",
+                                                                                                                                      "S000M007",
+                                                                                                                                      "output#2"
+                                                                                                                                  ],
+                                                                                                                     "uid":  "lcn:module:LCN-PCHK:S000M007:output#2"
+                                                                                                                 },
+                                                                                                  "configuration":  {
+                                                                                                                        "properties":  {
+
+                                                                                                                                       }
+                                                                                                                    },
+                                                                                                  "itemName":  "Module_7_COMEDOR_Output_2"
+                                                                                              }
+                                                                                },
+    "Module_8_PERSIANAS_Output_1 -\u003e lcn:module:LCN-PCHK:S000M008:output#1":  {
+                                                                                      "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                      "value":  {
+                                                                                                    "channelUID":  {
+                                                                                                                       "segments":  [
+                                                                                                                                        "lcn",
+                                                                                                                                        "module",
+                                                                                                                                        "LCN-PCHK",
+                                                                                                                                        "S000M008",
+                                                                                                                                        "output#1"
+                                                                                                                                    ],
+                                                                                                                       "uid":  "lcn:module:LCN-PCHK:S000M008:output#1"
+                                                                                                                   },
+                                                                                                    "configuration":  {
+                                                                                                                          "properties":  {
+
+                                                                                                                                         }
+                                                                                                                      },
+                                                                                                    "itemName":  "Module_8_PERSIANAS_Output_1"
+                                                                                                }
+                                                                                  },
+    "Module_8_PERSIANAS_Output_2 -\u003e lcn:module:LCN-PCHK:S000M008:output#2":  {
+                                                                                      "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                      "value":  {
+                                                                                                    "channelUID":  {
+                                                                                                                       "segments":  [
+                                                                                                                                        "lcn",
+                                                                                                                                        "module",
+                                                                                                                                        "LCN-PCHK",
+                                                                                                                                        "S000M008",
+                                                                                                                                        "output#2"
+                                                                                                                                    ],
+                                                                                                                       "uid":  "lcn:module:LCN-PCHK:S000M008:output#2"
+                                                                                                                   },
+                                                                                                    "configuration":  {
+                                                                                                                          "properties":  {
+
+                                                                                                                                         }
+                                                                                                                      },
+                                                                                                    "itemName":  "Module_8_PERSIANAS_Output_2"
+                                                                                                }
+                                                                                  },
+    "Module_9_SALA_Output_1 -\u003e lcn:module:LCN-PCHK:S000M009:output#1":  {
+                                                                                 "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                 "value":  {
+                                                                                               "channelUID":  {
+                                                                                                                  "segments":  [
+                                                                                                                                   "lcn",
+                                                                                                                                   "module",
+                                                                                                                                   "LCN-PCHK",
+                                                                                                                                   "S000M009",
+                                                                                                                                   "output#1"
+                                                                                                                               ],
+                                                                                                                  "uid":  "lcn:module:LCN-PCHK:S000M009:output#1"
+                                                                                                              },
+                                                                                               "configuration":  {
+                                                                                                                     "properties":  {
+
+                                                                                                                                    }
+                                                                                                                 },
+                                                                                               "itemName":  "Module_9_SALA_Output_1"
+                                                                                           }
+                                                                             },
+    "Module_9_SALA_Output_2 -\u003e lcn:module:LCN-PCHK:S000M009:output#2":  {
+                                                                                 "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                 "value":  {
+                                                                                               "channelUID":  {
+                                                                                                                  "segments":  [
+                                                                                                                                   "lcn",
+                                                                                                                                   "module",
+                                                                                                                                   "LCN-PCHK",
+                                                                                                                                   "S000M009",
+                                                                                                                                   "output#2"
+                                                                                                                               ],
+                                                                                                                  "uid":  "lcn:module:LCN-PCHK:S000M009:output#2"
+                                                                                                              },
+                                                                                               "configuration":  {
+                                                                                                                     "properties":  {
+
+                                                                                                                                    }
+                                                                                                                 },
+                                                                                               "itemName":  "Module_9_SALA_Output_2"
+                                                                                           }
+                                                                             },
+    "Panel_Luz -\u003e tuya:tuyaDevice:022003606001947348b6:switch_1":  {
+                                                                            "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                            "value":  {
+                                                                                          "channelUID":  {
+                                                                                                             "segments":  [
+                                                                                                                              "tuya",
+                                                                                                                              "tuyaDevice",
+                                                                                                                              "022003606001947348b6",
+                                                                                                                              "switch_1"
+                                                                                                                          ],
+                                                                                                             "uid":  "tuya:tuyaDevice:022003606001947348b6:switch_1"
+                                                                                                         },
+                                                                                          "configuration":  {
+                                                                                                                "properties":  {
+
+                                                                                                                               }
+                                                                                                            },
+                                                                                          "itemName":  "Panel_Luz"
+                                                                                      }
+                                                                        },
+    "TV_Ale_App -\u003e androidtv:googletv:F0B040516631:app":  {
+                                                                   "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                   "value":  {
+                                                                                 "channelUID":  {
+                                                                                                    "segments":  [
+                                                                                                                     "androidtv",
+                                                                                                                     "googletv",
+                                                                                                                     "F0B040516631",
+                                                                                                                     "app"
+                                                                                                                 ],
+                                                                                                    "uid":  "androidtv:googletv:F0B040516631:app"
+                                                                                                },
+                                                                                 "configuration":  {
+                                                                                                       "properties":  {
+
+                                                                                                                      }
+                                                                                                   },
+                                                                                 "itemName":  "TV_Ale_App"
+                                                                             }
+                                                               },
+    "TV_Ale_CC_App -\u003e chromecast:chromecast:3b454289256b93f9c373004b38eec281:appName":  {
+                                                                                                 "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                                 "value":  {
+                                                                                                               "channelUID":  {
+                                                                                                                                  "segments":  [
+                                                                                                                                                   "chromecast",
+                                                                                                                                                   "chromecast",
+                                                                                                                                                   "3b454289256b93f9c373004b38eec281",
+                                                                                                                                                   "appName"
+                                                                                                                                               ],
+                                                                                                                                  "uid":  "chromecast:chromecast:3b454289256b93f9c373004b38eec281:appName"
+                                                                                                                              },
+                                                                                                               "configuration":  {
+                                                                                                                                     "properties":  {
+
+                                                                                                                                                    }
+                                                                                                                                 },
+                                                                                                               "itemName":  "TV_Ale_CC_App"
+                                                                                                           }
+                                                                                             },
+    "TV_Ale_CC_Control -\u003e chromecast:chromecast:3b454289256b93f9c373004b38eec281:control":  {
+                                                                                                     "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                                     "value":  {
+                                                                                                                   "channelUID":  {
+                                                                                                                                      "segments":  [
+                                                                                                                                                       "chromecast",
+                                                                                                                                                       "chromecast",
+                                                                                                                                                       "3b454289256b93f9c373004b38eec281",
+                                                                                                                                                       "control"
+                                                                                                                                                   ],
+                                                                                                                                      "uid":  "chromecast:chromecast:3b454289256b93f9c373004b38eec281:control"
+                                                                                                                                  },
+                                                                                                                   "configuration":  {
+                                                                                                                                         "properties":  {
+
+                                                                                                                                                        }
+                                                                                                                                     },
+                                                                                                                   "itemName":  "TV_Ale_CC_Control"
+                                                                                                               }
+                                                                                                 },
+    "TV_Ale_CC_Titulo -\u003e chromecast:chromecast:3b454289256b93f9c373004b38eec281:title":  {
+                                                                                                  "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                                  "value":  {
+                                                                                                                "channelUID":  {
+                                                                                                                                   "segments":  [
+                                                                                                                                                    "chromecast",
+                                                                                                                                                    "chromecast",
+                                                                                                                                                    "3b454289256b93f9c373004b38eec281",
+                                                                                                                                                    "title"
+                                                                                                                                                ],
+                                                                                                                                   "uid":  "chromecast:chromecast:3b454289256b93f9c373004b38eec281:title"
+                                                                                                                               },
+                                                                                                                "configuration":  {
+                                                                                                                                      "properties":  {
+
+                                                                                                                                                     }
+                                                                                                                                  },
+                                                                                                                "itemName":  "TV_Ale_CC_Titulo"
+                                                                                                            }
+                                                                                              },
+    "TV_Ale_CC_Volumen -\u003e chromecast:chromecast:3b454289256b93f9c373004b38eec281:volume":  {
+                                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                                                    "value":  {
+                                                                                                                  "channelUID":  {
+                                                                                                                                     "segments":  [
+                                                                                                                                                      "chromecast",
+                                                                                                                                                      "chromecast",
+                                                                                                                                                      "3b454289256b93f9c373004b38eec281",
+                                                                                                                                                      "volume"
+                                                                                                                                                  ],
+                                                                                                                                     "uid":  "chromecast:chromecast:3b454289256b93f9c373004b38eec281:volume"
+                                                                                                                                 },
+                                                                                                                  "configuration":  {
+                                                                                                                                        "properties":  {
+
+                                                                                                                                                       }
+                                                                                                                                    },
+                                                                                                                  "itemName":  "TV_Ale_CC_Volumen"
+                                                                                                              }
+                                                                                                },
+    "TV_Ale_Encendido -\u003e androidtv:googletv:F0B040516631:power":  {
+                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                           "value":  {
+                                                                                         "channelUID":  {
+                                                                                                            "segments":  [
+                                                                                                                             "androidtv",
+                                                                                                                             "googletv",
+                                                                                                                             "F0B040516631",
+                                                                                                                             "power"
+                                                                                                                         ],
+                                                                                                            "uid":  "androidtv:googletv:F0B040516631:power"
+                                                                                                        },
+                                                                                         "configuration":  {
+                                                                                                               "properties":  {
+
+                                                                                                                              }
+                                                                                                           },
+                                                                                         "itemName":  "TV_Ale_Encendido"
+                                                                                     }
+                                                                       },
+    "TV_Ale_PIN -\u003e androidtv:googletv:F0B040516631:pincode":  {
+                                                                       "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                       "value":  {
+                                                                                     "channelUID":  {
+                                                                                                        "segments":  [
+                                                                                                                         "androidtv",
+                                                                                                                         "googletv",
+                                                                                                                         "F0B040516631",
+                                                                                                                         "pincode"
+                                                                                                                     ],
+                                                                                                        "uid":  "androidtv:googletv:F0B040516631:pincode"
+                                                                                                    },
+                                                                                     "configuration":  {
+                                                                                                           "properties":  {
+
+                                                                                                                          }
+                                                                                                       },
+                                                                                     "itemName":  "TV_Ale_PIN"
+                                                                                 }
+                                                                   },
+    "TV_Ale_Reproductor -\u003e androidtv:googletv:F0B040516631:player":  {
+                                                                              "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                              "value":  {
+                                                                                            "channelUID":  {
+                                                                                                               "segments":  [
+                                                                                                                                "androidtv",
+                                                                                                                                "googletv",
+                                                                                                                                "F0B040516631",
+                                                                                                                                "player"
+                                                                                                                            ],
+                                                                                                               "uid":  "androidtv:googletv:F0B040516631:player"
+                                                                                                           },
+                                                                                            "configuration":  {
+                                                                                                                  "properties":  {
+
+                                                                                                                                 }
+                                                                                                              },
+                                                                                            "itemName":  "TV_Ale_Reproductor"
+                                                                                        }
+                                                                          },
+    "TV_Ale_Silencio -\u003e androidtv:googletv:F0B040516631:mute":  {
+                                                                         "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                         "value":  {
+                                                                                       "channelUID":  {
+                                                                                                          "segments":  [
+                                                                                                                           "androidtv",
+                                                                                                                           "googletv",
+                                                                                                                           "F0B040516631",
+                                                                                                                           "mute"
+                                                                                                                       ],
+                                                                                                          "uid":  "androidtv:googletv:F0B040516631:mute"
+                                                                                                      },
+                                                                                       "configuration":  {
+                                                                                                             "properties":  {
+
+                                                                                                                            }
+                                                                                                         },
+                                                                                       "itemName":  "TV_Ale_Silencio"
+                                                                                   }
+                                                                     },
+    "TV_Ale_Tecla -\u003e androidtv:googletv:F0B040516631:keypress":  {
+                                                                          "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                          "value":  {
+                                                                                        "channelUID":  {
+                                                                                                           "segments":  [
+                                                                                                                            "androidtv",
+                                                                                                                            "googletv",
+                                                                                                                            "F0B040516631",
+                                                                                                                            "keypress"
+                                                                                                                        ],
+                                                                                                           "uid":  "androidtv:googletv:F0B040516631:keypress"
+                                                                                                       },
+                                                                                        "configuration":  {
+                                                                                                              "properties":  {
+
+                                                                                                                             }
+                                                                                                          },
+                                                                                        "itemName":  "TV_Ale_Tecla"
+                                                                                    }
+                                                                      },
+    "TV_Ale_Volumen -\u003e androidtv:googletv:F0B040516631:volume":  {
+                                                                          "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                          "value":  {
+                                                                                        "channelUID":  {
+                                                                                                           "segments":  [
+                                                                                                                            "androidtv",
+                                                                                                                            "googletv",
+                                                                                                                            "F0B040516631",
+                                                                                                                            "volume"
+                                                                                                                        ],
+                                                                                                           "uid":  "androidtv:googletv:F0B040516631:volume"
+                                                                                                       },
+                                                                                        "configuration":  {
+                                                                                                              "properties":  {
+
+                                                                                                                             }
+                                                                                                          },
+                                                                                        "itemName":  "TV_Ale_Volumen"
+                                                                                    }
+                                                                      },
+    "TV_Sala_App -\u003e androidtv:googletv:F09602C71E07:app":  {
+                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                    "value":  {
+                                                                                  "channelUID":  {
+                                                                                                     "segments":  [
+                                                                                                                      "androidtv",
+                                                                                                                      "googletv",
+                                                                                                                      "F09602C71E07",
+                                                                                                                      "app"
+                                                                                                                  ],
+                                                                                                     "uid":  "androidtv:googletv:F09602C71E07:app"
+                                                                                                 },
+                                                                                  "configuration":  {
+                                                                                                        "properties":  {
+
+                                                                                                                       }
+                                                                                                    },
+                                                                                  "itemName":  "TV_Sala_App"
+                                                                              }
+                                                                },
+    "TV_Sala_Encendido -\u003e androidtv:googletv:F09602C71E07:power":  {
+                                                                            "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                            "value":  {
+                                                                                          "channelUID":  {
+                                                                                                             "segments":  [
+                                                                                                                              "androidtv",
+                                                                                                                              "googletv",
+                                                                                                                              "F09602C71E07",
+                                                                                                                              "power"
+                                                                                                                          ],
+                                                                                                             "uid":  "androidtv:googletv:F09602C71E07:power"
+                                                                                                         },
+                                                                                          "configuration":  {
+                                                                                                                "properties":  {
+
+                                                                                                                               }
+                                                                                                            },
+                                                                                          "itemName":  "TV_Sala_Encendido"
+                                                                                      }
+                                                                        },
+    "TV_Sala_PIN -\u003e androidtv:googletv:F09602C71E07:pincode":  {
+                                                                        "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                        "value":  {
+                                                                                      "channelUID":  {
+                                                                                                         "segments":  [
+                                                                                                                          "androidtv",
+                                                                                                                          "googletv",
+                                                                                                                          "F09602C71E07",
+                                                                                                                          "pincode"
+                                                                                                                      ],
+                                                                                                         "uid":  "androidtv:googletv:F09602C71E07:pincode"
+                                                                                                     },
+                                                                                      "configuration":  {
+                                                                                                            "properties":  {
+
+                                                                                                                           }
+                                                                                                        },
+                                                                                      "itemName":  "TV_Sala_PIN"
+                                                                                  }
+                                                                    },
+    "TV_Sala_Reproductor -\u003e androidtv:googletv:F09602C71E07:player":  {
+                                                                               "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                               "value":  {
+                                                                                             "channelUID":  {
+                                                                                                                "segments":  [
+                                                                                                                                 "androidtv",
+                                                                                                                                 "googletv",
+                                                                                                                                 "F09602C71E07",
+                                                                                                                                 "player"
+                                                                                                                             ],
+                                                                                                                "uid":  "androidtv:googletv:F09602C71E07:player"
+                                                                                                            },
+                                                                                             "configuration":  {
+                                                                                                                   "properties":  {
+
+                                                                                                                                  }
+                                                                                                               },
+                                                                                             "itemName":  "TV_Sala_Reproductor"
+                                                                                         }
+                                                                           },
+    "TV_Sala_Silencio -\u003e androidtv:googletv:F09602C71E07:mute":  {
+                                                                          "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                          "value":  {
+                                                                                        "channelUID":  {
+                                                                                                           "segments":  [
+                                                                                                                            "androidtv",
+                                                                                                                            "googletv",
+                                                                                                                            "F09602C71E07",
+                                                                                                                            "mute"
+                                                                                                                        ],
+                                                                                                           "uid":  "androidtv:googletv:F09602C71E07:mute"
+                                                                                                       },
+                                                                                        "configuration":  {
+                                                                                                              "properties":  {
+
+                                                                                                                             }
+                                                                                                          },
+                                                                                        "itemName":  "TV_Sala_Silencio"
+                                                                                    }
+                                                                      },
+    "TV_Sala_Tecla -\u003e androidtv:googletv:F09602C71E07:keypress":  {
+                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                           "value":  {
+                                                                                         "channelUID":  {
+                                                                                                            "segments":  [
+                                                                                                                             "androidtv",
+                                                                                                                             "googletv",
+                                                                                                                             "F09602C71E07",
+                                                                                                                             "keypress"
+                                                                                                                         ],
+                                                                                                            "uid":  "androidtv:googletv:F09602C71E07:keypress"
+                                                                                                        },
+                                                                                         "configuration":  {
+                                                                                                               "properties":  {
+
+                                                                                                                              }
+                                                                                                           },
+                                                                                         "itemName":  "TV_Sala_Tecla"
+                                                                                     }
+                                                                       },
+    "TV_Sala_Volumen -\u003e androidtv:googletv:F09602C71E07:volume":  {
+                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                           "value":  {
+                                                                                         "channelUID":  {
+                                                                                                            "segments":  [
+                                                                                                                             "androidtv",
+                                                                                                                             "googletv",
+                                                                                                                             "F09602C71E07",
+                                                                                                                             "volume"
+                                                                                                                         ],
+                                                                                                            "uid":  "androidtv:googletv:F09602C71E07:volume"
+                                                                                                        },
+                                                                                         "configuration":  {
+                                                                                                               "properties":  {
+
+                                                                                                                              }
+                                                                                                           },
+                                                                                         "itemName":  "TV_Sala_Volumen"
+                                                                                     }
+                                                                       }
+}

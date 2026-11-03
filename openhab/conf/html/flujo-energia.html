@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flujo de energía</title>
+<!--
+  Animación de flujos de energía de la casa (2026-11-01).
+  Lee el grupo gInversor por REST cada 15 s (los datos vienen de DessMonitor cada 2 min).
+  Servida por openHAB en /static/flujo-energia.html; se muestra en la página Energía y en el sitemap.
+  El inversor no informa la corriente de batería: el flujo de batería se estima como solar - consumo.
+-->
+<style>
+  :root {
+    --bg: #f4f6f8; --card: #ffffff; --text: #1d2733; --muted: #6b7785;
+    --track: #d5dbe1; --flow: #d08a00; --flow-grid: #3a86ff; --node: #e9eef3; --node-edge: #c9d3dc;
+    --accent: #1e88e5; --ok: #2e9d57; --warn: #e07b00; --bad: #d64545;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1e2a33; --card: #22303a; --text: #e9eef2; --muted: #93a3b1;
+      --track: #34434f; --flow: #f6c945; --flow-grid: #5aa2ff; --node: #2c3c48; --node-edge: #3f5260;
+      --accent: #4aa3ff;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1e2a33; --card: #22303a; --text: #e9eef2; --muted: #93a3b1;
+    --track: #34434f; --flow: #f6c945; --flow-grid: #5aa2ff; --node: #2c3c48; --node-edge: #3f5260;
+    --accent: #4aa3ff;
+  }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  /* el dibujo se ajusta al alto del marco (tarjeta de MainUI o Webview del sitemap) */
+  .wrap { max-width: 760px; height: 100%; margin: 0 auto; padding: 8px 16px; box-sizing: border-box;
+    display: flex; flex-direction: column; }
+  svg { flex: 1; min-height: 0; width: 100%; display: block; }
+  .track { fill: none; stroke: var(--track); stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+  .flow { fill: none; stroke: var(--flow); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 0.1 16; opacity: 0; transition: opacity .4s; }
+  .flow.on { opacity: 1; animation: run var(--dur, 1.6s) linear infinite; }
+  .flow.rev { animation-direction: reverse; }
+  .flow.grid { stroke: var(--flow-grid); }
+  @keyframes run { to { stroke-dashoffset: -32.2; } }
+  .node { fill: var(--node); stroke: var(--node-edge); stroke-width: 2; }
+  .icon { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .icon-fill { fill: var(--accent); }
+  .dim .icon, .dim .icon-fill { stroke: var(--muted); fill-opacity: .4; opacity: .45; }
+  .label { fill: var(--text); font-size: 20px; font-weight: 600; text-anchor: middle; }
+  /* sin text-anchor aquí: el atributo de cada texto define la alineación */
+  .value { fill: var(--accent); font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .sub { fill: var(--muted); font-size: 15px; }
+  .foot { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--muted);
+    flex-wrap: wrap; margin-top: 2px; }
+  .badge { padding: 2px 8px; border-radius: 10px; background: var(--node); color: var(--text); }
+  /* En el móvil el dibujo se reduce a la mitad: textos más grandes en unidades del viewBox */
+  @media (max-width: 520px) {
+    .label { font-size: 28px; }
+    .value { font-size: 32px; }
+    .sub { font-size: 22px; }
+    .foot { font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .flow.on { animation: none; stroke-dasharray: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<svg viewBox="0 0 720 540" role="img" aria-label="Flujos de energía entre paneles, red, inversor, batería y casa">
+  <!-- Recorridos: PV→inversor, red→inversor, inversor→batería, inversor→casa -->
+  <path class="track" d="M110 150 V230 Q110 250 130 250 H300"/>
+  <path class="track" d="M610 150 V230 Q610 250 590 250 H420"/>
+  <path class="track" d="M300 300 H130 Q110 300 110 320 V395"/>
+  <path class="track" d="M420 300 H590 Q610 300 610 320 V395"/>
+  <path id="f-pv"   class="flow"      d="M110 150 V230 Q110 250 130 250 H300"/>
+  <path id="f-grid" class="flow grid" d="M610 150 V230 Q610 250 590 250 H420"/>
+  <path id="f-bat"  class="flow"      d="M300 300 H130 Q110 300 110 320 V395"/>
+  <path id="f-load" class="flow"      d="M420 300 H590 Q610 300 610 320 V395"/>
+
+  <!-- Paneles solares -->
+  <g id="n-pv">
+    <rect class="node" x="60" y="40" width="100" height="100" rx="22"/>
+    <g transform="translate(110 88)">
+      <path class="icon" d="M-30 -14 L30 -14 L36 14 L-36 14 Z M-33 0 H33 M-10 -14 L-12 14 M10 -14 L12 14"/>
+      <path class="icon" d="M0 14 V26 M-12 26 H12"/>
+    </g>
+    <text class="label" x="110" y="24">Solar</text>
+  </g>
+  <text id="v-pv" class="value" x="128" y="186" text-anchor="start"></text>
+
+  <!-- Red eléctrica -->
+  <g id="n-grid">
+    <rect class="node" x="560" y="40" width="100" height="100" rx="22"/>
+    <g transform="translate(610 90)">
+      <path class="icon" d="M-18 34 L0 -34 L18 34 M-12 12 H12 M-7 -8 H7 M-26 -20 H26 M-26 -20 V-12 M26 -20 V-12"/>
+    </g>
+    <text class="label" x="610" y="24">Red</text>
+  </g>
+  <text id="v-grid" class="value" x="592" y="186" text-anchor="end"></text>
+  <text id="s-grid" class="sub" x="592" y="210" text-anchor="end"></text>
+
+  <!-- Inversor -->
+  <g id="n-dev">
+    <rect class="node" x="300" y="220" width="120" height="110" rx="24"/>
+    <g transform="translate(360 272)">
+      <rect class="icon" x="-28" y="-30" width="56" height="60" rx="8"/>
+      <path class="icon" d="M-16 -10 H-4 M-16 10 L16 -10 M4 10 Q8 4 12 10 T20 10"/>
+    </g>
+    <text class="label" x="360" y="358">Inversor</text>
+    <text id="s-dev" class="sub" x="360" y="380" text-anchor="middle"></text>
+  </g>
+
+  <!-- Batería: el relleno sigue el % de carga -->
+  <g id="n-bat">
+    <rect class="node" x="60" y="400" width="100" height="100" rx="22"/>
+    <g transform="translate(110 450)">
+      <rect class="icon" x="-30" y="-20" width="56" height="40" rx="6"/>
+      <rect class="icon-fill" x="26" y="-8" width="6" height="16" rx="2"/>
+      <rect id="bat-level" class="icon-fill" x="-25" y="-15" width="0" height="30" rx="3"/>
+    </g>
+    <text class="label" x="110" y="530">Batería</text>
+  </g>
+  <text id="v-bat" class="value" x="180" y="442" text-anchor="start"></text>
+  <text id="s-bat" class="sub" x="180" y="466" text-anchor="start"></text>
+
+  <!-- Casa -->
+  <g id="n-load">
+    <rect class="node" x="560" y="400" width="100" height="100" rx="22"/>
+    <g transform="translate(610 452)">
+      <path class="icon" d="M-30 -2 L0 -28 L30 -2 M-22 -8 V26 H22 V-8"/>
+      <rect class="icon" x="-7" y="8" width="14" height="18" rx="2"/>
+    </g>
+    <text class="label" x="610" y="530">Casa</text>
+  </g>
+  <text id="v-load" class="value" x="540" y="442" text-anchor="end"></text>
+  <text id="s-load" class="sub" x="540" y="466" text-anchor="end"></text>
+</svg>
+<div class="foot">
+  <span id="estado" class="badge">Cargando…</span>
+  <span id="hora"></span>
+</div>
+</div>
+<script>
+(function () {
+  var MIN_W = 15; // por debajo se considera sin flujo
+
+  function num(s) { var n = parseFloat(s); return isNaN(n) ? null : n; }
+  function fmtW(w) { return w >= 1000 ? (w / 1000).toFixed(2) + ' kW' : Math.round(w) + ' W'; }
+  function $(id) { return document.getElementById(id); }
+
+  // Velocidad de los puntos según la potencia: más potencia, más rápido
+  function flow(id, watts, reverse) {
+    var el = $(id), on = watts !== null && watts >= MIN_W;
+    el.classList.toggle('on', on);
+    el.classList.toggle('rev', !!reverse);
+    if (on) el.style.setProperty('--dur', Math.max(0.5, 2.4 - Math.min(watts, 2000) / 1000).toFixed(2) + 's');
+  }
+  function dim(id, off) { $(id).classList.toggle('dim', off); }
+
+  function render(s) {
+    var pv = num(s.Solar_Potencia) || 0;
+    var load = num(s.Casa_Consumo) || 0;
+    var soc = num(s.Bateria_SOC);
+    var vbat = num(s.Bateria_Voltaje);
+    var vgrid = num(s.Red_Voltaje);
+    var mode = s.Inversor_Modo || '';
+    var enRed = /mains|line|bypass/i.test(mode);
+    var gridOk = vgrid !== null && vgrid > 80;
+
+    // Solar
+    flow('f-pv', pv);
+    dim('n-pv', pv < MIN_W);
+    $('v-pv').textContent = fmtW(pv);
+
+    // Red: alimenta la casa solo en modo red
+    flow('f-grid', enRed ? Math.max(load, 300) : 0);
+    dim('n-grid', !enRed);
+    $('v-grid').textContent = gridOk ? Math.round(vgrid) + ' V' : 'Sin red';
+    $('s-grid').textContent = enRed ? 'En uso' : (gridOk ? 'Disponible' : 'Corte de red');
+
+    // Casa: en modo red el inversor no informa la carga
+    flow('f-load', enRed ? Math.max(load, 300) : load);
+    $('v-load').textContent = enRed && load < MIN_W ? 'Desde la red' : fmtW(load);
+    $('s-load').textContent = 'estimado';
+
+    // Batería: estimada como solar - consumo cuando trabaja con batería
+    var bat = enRed ? pv : pv - load;
+    flow('f-bat', Math.abs(bat), bat < 0);
+    $('v-bat').textContent = soc !== null ? Math.round(soc) + ' %' : '–';
+    $('s-bat').textContent = Math.abs(bat) < MIN_W ? 'En reposo'
+      : (bat > 0 ? 'Carga ~' : 'Descarga ~') + fmtW(Math.abs(bat));
+    var lvl = $('bat-level');
+    lvl.setAttribute('width', soc !== null ? (50 * Math.max(0, Math.min(100, soc)) / 100).toFixed(1) : 0);
+    lvl.style.fill = soc === null ? '' : (soc <= 20 ? 'var(--bad)' : soc <= 30 ? 'var(--warn)' : 'var(--ok)');
+
+    $('s-dev').textContent = enRed ? 'Modo red' : (/inverter|battery/i.test(mode) ? 'Modo batería' : mode);
+    $('estado').textContent = (vbat !== null ? vbat.toFixed(1) + ' V batería · ' : '') + (s.Inversor_Alarma || '');
+    var t = s.Energia_UltimaLectura ? new Date(s.Energia_UltimaLectura.replace(/([+-]\d\d)(\d\d)$/, '$1:$2')) : null;
+    $('hora').textContent = t && !isNaN(t) ? 'Datos de ' + t.toLocaleTimeString('es-EC', { hour: '2-digit', minute: '2-digit' }) : '';
+  }
+
+  function load() {
+    fetch('/rest/items/gInversor', { headers: { Accept: 'application/json' }, cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (g) {
+        var s = {};
+        (g.members || []).forEach(function (m) { s[m.name] = m.state; });
+        render(s);
+      })
+      .catch(function () { $('estado').textContent = 'Sin conexión con openHAB'; });
+  }
+
+  load();
+  setInterval(load, 15000);
+})();
+</script>
+</body>
+</html>

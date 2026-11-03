@@ -1,0 +1,72 @@
+/*
+ * Vigilante de cámaras (2026-11-01)
+ *
+ * Cada 5 minutos pide unos segundos del stream MJPEG de cada cámara habilitada.
+ * Si no llega imagen (el ffmpeg del binding ipcamera se quedó colgado aunque el Thing
+ * siga ONLINE), apaga y vuelve a encender el Thing para reiniciar el stream.
+ */
+
+const log = console;
+
+const CAMARAS = [
+  { uid: 'ipcamera:amcrest:nvr_ch4', nombre: 'Calle' },
+  { uid: 'ipcamera:amcrest:nvr_ch3', nombre: 'Entrada' },
+  { uid: 'ipcamera:amcrest:5a78ecb7e8', nombre: 'Interior' },
+];
+
+const MIN_BYTES = 20000;      // algo más que un fotograma completo
+const TIMEOUT_MS = 20000;     // el ffmpeg del binding tarda unos segundos en arrancar
+const ESPERA_REINICIO_MS = 5000;
+
+const URL = Java.type('java.net.URL');
+const ByteArray = Java.type('byte[]');
+
+// Devuelve los bytes recibidos del stream MJPEG antes del tiempo límite
+function bytesDelStream(uid) {
+  const id = uid.split(':').pop();
+  const conn = new URL('http://127.0.0.1:8080/ipcamera/' + id + '/ipcamera.mjpeg').openConnection();
+  conn.setConnectTimeout(5000);
+  conn.setReadTimeout(TIMEOUT_MS);
+  let total = 0;
+  try {
+    const stream = conn.getInputStream();
+    const buf = new ByteArray(16384);
+    const fin = Date.now() + TIMEOUT_MS;
+    while (total < MIN_BYTES && Date.now() < fin) {
+      const n = stream.read(buf);
+      if (n < 0) break;
+      total += n;
+    }
+  } catch (e) {
+    // timeout o conexión rechazada: cuenta como sin imagen
+  } finally {
+    conn.disconnect();
+  }
+  return total;
+}
+
+function reiniciar(cam) {
+  const thing = things.getThing(cam.uid);
+  thing.setEnabled(false);
+  setTimeout(() => {
+    things.getThing(cam.uid).setEnabled(true);
+    log.info('Vigilante cámaras: ' + cam.nombre + ' reiniciada');
+  }, ESPERA_REINICIO_MS);
+}
+
+rules.JSRule({
+  name: 'Cámaras: vigilar streams',
+  description: 'Reinicia el Thing de una cámara cuyo stream MJPEG deja de enviar imagen',
+  triggers: [triggers.GenericCronTrigger('30 */5 * * * ?')],
+  execute: () => {
+    for (const cam of CAMARAS) {
+      const thing = things.getThing(cam.uid);
+      if (!thing || !thing.isEnabled) continue;
+      const bytes = bytesDelStream(cam.uid);
+      if (bytes < MIN_BYTES) {
+        log.warn('Vigilante cámaras: ' + cam.nombre + ' sin imagen (' + bytes + ' bytes), reiniciando');
+        reiniciar(cam);
+      }
+    }
+  },
+});

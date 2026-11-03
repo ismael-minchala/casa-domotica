@@ -1,0 +1,481 @@
+{
+    "LCN":  {
+                "class":  "org.openhab.core.ui.components.RootUIComponent",
+                "value":  {
+                              "uid":  "LCN",
+                              "tags":  [
+                                           "marketplace:137319"
+                                       ],
+                              "props":  {
+                                            "parameters":  [
+
+                                                           ],
+                                            "parameterGroups":  [
+
+                                                                ]
+                                        },
+                              "component":  "BlockLibrary",
+                              "config":  {
+                                             "name":  "LCN"
+                                         },
+                              "slots":  {
+                                            "blocks":  [
+                                                           {
+                                                               "component":  "BlockType",
+                                                               "config":  {
+                                                                              "args0":  [
+                                                                                            {
+                                                                                                "check":  "thing",
+                                                                                                "name":  "THING",
+                                                                                                "type":  "input_value"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "TABLE",
+                                                                                                "options":  [
+                                                                                                                [
+                                                                                                                    "A",
+                                                                                                                    "A"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "B",
+                                                                                                                    "B"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "C",
+                                                                                                                    "C"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "D",
+                                                                                                                    "D"
+                                                                                                                ]
+                                                                                                            ],
+                                                                                                "type":  "field_dropdown"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "KEY",
+                                                                                                "options":  [
+                                                                                                                [
+                                                                                                                    "1",
+                                                                                                                    "1"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "2",
+                                                                                                                    "2"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "3",
+                                                                                                                    "3"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "4",
+                                                                                                                    "4"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "5",
+                                                                                                                    "5"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "6",
+                                                                                                                    "6"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "7",
+                                                                                                                    "7"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "8",
+                                                                                                                    "8"
+                                                                                                                ]
+                                                                                                            ],
+                                                                                                "type":  "field_dropdown"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "ACTION",
+                                                                                                "options":  [
+                                                                                                                [
+                                                                                                                    "Hit",
+                                                                                                                    "HIT"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "Make",
+                                                                                                                    "MAKE"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "Break",
+                                                                                                                    "BREAK"
+                                                                                                                ]
+                                                                                                            ],
+                                                                                                "type":  "field_dropdown"
+                                                                                            }
+                                                                                        ],
+                                                                              "colour":  "ffd800",
+                                                                              "helpUrl":  "https://www.openhab.org/addons/bindings/lcn/#hit-key",
+                                                                              "message0":  "Sendkey to Module %1 Table %2 Key %3 Action %4",
+                                                                              "nextStatement":  "",
+                                                                              "previousStatement":  "",
+                                                                              "tooltip":  "Hits a key of a key table in an LCN module.\ntable - The module\u0027s key table: A, B, C or D\nkey - The number of the key within the key table: 1-8\naction - The key\u0027s action: HIT (German: \"kurz\"), MAKE (\"lang\") or BREAK (\"los\")\n",
+                                                                              "type":  "sendKey"
+                                                                          },
+                                                               "slots":  {
+                                                                             "code":  [
+                                                                                          {
+                                                                                              "component":  "BlockCodeTemplate",
+                                                                                              "config":  {
+                                                                                                             "template":  "{{utility:things}}.getActions(\u0027lcn\u0027, {{input:THING}}).hitKey(\u0027{{field:TABLE}}\u0027, {{field:KEY}}, \u0027{{field:ACTION}}\u0027);\n"
+                                                                                                         }
+                                                                                          }
+                                                                                      ],
+                                                                             "toolbox":  [
+                                                                                             {
+                                                                                                 "component":  "PresetInput",
+                                                                                                 "config":  {
+                                                                                                                "name":  "THING",
+                                                                                                                "shadow":  true,
+                                                                                                                "type":  "oh_thing"
+                                                                                                            }
+                                                                                             }
+                                                                                         ]
+                                                                         }
+                                                           },
+                                                           {
+                                                               "component":  "BlockType",
+                                                               "config":  {
+                                                                              "args0":  [
+                                                                                            {
+                                                                                                "check":  "thing",
+                                                                                                "name":  "THING",
+                                                                                                "type":  "input_value"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "ROW",
+                                                                                                "options":  [
+                                                                                                                [
+                                                                                                                    "1",
+                                                                                                                    "1"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "2",
+                                                                                                                    "2"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "3",
+                                                                                                                    "3"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "4",
+                                                                                                                    "4"
+                                                                                                                ]
+                                                                                                            ],
+                                                                                                "type":  "field_dropdown"
+                                                                                            },
+                                                                                            {
+                                                                                                "check":  "String",
+                                                                                                "name":  "MESSAGE",
+                                                                                                "type":  "input_value"
+                                                                                            }
+                                                                                        ],
+                                                                              "colour":  "ffd800",
+                                                                              "helpUrl":  "https://www.openhab.org/addons/bindings/lcn/#dynamic-text",
+                                                                              "inputsInline":  false,
+                                                                              "message0":  "Send Dynamic Text to Module %1 Row %2 Text %3",
+                                                                              "nextStatement":  "",
+                                                                              "previousStatement":  "",
+                                                                              "tooltip":  "Send dynamic text to LCN module with GTxD.\nrow - The number of the row in the display: 1-4\ntext - The text to be displayed (UTF-8)\n",
+                                                                              "type":  "sendDynamicText"
+                                                                          },
+                                                               "slots":  {
+                                                                             "code":  [
+                                                                                          {
+                                                                                              "component":  "BlockCodeTemplate",
+                                                                                              "config":  {
+                                                                                                             "template":  "{{utility:things}}.getActions(\u0027lcn\u0027, {{input:THING}}).sendDynamicText({{field:ROW}}, {{input:MESSAGE}});\n"
+                                                                                                         }
+                                                                                          }
+                                                                                      ],
+                                                                             "toolbox":  [
+                                                                                             {
+                                                                                                 "component":  "PresetInput",
+                                                                                                 "config":  {
+                                                                                                                "name":  "THING",
+                                                                                                                "shadow":  true,
+                                                                                                                "type":  "oh_thing"
+                                                                                                            }
+                                                                                             },
+                                                                                             {
+                                                                                                 "component":  "PresetInput",
+                                                                                                 "config":  {
+                                                                                                                "fields":  {
+                                                                                                                               "TEXT":  "Text for GTxD"
+                                                                                                                           },
+                                                                                                                "name":  "MESSAGE",
+                                                                                                                "shadow":  true,
+                                                                                                                "type":  "text"
+                                                                                                            }
+                                                                                             }
+                                                                                         ]
+                                                                         }
+                                                           },
+                                                           {
+                                                               "component":  "BlockType",
+                                                               "config":  {
+                                                                              "args0":  [
+                                                                                            {
+                                                                                                "check":  "thing",
+                                                                                                "name":  "THING",
+                                                                                                "type":  "input_value"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "Output",
+                                                                                                "options":  [
+                                                                                                                [
+                                                                                                                    "1",
+                                                                                                                    "1"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "2",
+                                                                                                                    "2"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "3",
+                                                                                                                    "3"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "4",
+                                                                                                                    "4"
+                                                                                                                ]
+                                                                                                            ],
+                                                                                                "type":  "field_dropdown"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "Depth",
+                                                                                                "options":  [
+                                                                                                                [
+                                                                                                                    "25%",
+                                                                                                                    "0"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "50%",
+                                                                                                                    "1"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "100%",
+                                                                                                                    "2"
+                                                                                                                ]
+                                                                                                            ],
+                                                                                                "type":  "field_dropdown"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "Ramp",
+                                                                                                "options":  [
+                                                                                                                [
+                                                                                                                    "2sec",
+                                                                                                                    "0"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "1sec",
+                                                                                                                    "1"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "0.5sec",
+                                                                                                                    "2"
+                                                                                                                ]
+                                                                                                            ],
+                                                                                                "type":  "field_dropdown"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "Count",
+                                                                                                "options":  [
+                                                                                                                [
+                                                                                                                    "1",
+                                                                                                                    "1"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "2",
+                                                                                                                    "2"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "3",
+                                                                                                                    "3"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "4",
+                                                                                                                    "4"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "5",
+                                                                                                                    "5"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "6",
+                                                                                                                    "6"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "7",
+                                                                                                                    "7"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "8",
+                                                                                                                    "8"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "9",
+                                                                                                                    "9"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "10",
+                                                                                                                    "10"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "11",
+                                                                                                                    "11"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "12",
+                                                                                                                    "12"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "13",
+                                                                                                                    "13"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "14",
+                                                                                                                    "14"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "15",
+                                                                                                                    "15"
+                                                                                                                ]
+                                                                                                            ],
+                                                                                                "type":  "field_dropdown"
+                                                                                            }
+                                                                                        ],
+                                                                              "colour":  "ffd800",
+                                                                              "helpUrl":  "https://www.openhab.org/addons/bindings/lcn/#flicker-output",
+                                                                              "inputsInline":  false,
+                                                                              "message0":  "Flicker output %2 depth %3 ramp %4 count %5 to Module %1",
+                                                                              "nextStatement":  "",
+                                                                              "previousStatement":  "",
+                                                                              "tooltip":  "output flicker to LCN module.\noutput - The dimmer output number: 1-4 \ndepth - The depth of the flickering: 0-2 (0=25% 1=50% 2=100% Example: When the output is fully on (100%), and 0 is selected, flashes will dim from 100% to 75% and back) \nramp - The duration/ramp of one flash: 0-2 (0=2sec 1=1sec 2=0.5sec)\ncount - The number of flashes: 1-15\n",
+                                                                              "type":  "outputFlicker"
+                                                                          },
+                                                               "slots":  {
+                                                                             "code":  [
+                                                                                          {
+                                                                                              "component":  "BlockCodeTemplate",
+                                                                                              "config":  {
+                                                                                                             "template":  "{{utility:things}}.getActions(\u0027lcn\u0027, {{input:THING}}).flickerOutput({{field:Output}}, {{field:Depth}}, {{field:Ramp}}, {{field:Count}});\n"
+                                                                                                         }
+                                                                                          }
+                                                                                      ],
+                                                                             "toolbox":  [
+                                                                                             {
+                                                                                                 "component":  "PresetInput",
+                                                                                                 "config":  {
+                                                                                                                "name":  "THING",
+                                                                                                                "shadow":  true,
+                                                                                                                "type":  "oh_thing"
+                                                                                                            }
+                                                                                             }
+                                                                                         ]
+                                                                         }
+                                                           },
+                                                           {
+                                                               "component":  "BlockType",
+                                                               "config":  {
+                                                                              "args0":  [
+                                                                                            {
+                                                                                                "check":  "thing",
+                                                                                                "name":  "THING",
+                                                                                                "type":  "input_value"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "RelayNumber",
+                                                                                                "options":  [
+                                                                                                                [
+                                                                                                                    "1",
+                                                                                                                    "1"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "2",
+                                                                                                                    "2"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "3",
+                                                                                                                    "3"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "4",
+                                                                                                                    "4"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "5",
+                                                                                                                    "5"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "6",
+                                                                                                                    "6"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "7",
+                                                                                                                    "7"
+                                                                                                                ],
+                                                                                                                [
+                                                                                                                    "8",
+                                                                                                                    "8"
+                                                                                                                ]
+                                                                                                            ],
+                                                                                                "type":  "field_dropdown"
+                                                                                            },
+                                                                                            {
+                                                                                                "max":  240000,
+                                                                                                "min":  30,
+                                                                                                "name":  "Duration",
+                                                                                                "precision":  1,
+                                                                                                "type":  "field_number",
+                                                                                                "value":  30
+                                                                                            }
+                                                                                        ],
+                                                                              "colour":  "ffd800",
+                                                                              "helpUrl":  "https://www.openhab.org/addons/bindings/lcn/#relay-timer",
+                                                                              "inputsInline":  true,
+                                                                              "message0":  "Switch relay %2 ON from Module %1 for %3 ms",
+                                                                              "nextStatement":  "",
+                                                                              "previousStatement":  "",
+                                                                              "tooltip":  "The command switches the given relay immediately to on and after a given time back to off.\nrelayNumber - The relay number: 1-8\nduration - Timer duration in milliseconds: 30-240.000 ms\n",
+                                                                              "type":  "relayTimer"
+                                                                          },
+                                                               "slots":  {
+                                                                             "code":  [
+                                                                                          {
+                                                                                              "component":  "BlockCodeTemplate",
+                                                                                              "config":  {
+                                                                                                             "template":  "{{utility:things}}.getActions(\u0027lcn\u0027, {{input:THING}}).startRelayTimer({{field:RelayNumber}}, {{field:Duration}});\n"
+                                                                                                         }
+                                                                                          }
+                                                                                      ],
+                                                                             "toolbox":  [
+                                                                                             {
+                                                                                                 "component":  "PresetInput",
+                                                                                                 "config":  {
+                                                                                                                "name":  "THING",
+                                                                                                                "shadow":  true,
+                                                                                                                "type":  "oh_thing"
+                                                                                                            }
+                                                                                             }
+                                                                                         ]
+                                                                         }
+                                                           }
+                                                       ],
+                                            "utilities":  [
+                                                              {
+                                                                  "component":  "UtilityJavaType",
+                                                                  "config":  {
+                                                                                 "javaClass":  "org.openhab.core.model.script.actions.Things",
+                                                                                 "name":  "things"
+                                                                             }
+                                                              }
+                                                          ]
+                                        }
+                          }
+            }
+}

@@ -1,0 +1,184 @@
+sitemap casa label="Casa" {
+    Frame label="Energía" {
+        Webview url="/static/flujo-energia.html?v=5" height=9
+        Text item=Bateria_SOC label="Batería" icon="batterylevel" valuecolor=[<=20="red", <=30="orange", >30="green"]
+        Text item=Casa_Consumo label="Consumo de la casa" icon="energy"
+        Text item=Solar_Potencia label="Generación solar" icon="solarplant"
+        Text item=Inversor_Modo label="Modo del inversor" icon="solarplant"
+        Text item=Inversor_Alarma label="Alarmas del inversor" icon="siren"
+        Text label="Más datos del sistema" icon="energy" {
+            Frame label="Batería y solar" {
+                Text item=Bateria_Voltaje
+                Text item=Bateria_Llena
+                Text item=Solar_Voltaje
+                Text item=Solar_Corriente
+                Text item=Controlador_Temperatura
+            }
+            Frame label="Red e inversor" {
+                Text item=Red_Voltaje
+                Text item=Red_Frecuencia
+                Text item=Red_CargaEstado
+                Text item=Salida_Voltaje
+                Text item=Casa_CargaPct
+                Text item=Inversor_Temperatura
+            }
+            Frame label="Conexión" {
+                Text item=Energia_ApiEstado
+                Text item=Energia_UltimaLectura
+            }
+        }
+        Text label="Gráficos" icon="line" {
+            Frame label="Energía por día (kWh)" {
+                Webview url="/static/energia-diaria.html?v=1" height=8
+            }
+            Frame label="Consumo y solar" {
+                Chart item=Casa_Consumo period=D service="influxdb"
+                Chart item=Solar_Potencia period=D service="influxdb"
+            }
+            Frame label="Batería" {
+                Chart item=Bateria_SOC period=D service="influxdb"
+            }
+        }
+    }
+
+    Frame label="Ahorro automático" {
+        Text item=Ahorro_Estado label="Estado" icon="energy"
+        Switch item=Ahorro_Auto label="Ahorro automático"
+        Text label="Ajustes del ahorro" icon="settings" {
+            Frame {
+                Setpoint item=Ahorro_UmbralBajo label="Batería baja" minValue=15 maxValue=60 step=1
+                Setpoint item=Ahorro_UmbralCritico label="Batería crítica" minValue=10 maxValue=50 step=1
+                Setpoint item=Ahorro_Histeresis label="Margen para volver a normal" minValue=1 maxValue=15 step=1
+                Setpoint item=Ahorro_NivelAtenuado label="Nivel de luces en ahorro" minValue=10 maxValue=80 step=5
+                Switch item=Ahorro_Notificar label="Avisos al móvil"
+                Switch item=Ahorro_Simulacion label="Modo simulación (no actúa)"
+                Text item=Ahorro_UltimaAccion label="Última acción"
+            }
+        }
+    }
+
+    Frame label="Planta baja" {
+        Text label="Entrada" icon="door" {
+            Frame label="Escalera baja" {
+                Switch item=Module_5_ENTRADA_Output_1 label="Escalera baja" icon="light"
+                Slider item=Module_5_ENTRADA_Output_1 label="Intensidad" icon="slider"
+            }
+            Frame label="Laterales comedor" {
+                Switch item=Module_5_ENTRADA_Output_2 label="Laterales comedor" icon="light"
+                Slider item=Module_5_ENTRADA_Output_2 label="Intensidad" icon="slider"
+            }
+            Frame label="Garaje" {
+                Switch item=Garaje_Luz label="Garaje []" icon="garage"
+                Slider item=Garaje_Luz label="Intensidad [%d %%]" icon="slider"
+            }
+        }
+        Text label="Cocina" icon="kitchen" {
+            Frame label="Luz cocina" {
+                Switch item=Module_6_COCINA_Output_2 label="Luz cocina" icon="light"
+                Slider item=Module_6_COCINA_Output_2 label="Intensidad" icon="slider"
+            }
+            Frame label="Leds cocina" {
+                Switch item=Module_6_COCINA_Output_1 label="Leds cocina" icon="light"
+                Slider item=Module_6_COCINA_Output_1 label="Intensidad" icon="slider"
+            }
+            Frame label="Sensores" {
+                Text item=Gas_sensor_gas_sensor_value label="Sensor de gas" icon="gas"
+            }
+        }
+        Text label="Comedor" icon="terrace" {
+            Frame label="Luz central" {
+                Switch item=Module_7_COMEDOR_Output_1 label="Luz central" icon="light"
+                Slider item=Module_7_COMEDOR_Output_1 label="Intensidad" icon="slider"
+            }
+            Frame label="Luz lateral" {
+                Switch item=Module_7_COMEDOR_Output_2 label="Luz lateral" icon="light"
+                Slider item=Module_7_COMEDOR_Output_2 label="Intensidad" icon="slider"
+            }
+        }
+        Text label="Sala" icon="sofa" {
+            Frame label="Luz central" {
+                Switch item=Module_9_SALA_Output_2 label="Luz central" icon="light"
+                Slider item=Module_9_SALA_Output_2 label="Intensidad" icon="slider"
+            }
+            Frame label="Luz lateral" {
+                Switch item=Module_9_SALA_Output_1 label="Luz lateral" icon="light"
+                Slider item=Module_9_SALA_Output_1 label="Intensidad" icon="slider"
+            }
+        }
+    }
+
+    Frame label="Primera planta" {
+        Text label="Dormitorio principal" icon="bedroom" {
+            Frame label="Luz central" {
+                Switch item=Module_102_CUARTO_PRINCIPAL_Output_1 label="Luz central" icon="light"
+                Slider item=Module_102_CUARTO_PRINCIPAL_Output_1 label="Intensidad" icon="slider"
+            }
+            Frame label="Luz lateral" {
+                Switch item=Module_102_CUARTO_PRINCIPAL_Output_2 label="Luz lateral" icon="light"
+                Slider item=Module_102_CUARTO_PRINCIPAL_Output_2 label="Intensidad" icon="slider"
+            }
+            Frame label="Otros" {
+                Switch item=Panel_Luz label="Panel" icon="light"
+                Text item=Module102Var4 label="Temperatura" icon="temperature"
+                Switch item=Module_8_PERSIANAS_Output_2 label="Subir persiana" icon="blinds"
+                Switch item=Module_8_PERSIANAS_Output_1 label="Bajar persiana" icon="blinds"
+            }
+        }
+        Text label="Habitación Julian" icon="bedroom_blue" {
+            Switch item=Interruptor_Julian_switch_1 label="Luz central"
+            Switch item=Interruptor_Julian_switch_2 label="Luz lateral"
+        }
+        Text label="Habitación Alejandro" icon="bedroom_orange" {
+            Switch item=Interruptor_Alejandro_switch_1 label="Luz central"
+            Switch item=Interruptor_Alejandro_switch_2 label="Luz lateral"
+        }
+    }
+
+    Frame label="Televisores" {
+        Text label="TV de Sala" icon="television" {
+            Frame {
+                Switch item=TV_Sala_Encendido label="Encendido" icon="television"
+                Slider item=TV_Sala_Volumen label="Volumen" icon="soundvolume"
+                Switch item=TV_Sala_Silencio label="Silencio" icon="soundvolume_mute"
+                Default item=TV_Sala_Reproductor label="Reproducción" icon="mediacontrol"
+            }
+        }
+        Text label="MIBOX3" icon="television" {
+            Frame {
+                Switch item=MIBOX3_Encendido label="Encendido" icon="television"
+                Slider item=MIBOX3_Volumen label="Volumen" icon="soundvolume"
+                Switch item=MIBOX3_Silencio label="Silencio" icon="soundvolume_mute"
+                Default item=MIBOX3_Reproductor label="Reproducción" icon="mediacontrol"
+            }
+        }
+        Text label="TV Alejandro" icon="television" {
+            Frame {
+                Switch item=TV_Ale_Encendido label="Encendido" icon="television"
+                Slider item=TV_Ale_Volumen label="Volumen" icon="soundvolume"
+                Switch item=TV_Ale_Silencio label="Silencio" icon="soundvolume_mute"
+                Default item=TV_Ale_Reproductor label="Reproducción" icon="mediacontrol"
+            }
+            Frame label="Chromecast" {
+                Text item=TV_Ale_CC_App label="App [%s]" icon="screen"
+                Text item=TV_Ale_CC_Titulo label="Reproduciendo [%s]" icon="text"
+                Default item=TV_Ale_CC_Control label="Control" icon="mediacontrol"
+                Slider item=TV_Ale_CC_Volumen label="Volumen Cast" icon="soundvolume"
+            }
+        }
+    }
+
+    Frame label="Seguridad" {
+        Text label="Cámaras" icon="camera" {
+            Frame label="Calle" {
+                Video url="http://127.0.0.1:8080/ipcamera/nvr_ch4/ipcamera.mjpeg" encoding="mjpeg"
+            }
+            Frame label="Entrada" {
+                Video url="http://127.0.0.1:8080/ipcamera/nvr_ch3/ipcamera.mjpeg" encoding="mjpeg"
+            }
+            Frame label="Interior" {
+                Video url="http://127.0.0.1:8080/ipcamera/5a78ecb7e8/ipcamera.mjpeg" encoding="mjpeg"
+            }
+        }
+        Switch item=Module_10_ALARMA_Output_1 label="Sirena" icon="siren"
+    }
+}

@@ -1,0 +1,297 @@
+{
+    "androiddebugbridge:android:3cbd3e38df23":  {
+                                                    "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                                    "value":  {
+                                                                  "thingUID":  {
+                                                                                   "segments":  [
+                                                                                                    "androiddebugbridge",
+                                                                                                    "android",
+                                                                                                    "3cbd3e38df23"
+                                                                                                ],
+                                                                                   "uid":  "androiddebugbridge:android:3cbd3e38df23"
+                                                                               },
+                                                                  "thingTypeUID":  {
+                                                                                       "segments":  [
+                                                                                                        "androiddebugbridge",
+                                                                                                        "android"
+                                                                                                    ],
+                                                                                       "uid":  ""
+                                                                                   },
+                                                                  "properties":  {
+                                                                                     "ip":  "192.168.18.188",
+                                                                                     "macAddress":  "3c:bd:3e:38:df:23"
+                                                                                 },
+                                                                  "representationProperty":  "macAddress",
+                                                                  "flag":  "NEW",
+                                                                  "label":  "MIBOX3 (192.168.18.188)",
+                                                                  "timestamp":  "2026-11-03T06:07:07.666079Z",
+                                                                  "timeToLive":  -1
+                                                              }
+                                                },
+    "androiddebugbridge:android:4c6bb887bc95":  {
+                                                    "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                                    "value":  {
+                                                                  "thingUID":  {
+                                                                                   "segments":  [
+                                                                                                    "androiddebugbridge",
+                                                                                                    "android",
+                                                                                                    "4c6bb887bc95"
+                                                                                                ],
+                                                                                   "uid":  "androiddebugbridge:android:4c6bb887bc95"
+                                                                               },
+                                                                  "thingTypeUID":  {
+                                                                                       "segments":  [
+                                                                                                        "androiddebugbridge",
+                                                                                                        "android"
+                                                                                                    ],
+                                                                                       "uid":  ""
+                                                                                   },
+                                                                  "properties":  {
+                                                                                     "ip":  "[fe80:0:0:0:51f8:41c5:3213:69f6]",
+                                                                                     "macAddress":  "4c:6b:b8:87:bc:95"
+                                                                                 },
+                                                                  "representationProperty":  "macAddress",
+                                                                  "flag":  "NEW",
+                                                                  "label":  "Smart TV ([fe80:0:0:0:51f8:41c5:3213:69f6])",
+                                                                  "timestamp":  "2026-11-02T17:15:23.939547500Z",
+                                                                  "timeToLive":  -1
+                                                              }
+                                                },
+    "androiddebugbridge:android:f09602c71e07":  {
+                                                    "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                                    "value":  {
+                                                                  "thingUID":  {
+                                                                                   "segments":  [
+                                                                                                    "androiddebugbridge",
+                                                                                                    "android",
+                                                                                                    "f09602c71e07"
+                                                                                                ],
+                                                                                   "uid":  "androiddebugbridge:android:f09602c71e07"
+                                                                               },
+                                                                  "thingTypeUID":  {
+                                                                                       "segments":  [
+                                                                                                        "androiddebugbridge",
+                                                                                                        "android"
+                                                                                                    ],
+                                                                                       "uid":  ""
+                                                                                   },
+                                                                  "properties":  {
+                                                                                     "ip":  "192.168.18.155",
+                                                                                     "macAddress":  "f0:96:02:c7:1e:07"
+                                                                                 },
+                                                                  "representationProperty":  "macAddress",
+                                                                  "flag":  "NEW",
+                                                                  "label":  "TV de Sala (192.168.18.155)",
+                                                                  "timestamp":  1784354296731,
+                                                                  "timeToLive":  -1
+                                                              }
+                                                },
+    "androiddebugbridge:android:f0b040516631":  {
+                                                    "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                                    "value":  {
+                                                                  "thingUID":  {
+                                                                                   "segments":  [
+                                                                                                    "androiddebugbridge",
+                                                                                                    "android",
+                                                                                                    "f0b040516631"
+                                                                                                ],
+                                                                                   "uid":  "androiddebugbridge:android:f0b040516631"
+                                                                               },
+                                                                  "thingTypeUID":  {
+                                                                                       "segments":  [
+                                                                                                        "androiddebugbridge",
+                                                                                                        "android"
+                                                                                                    ],
+                                                                                       "uid":  ""
+                                                                                   },
+                                                                  "properties":  {
+                                                                                     "ip":  "192.168.18.166",
+                                                                                     "macAddress":  "f0:b0:40:51:66:31"
+                                                                                 },
+                                                                  "representationProperty":  "macAddress",
+                                                                  "flag":  "NEW",
+                                                                  "label":  "tv_ale (192.168.18.166)",
+                                                                  "timestamp":  "2026-11-03T03:15:58.259240800Z",
+                                                                  "timeToLive":  -1
+                                                              }
+                                                },
+    "androiddebugbridge:android:fafce106cb2a":  {
+                                                    "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                                    "value":  {
+                                                                  "thingUID":  {
+                                                                                   "segments":  [
+                                                                                                    "androiddebugbridge",
+                                                                                                    "android",
+                                                                                                    "fafce106cb2a"
+                                                                                                ],
+                                                                                   "uid":  "androiddebugbridge:android:fafce106cb2a"
+                                                                               },
+                                                                  "thingTypeUID":  {
+                                                                                       "segments":  [
+                                                                                                        "androiddebugbridge",
+                                                                                                        "android"
+                                                                                                    ],
+                                                                                       "uid":  ""
+                                                                                   },
+                                                                  "properties":  {
+                                                                                     "ip":  "192.168.18.231",
+                                                                                     "macAddress":  "fa:fc:e1:06:cb:2a"
+                                                                                 },
+                                                                  "representationProperty":  "macAddress",
+                                                                  "flag":  "NEW",
+                                                                  "label":  "estudio (192.168.18.231)",
+                                                                  "timestamp":  1728534494721,
+                                                                  "timeToLive":  -1
+                                                              }
+                                                },
+    "androidtv:googletv:4C6BB887BC95":  {
+                                            "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                            "value":  {
+                                                          "thingUID":  {
+                                                                           "segments":  [
+                                                                                            "androidtv",
+                                                                                            "googletv",
+                                                                                            "4C6BB887BC95"
+                                                                                        ],
+                                                                           "uid":  "androidtv:googletv:4C6BB887BC95"
+                                                                       },
+                                                          "thingTypeUID":  {
+                                                                               "segments":  [
+                                                                                                "androidtv",
+                                                                                                "googletv"
+                                                                                            ],
+                                                                               "uid":  ""
+                                                                           },
+                                                          "properties":  {
+                                                                             "ipAddress":  "192.168.18.218"
+                                                                         },
+                                                          "representationProperty":  "ipAddress",
+                                                          "flag":  "NEW",
+                                                          "label":  "Smart TV (4C6BB887BC95)",
+                                                          "timestamp":  "2026-11-02T16:15:32.951561100Z",
+                                                          "timeToLive":  -1
+                                                      }
+                                        },
+    "chromecast:chromecast:4a13148cf80c1a4ee84de586f15e3b5e":  {
+                                                                   "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                                                   "value":  {
+                                                                                 "thingUID":  {
+                                                                                                  "segments":  [
+                                                                                                                   "chromecast",
+                                                                                                                   "chromecast",
+                                                                                                                   "4a13148cf80c1a4ee84de586f15e3b5e"
+                                                                                                               ],
+                                                                                                  "uid":  "chromecast:chromecast:4a13148cf80c1a4ee84de586f15e3b5e"
+                                                                                              },
+                                                                                 "thingTypeUID":  {
+                                                                                                      "segments":  [
+                                                                                                                       "chromecast",
+                                                                                                                       "chromecast"
+                                                                                                                   ],
+                                                                                                      "uid":  ""
+                                                                                                  },
+                                                                                 "properties":  {
+                                                                                                    "deviceId":  "4a13148cf80c1a4ee84de586f15e3b5e",
+                                                                                                    "ipAddress":  "192.168.18.218",
+                                                                                                    "port":  8009
+                                                                                                },
+                                                                                 "representationProperty":  "deviceId",
+                                                                                 "flag":  "NEW",
+                                                                                 "label":  "Smart TV",
+                                                                                 "timestamp":  "2026-11-02T17:02:51.923963700Z",
+                                                                                 "timeToLive":  -1
+                                                                             }
+                                                               },
+    "chromecast:chromecast:51af8f7eaa74f307e2e70263a1ba8df2":  {
+                                                                   "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                                                   "value":  {
+                                                                                 "thingUID":  {
+                                                                                                  "segments":  [
+                                                                                                                   "chromecast",
+                                                                                                                   "chromecast",
+                                                                                                                   "51af8f7eaa74f307e2e70263a1ba8df2"
+                                                                                                               ],
+                                                                                                  "uid":  "chromecast:chromecast:51af8f7eaa74f307e2e70263a1ba8df2"
+                                                                                              },
+                                                                                 "thingTypeUID":  {
+                                                                                                      "segments":  [
+                                                                                                                       "chromecast",
+                                                                                                                       "chromecast"
+                                                                                                                   ],
+                                                                                                      "uid":  ""
+                                                                                                  },
+                                                                                 "properties":  {
+                                                                                                    "deviceId":  "51af8f7eaa74f307e2e70263a1ba8df2",
+                                                                                                    "ipAddress":  "192.168.18.155",
+                                                                                                    "port":  8009
+                                                                                                },
+                                                                                 "representationProperty":  "deviceId",
+                                                                                 "flag":  "NEW",
+                                                                                 "label":  "TV de Sala",
+                                                                                 "timestamp":  1784345663764,
+                                                                                 "timeToLive":  -1
+                                                                             }
+                                                               },
+    "lcn:pckGateway:ac35eecc0685":  {
+                                        "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                        "value":  {
+                                                      "thingUID":  {
+                                                                       "segments":  [
+                                                                                        "lcn",
+                                                                                        "pckGateway",
+                                                                                        "ac35eecc0685"
+                                                                                    ],
+                                                                       "uid":  "lcn:pckGateway:ac35eecc0685"
+                                                                   },
+                                                      "thingTypeUID":  {
+                                                                           "segments":  [
+                                                                                            "lcn",
+                                                                                            "pckGateway"
+                                                                                        ],
+                                                                           "uid":  ""
+                                                                       },
+                                                      "properties":  {
+                                                                         "hostname":  "192.168.18.50",
+                                                                         "macAddress":  "ac35eecc0685",
+                                                                         "port":  4114
+                                                                     },
+                                                      "representationProperty":  "macAddress",
+                                                      "flag":  "NEW",
+                                                      "label":  "LCN-PCHK 3.2.2 running on Windows (CASA-ISMAEL)",
+                                                      "timestamp":  1705610733910,
+                                                      "timeToLive":  -1
+                                                  }
+                                    },
+    "tuya:tuyaDevice:27106120bcff4d27014c":  {
+                                                 "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                                 "value":  {
+                                                               "thingUID":  {
+                                                                                "segments":  [
+                                                                                                 "tuya",
+                                                                                                 "tuyaDevice",
+                                                                                                 "27106120bcff4d27014c"
+                                                                                             ],
+                                                                                "uid":  "tuya:tuyaDevice:27106120bcff4d27014c"
+                                                                            },
+                                                               "thingTypeUID":  {
+                                                                                    "segments":  [
+                                                                                                     "tuya",
+                                                                                                     "tuyaDevice"
+                                                                                                 ],
+                                                                                    "uid":  ""
+                                                                                },
+                                                               "properties":  {
+                                                                                  "category":  "pc",
+                                                                                  "deviceId":  "27106120bcff4d27014c",
+                                                                                  "localKey":  "\u003cREDACTED\u003e",
+                                                                                  "macAddress":  "bc:ff:4d:27:01:4c",
+                                                                                  "productId":  "mlb0s3zdurz0mbt3"
+                                                                              },
+                                                               "representationProperty":  "deviceId",
+                                                               "flag":  "NEW",
+                                                               "label":  "Cargador",
+                                                               "timestamp":  "2026-11-03T22:58:39.954278500Z",
+                                                               "timeToLive":  -1
+                                                           }
+                                             }
+}

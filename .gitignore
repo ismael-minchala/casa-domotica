@@ -1,0 +1,8 @@
+# Nunca subir secretos ni datos locales
+*.token
+*token*.txt
+psw.txt
+users.json
+*.key
+*.pem
+*.log

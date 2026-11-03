@@ -1,0 +1,17 @@
+// Ahorro automático de energía. Lógica en conf/automation/js/ahorro-energia.js
+
+Group  gAhorro  "Ahorro de energía"  <energy>  (gEnergia)
+
+Switch                Ahorro_Auto           "Ahorro automático"                     <switch>       (gAhorro)
+Switch                Ahorro_Simulacion     "Modo simulación (no actúa)"            <switch>       (gAhorro)
+Number:Dimensionless  Ahorro_UmbralBajo     "Umbral batería baja [%.0f %%]"         <batterylevel> (gAhorro)  { unit="%" }
+Number:Dimensionless  Ahorro_UmbralCritico  "Umbral batería crítica [%.0f %%]"      <batterylevel> (gAhorro)  { unit="%" }
+Number:Dimensionless  Ahorro_Histeresis     "Margen para volver a normal [%.0f %%]" <batterylevel> (gAhorro)  { unit="%" }
+Number:Dimensionless  Ahorro_NivelAtenuado  "Nivel de luces en ahorro [%.0f %%]"    <light>        (gAhorro)  { unit="%" }
+Switch                Ahorro_Notificar      "Avisos al móvil"                       <alarm>        (gAhorro)
+
+String                Ahorro_Estado         "Estado de ahorro [%s]"                 <energy>       (gAhorro)
+String                Ahorro_UltimaAccion   "Última acción [%s]"                    <text>         (gAhorro)
+
+// Pruebas: si tiene valor, se usa en lugar de Bateria_SOC (vaciar con UNDEF)
+Number:Dimensionless  Ahorro_SocPrueba      "SOC de prueba [%.0f %%]"               <batterylevel>             { unit="%" }

@@ -1,0 +1,33 @@
+// Historial en InfluxDB 2 (org "casa", bucket "openhab"); conexión en services/influxdb.cfg
+
+Strategies {
+    everyFiveMinutes   : "0 */5 * * * ?"
+    everyFifteenMinutes: "0 */15 * * * ?"
+    // openHAB 5 no admite "default = ..." aquí; cada grupo de ítems declara su estrategia
+}
+
+Items {
+    // Energía fotovoltaica: cada cambio + muestra fija para series continuas
+    gInversor*                                       : strategy = everyChange, everyFiveMinutes
+
+    // Parámetros y estado del ahorro automático (se restauran al reiniciar)
+    Ahorro_Auto, Ahorro_Simulacion, Ahorro_Notificar,
+    Ahorro_UmbralBajo, Ahorro_UmbralCritico, Ahorro_Histeresis, Ahorro_NivelAtenuado,
+    Ahorro_Estado, Ahorro_UltimaAccion                : strategy = everyChange, restoreOnStartup
+
+    // Climatización
+    Module102Var4                                    : strategy = everyChange, everyFifteenMinutes
+
+    // Cargas LCN y Tuya (para analizar consumos y uso)
+    Module_5_ENTRADA_Output_1, Module_5_ENTRADA_Output_2,
+    Module_6_COCINA_Output_1, Module_6_COCINA_Output_2,
+    Module_7_COMEDOR_Output_1, Module_7_COMEDOR_Output_2,
+    Module_8_PERSIANAS_Output_1, Module_8_PERSIANAS_Output_2,
+    Module_9_SALA_Output_1, Module_9_SALA_Output_2,
+    Module_10_ALARMA_Output_1,
+    Module_102_CUARTO_PRINCIPAL_Output_1, Module_102_CUARTO_PRINCIPAL_Output_2,
+    Interruptor_Julian_switch_1, Interruptor_Julian_switch_2,
+    Interruptor_Alejandro_switch_1, Interruptor_Alejandro_switch_2,
+    Panel_Luz, Garaje_Luz,
+    Gas_sensor_gas_sensor_value                      : strategy = everyChange
+}

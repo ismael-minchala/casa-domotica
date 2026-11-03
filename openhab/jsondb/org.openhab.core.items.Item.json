@@ -1,0 +1,871 @@
+{
+    "Amcrest_Camera_with_API_HLS_URL":  {
+                                            "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                            "value":  {
+                                                          "groupNames":  [
+                                                                             "Equipo_Camara"
+                                                                         ],
+                                                          "itemType":  "String",
+                                                          "tags":  [
+                                                                       "Point"
+                                                                   ],
+                                                          "label":  "Cámara HLS (URL)",
+                                                          "category":  "Camera"
+                                                      }
+                                        },
+    "CUARTO_ALEJANDRO":  {
+                             "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                             "value":  {
+                                           "groupNames":  [
+                                                              "PrimeraPlanta"
+                                                          ],
+                                           "itemType":  "Group",
+                                           "tags":  [
+                                                        "Bedroom"
+                                                    ],
+                                           "label":  "Habitación Alejandro",
+                                           "category":  "bedroom"
+                                       }
+                         },
+    "CUARTO_JULIAN":  {
+                          "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                          "value":  {
+                                        "groupNames":  [
+                                                           "PrimeraPlanta"
+                                                       ],
+                                        "itemType":  "Group",
+                                        "tags":  [
+                                                     "Bedroom"
+                                                 ],
+                                        "label":  "Habitación Julian",
+                                        "category":  "bedroom_blue"
+                                    }
+                      },
+    "CamaraPTZ":  {
+                      "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                      "value":  {
+                                    "groupNames":  [
+                                                       "Equipo_Camara"
+                                                   ],
+                                    "itemType":  "String",
+                                    "tags":  [
+                                                 "Point"
+                                             ],
+                                    "label":  "Cámara en vivo (MJPEG)",
+                                    "category":  "Camera"
+                                }
+                  },
+    "Equipo_Camara":  {
+                          "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                          "value":  {
+                                        "groupNames":  [
+                                                           "PlantaBaja"
+                                                       ],
+                                        "itemType":  "Group",
+                                        "tags":  [
+                                                     "Camera"
+                                                 ],
+                                        "label":  "Cámara",
+                                        "category":  "camera"
+                                    }
+                      },
+    "Equipo_Persiana":  {
+                            "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                            "value":  {
+                                          "groupNames":  [
+                                                             "Module_102_CUARTO_PRINCIPAL"
+                                                         ],
+                                          "itemType":  "Group",
+                                          "tags":  [
+                                                       "Blinds"
+                                                   ],
+                                          "label":  "Persiana dormitorio",
+                                          "category":  "blinds"
+                                      }
+                        },
+    "Equipo_SensorGas":  {
+                             "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                             "value":  {
+                                           "groupNames":  [
+                                                              "Module_6_COCINA"
+                                                          ],
+                                           "itemType":  "Group",
+                                           "tags":  [
+                                                        "SmokeDetector"
+                                                    ],
+                                           "label":  "Sensor de gas",
+                                           "category":  "gas"
+                                       }
+                         },
+    "Equipo_Sirena":  {
+                          "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                          "value":  {
+                                        "groupNames":  [
+                                                           "Module_5_ENTRADA"
+                                                       ],
+                                        "itemType":  "Group",
+                                        "tags":  [
+                                                     "Siren"
+                                                 ],
+                                        "label":  "Sirena",
+                                        "category":  "siren"
+                                    }
+                      },
+    "Garaje_Luz":  {
+                       "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                       "value":  {
+                                     "groupNames":  [
+                                                        "Module_5_ENTRADA"
+                                                    ],
+                                     "itemType":  "Dimmer",
+                                     "tags":  [
+                                                  "Light"
+                                              ],
+                                     "label":  "Garaje",
+                                     "category":  "light"
+                                 }
+                   },
+    "Gas_sensor_gas_sensor_value":  {
+                                        "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                        "value":  {
+                                                      "groupNames":  [
+                                                                         "Equipo_SensorGas"
+                                                                     ],
+                                                      "itemType":  "Number:Volume",
+                                                      "tags":  [
+                                                                   "Measurement"
+                                                               ],
+                                                      "label":  "Sensor de gas",
+                                                      "category":  "gas"
+                                                  }
+                                    },
+    "Interruptor_Alejandro_switch_1":  {
+                                           "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                           "value":  {
+                                                         "groupNames":  [
+                                                                            "CUARTO_ALEJANDRO"
+                                                                        ],
+                                                         "itemType":  "Switch",
+                                                         "tags":  [
+                                                                      "Light",
+                                                                      "Switch"
+                                                                  ],
+                                                         "label":  "Luz Central Alejandro",
+                                                         "category":  "light"
+                                                     }
+                                       },
+    "Interruptor_Alejandro_switch_2":  {
+                                           "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                           "value":  {
+                                                         "groupNames":  [
+                                                                            "CUARTO_ALEJANDRO"
+                                                                        ],
+                                                         "itemType":  "Switch",
+                                                         "tags":  [
+                                                                      "Light",
+                                                                      "Switch"
+                                                                  ],
+                                                         "label":  "Luz Lateral Alejandro",
+                                                         "category":  "light"
+                                                     }
+                                       },
+    "Interruptor_Julian_switch_1":  {
+                                        "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                        "value":  {
+                                                      "groupNames":  [
+                                                                         "CUARTO_JULIAN"
+                                                                     ],
+                                                      "itemType":  "Switch",
+                                                      "tags":  [
+                                                                   "Light",
+                                                                   "Switch"
+                                                               ],
+                                                      "label":  "Luz Central Julian",
+                                                      "category":  "light"
+                                                  }
+                                    },
+    "Interruptor_Julian_switch_2":  {
+                                        "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                        "value":  {
+                                                      "groupNames":  [
+                                                                         "CUARTO_JULIAN"
+                                                                     ],
+                                                      "itemType":  "Switch",
+                                                      "tags":  [
+                                                                   "Light",
+                                                                   "Switch"
+                                                               ],
+                                                      "label":  "Luz Lateral Julian",
+                                                      "category":  "light"
+                                                  }
+                                    },
+    "MIBOX3_App":  {
+                       "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                       "value":  {
+                                     "groupNames":  [
+
+                                                    ],
+                                     "itemType":  "String",
+                                     "tags":  [
+
+                                              ],
+                                     "label":  "MIBOX3 - App",
+                                     "category":  "screen"
+                                 }
+                   },
+    "MIBOX3_Encendido":  {
+                             "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                             "value":  {
+                                           "groupNames":  [
+
+                                                          ],
+                                           "itemType":  "Switch",
+                                           "tags":  [
+
+                                                    ],
+                                           "label":  "MIBOX3 - Encendido",
+                                           "category":  "television"
+                                       }
+                         },
+    "MIBOX3_PIN":  {
+                       "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                       "value":  {
+                                     "groupNames":  [
+
+                                                    ],
+                                     "itemType":  "String",
+                                     "tags":  [
+
+                                              ],
+                                     "label":  "MIBOX3 - PIN",
+                                     "category":  "lock"
+                                 }
+                   },
+    "MIBOX3_Reproductor":  {
+                               "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                               "value":  {
+                                             "groupNames":  [
+
+                                                            ],
+                                             "itemType":  "Player",
+                                             "tags":  [
+
+                                                      ],
+                                             "label":  "MIBOX3 - Reproductor",
+                                             "category":  "mediacontrol"
+                                         }
+                           },
+    "MIBOX3_Silencio":  {
+                            "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                            "value":  {
+                                          "groupNames":  [
+
+                                                         ],
+                                          "itemType":  "Switch",
+                                          "tags":  [
+
+                                                   ],
+                                          "label":  "MIBOX3 - Silencio",
+                                          "category":  "soundvolume_mute"
+                                      }
+                        },
+    "MIBOX3_Tecla":  {
+                         "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                         "value":  {
+                                       "groupNames":  [
+
+                                                      ],
+                                       "itemType":  "String",
+                                       "tags":  [
+
+                                                ],
+                                       "label":  "MIBOX3 - Tecla",
+                                       "category":  "screen"
+                                   }
+                     },
+    "MIBOX3_Volumen":  {
+                           "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                           "value":  {
+                                         "groupNames":  [
+
+                                                        ],
+                                         "itemType":  "Dimmer",
+                                         "tags":  [
+
+                                                  ],
+                                         "label":  "MIBOX3 - Volumen",
+                                         "category":  "soundvolume"
+                                     }
+                       },
+    "Module102Var4":  {
+                          "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                          "value":  {
+                                        "groupNames":  [
+                                                           "Module_102_CUARTO_PRINCIPAL"
+                                                       ],
+                                        "itemType":  "Number:Temperature",
+                                        "tags":  [
+                                                     "Measurement",
+                                                     "Temperature"
+                                                 ],
+                                        "label":  "Temperatura dormitorio",
+                                        "category":  "temperature"
+                                    }
+                      },
+    "Module_102_CUARTO_PRINCIPAL":  {
+                                        "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                        "value":  {
+                                                      "groupNames":  [
+                                                                         "PrimeraPlanta"
+                                                                     ],
+                                                      "itemType":  "Group",
+                                                      "tags":  [
+                                                                   "Bedroom"
+                                                               ],
+                                                      "label":  "Dormitorio principal",
+                                                      "category":  "bedroom_red"
+                                                  }
+                                    },
+    "Module_102_CUARTO_PRINCIPAL_Output_1":  {
+                                                 "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                                 "value":  {
+                                                               "groupNames":  [
+                                                                                  "Module_102_CUARTO_PRINCIPAL"
+                                                                              ],
+                                                               "itemType":  "Dimmer",
+                                                               "tags":  [
+                                                                            "Light",
+                                                                            "Switch"
+                                                                        ],
+                                                               "label":  "Luz Central Dormitorio",
+                                                               "category":  "light"
+                                                           }
+                                             },
+    "Module_102_CUARTO_PRINCIPAL_Output_2":  {
+                                                 "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                                 "value":  {
+                                                               "groupNames":  [
+                                                                                  "Module_102_CUARTO_PRINCIPAL"
+                                                                              ],
+                                                               "itemType":  "Dimmer",
+                                                               "tags":  [
+                                                                            "Light",
+                                                                            "Switch"
+                                                                        ],
+                                                               "label":  "Luz Lateral Dormitorio",
+                                                               "category":  "light"
+                                                           }
+                                             },
+    "Module_10_ALARMA_Output_1":  {
+                                      "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                      "value":  {
+                                                    "groupNames":  [
+                                                                       "Equipo_Sirena"
+                                                                   ],
+                                                    "itemType":  "Switch",
+                                                    "tags":  [
+                                                                 "Switch"
+                                                             ],
+                                                    "label":  "Sirena",
+                                                    "category":  "siren"
+                                                }
+                                  },
+    "Module_5_ENTRADA":  {
+                             "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                             "value":  {
+                                           "groupNames":  [
+                                                              "PlantaBaja"
+                                                          ],
+                                           "itemType":  "Group",
+                                           "tags":  [
+                                                        "Entry"
+                                                    ],
+                                           "label":  "Entrada",
+                                           "category":  "frontdoor"
+                                       }
+                         },
+    "Module_5_ENTRADA_Output_1":  {
+                                      "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                      "value":  {
+                                                    "groupNames":  [
+                                                                       "Module_5_ENTRADA"
+                                                                   ],
+                                                    "itemType":  "Dimmer",
+                                                    "tags":  [
+                                                                 "Light",
+                                                                 "Switch"
+                                                             ],
+                                                    "label":  "Escalera Baja",
+                                                    "category":  "light"
+                                                }
+                                  },
+    "Module_5_ENTRADA_Output_2":  {
+                                      "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                      "value":  {
+                                                    "groupNames":  [
+                                                                       "Module_5_ENTRADA"
+                                                                   ],
+                                                    "itemType":  "Dimmer",
+                                                    "tags":  [
+                                                                 "Light",
+                                                                 "Switch"
+                                                             ],
+                                                    "label":  "Laterales Comedor",
+                                                    "category":  "light"
+                                                }
+                                  },
+    "Module_6_COCINA":  {
+                            "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                            "value":  {
+                                          "groupNames":  [
+                                                             "PlantaBaja"
+                                                         ],
+                                          "itemType":  "Group",
+                                          "tags":  [
+                                                       "Kitchen"
+                                                   ],
+                                          "label":  "Cocina",
+                                          "category":  "cinema"
+                                      }
+                        },
+    "Module_6_COCINA_Output_1":  {
+                                     "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                     "value":  {
+                                                   "groupNames":  [
+                                                                      "Module_6_COCINA"
+                                                                  ],
+                                                   "itemType":  "Dimmer",
+                                                   "tags":  [
+                                                                "Light",
+                                                                "Switch"
+                                                            ],
+                                                   "label":  "Leds Cocina",
+                                                   "category":  "light"
+                                               }
+                                 },
+    "Module_6_COCINA_Output_2":  {
+                                     "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                     "value":  {
+                                                   "groupNames":  [
+                                                                      "Module_6_COCINA"
+                                                                  ],
+                                                   "itemType":  "Dimmer",
+                                                   "tags":  [
+                                                                "Light",
+                                                                "Switch"
+                                                            ],
+                                                   "label":  "Luz Cocina",
+                                                   "category":  "light"
+                                               }
+                                 },
+    "Module_7_COMEDOR":  {
+                             "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                             "value":  {
+                                           "groupNames":  [
+                                                              "PlantaBaja"
+                                                          ],
+                                           "itemType":  "Group",
+                                           "tags":  [
+                                                        "DiningRoom"
+                                                    ],
+                                           "label":  "Comedor",
+                                           "category":  "terrace"
+                                       }
+                         },
+    "Module_7_COMEDOR_Output_1":  {
+                                      "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                      "value":  {
+                                                    "groupNames":  [
+                                                                       "Module_7_COMEDOR"
+                                                                   ],
+                                                    "itemType":  "Dimmer",
+                                                    "tags":  [
+                                                                 "Light",
+                                                                 "Switch"
+                                                             ],
+                                                    "label":  "Luz Central Comedor",
+                                                    "category":  "light"
+                                                }
+                                  },
+    "Module_7_COMEDOR_Output_2":  {
+                                      "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                      "value":  {
+                                                    "groupNames":  [
+                                                                       "Module_7_COMEDOR"
+                                                                   ],
+                                                    "itemType":  "Dimmer",
+                                                    "tags":  [
+                                                                 "Light",
+                                                                 "Switch"
+                                                             ],
+                                                    "label":  "Luz Lateral Comedor",
+                                                    "category":  "light"
+                                                }
+                                  },
+    "Module_8_PERSIANAS_Output_1":  {
+                                        "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                        "value":  {
+                                                      "groupNames":  [
+                                                                         "Equipo_Persiana"
+                                                                     ],
+                                                      "itemType":  "Switch",
+                                                      "tags":  [
+                                                                   "Switch"
+                                                               ],
+                                                      "label":  "Bajar persiana",
+                                                      "category":  "window"
+                                                  }
+                                    },
+    "Module_8_PERSIANAS_Output_2":  {
+                                        "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                        "value":  {
+                                                      "groupNames":  [
+                                                                         "Equipo_Persiana"
+                                                                     ],
+                                                      "itemType":  "Switch",
+                                                      "tags":  [
+                                                                   "Switch"
+                                                               ],
+                                                      "label":  "Subir persiana",
+                                                      "category":  "window"
+                                                  }
+                                    },
+    "Module_9_SALA":  {
+                          "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                          "value":  {
+                                        "groupNames":  [
+                                                           "PlantaBaja"
+                                                       ],
+                                        "itemType":  "Group",
+                                        "tags":  [
+                                                     "LivingRoom"
+                                                 ],
+                                        "label":  "Sala",
+                                        "category":  "sofa"
+                                    }
+                      },
+    "Module_9_SALA_Output_1":  {
+                                   "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                   "value":  {
+                                                 "groupNames":  [
+                                                                    "Module_9_SALA"
+                                                                ],
+                                                 "itemType":  "Dimmer",
+                                                 "tags":  [
+                                                              "Light",
+                                                              "Switch"
+                                                          ],
+                                                 "label":  "Luz Lateral Sala",
+                                                 "category":  "light"
+                                             }
+                               },
+    "Module_9_SALA_Output_2":  {
+                                   "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                   "value":  {
+                                                 "groupNames":  [
+                                                                    "Module_9_SALA"
+                                                                ],
+                                                 "itemType":  "Dimmer",
+                                                 "tags":  [
+                                                              "Light",
+                                                              "Switch"
+                                                          ],
+                                                 "label":  "Luz Central Sala",
+                                                 "category":  "light"
+                                             }
+                               },
+    "Panel_Luz":  {
+                      "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                      "value":  {
+                                    "groupNames":  [
+                                                       "Module_102_CUARTO_PRINCIPAL"
+                                                   ],
+                                    "itemType":  "Switch",
+                                    "tags":  [
+                                                 "Light"
+                                             ],
+                                    "label":  "Panel",
+                                    "category":  "light"
+                                }
+                  },
+    "PlantaBaja":  {
+                       "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                       "value":  {
+                                     "groupNames":  [
+
+                                                    ],
+                                     "itemType":  "Group",
+                                     "tags":  [
+                                                  "GroundFloor"
+                                              ],
+                                     "label":  "Planta Baja",
+                                     "category":  "groundfloor"
+                                 }
+                   },
+    "PrimeraPlanta":  {
+                          "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                          "value":  {
+                                        "groupNames":  [
+
+                                                       ],
+                                        "itemType":  "Group",
+                                        "tags":  [
+                                                     "FirstFloor"
+                                                 ],
+                                        "label":  "Primera Planta",
+                                        "category":  "firstfloor"
+                                    }
+                      },
+    "TV_Ale_App":  {
+                       "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                       "value":  {
+                                     "groupNames":  [
+
+                                                    ],
+                                     "itemType":  "String",
+                                     "tags":  [
+
+                                              ],
+                                     "label":  "TV Alejandro - App",
+                                     "category":  "screen"
+                                 }
+                   },
+    "TV_Ale_CC_App":  {
+                          "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                          "value":  {
+                                        "groupNames":  [
+
+                                                       ],
+                                        "itemType":  "String",
+                                        "tags":  [
+
+                                                 ],
+                                        "label":  "TV Alejandro - App Cast",
+                                        "category":  "screen"
+                                    }
+                      },
+    "TV_Ale_CC_Control":  {
+                              "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                              "value":  {
+                                            "groupNames":  [
+
+                                                           ],
+                                            "itemType":  "Player",
+                                            "tags":  [
+
+                                                     ],
+                                            "label":  "TV Alejandro - Cast",
+                                            "category":  "mediacontrol"
+                                        }
+                          },
+    "TV_Ale_CC_Titulo":  {
+                             "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                             "value":  {
+                                           "groupNames":  [
+
+                                                          ],
+                                           "itemType":  "String",
+                                           "tags":  [
+
+                                                    ],
+                                           "label":  "TV Alejandro - Reproduciendo",
+                                           "category":  "text"
+                                       }
+                         },
+    "TV_Ale_CC_Volumen":  {
+                              "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                              "value":  {
+                                            "groupNames":  [
+
+                                                           ],
+                                            "itemType":  "Dimmer",
+                                            "tags":  [
+
+                                                     ],
+                                            "label":  "TV Alejandro - Volumen Cast",
+                                            "category":  "soundvolume"
+                                        }
+                          },
+    "TV_Ale_Encendido":  {
+                             "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                             "value":  {
+                                           "groupNames":  [
+
+                                                          ],
+                                           "itemType":  "Switch",
+                                           "tags":  [
+
+                                                    ],
+                                           "label":  "TV Alejandro - Encendido",
+                                           "category":  "television"
+                                       }
+                         },
+    "TV_Ale_PIN":  {
+                       "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                       "value":  {
+                                     "groupNames":  [
+
+                                                    ],
+                                     "itemType":  "String",
+                                     "tags":  [
+
+                                              ],
+                                     "label":  "TV Alejandro - PIN",
+                                     "category":  "lock"
+                                 }
+                   },
+    "TV_Ale_Reproductor":  {
+                               "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                               "value":  {
+                                             "groupNames":  [
+
+                                                            ],
+                                             "itemType":  "Player",
+                                             "tags":  [
+
+                                                      ],
+                                             "label":  "TV Alejandro - Reproductor",
+                                             "category":  "mediacontrol"
+                                         }
+                           },
+    "TV_Ale_Silencio":  {
+                            "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                            "value":  {
+                                          "groupNames":  [
+
+                                                         ],
+                                          "itemType":  "Switch",
+                                          "tags":  [
+
+                                                   ],
+                                          "label":  "TV Alejandro - Silencio",
+                                          "category":  "soundvolume_mute"
+                                      }
+                        },
+    "TV_Ale_Tecla":  {
+                         "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                         "value":  {
+                                       "groupNames":  [
+
+                                                      ],
+                                       "itemType":  "String",
+                                       "tags":  [
+
+                                                ],
+                                       "label":  "TV Alejandro - Tecla",
+                                       "category":  "screen"
+                                   }
+                     },
+    "TV_Ale_Volumen":  {
+                           "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                           "value":  {
+                                         "groupNames":  [
+
+                                                        ],
+                                         "itemType":  "Dimmer",
+                                         "tags":  [
+
+                                                  ],
+                                         "label":  "TV Alejandro - Volumen",
+                                         "category":  "soundvolume"
+                                     }
+                       },
+    "TV_Sala_App":  {
+                        "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                        "value":  {
+                                      "groupNames":  [
+
+                                                     ],
+                                      "itemType":  "String",
+                                      "tags":  [
+
+                                               ],
+                                      "label":  "TV de Sala - App",
+                                      "category":  "screen"
+                                  }
+                    },
+    "TV_Sala_Encendido":  {
+                              "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                              "value":  {
+                                            "groupNames":  [
+
+                                                           ],
+                                            "itemType":  "Switch",
+                                            "tags":  [
+
+                                                     ],
+                                            "label":  "TV de Sala - Encendido",
+                                            "category":  "television"
+                                        }
+                          },
+    "TV_Sala_PIN":  {
+                        "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                        "value":  {
+                                      "groupNames":  [
+
+                                                     ],
+                                      "itemType":  "String",
+                                      "tags":  [
+
+                                               ],
+                                      "label":  "TV de Sala - PIN",
+                                      "category":  "lock"
+                                  }
+                    },
+    "TV_Sala_Reproductor":  {
+                                "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                                "value":  {
+                                              "groupNames":  [
+
+                                                             ],
+                                              "itemType":  "Player",
+                                              "tags":  [
+
+                                                       ],
+                                              "label":  "TV de Sala - Reproductor",
+                                              "category":  "mediacontrol"
+                                          }
+                            },
+    "TV_Sala_Silencio":  {
+                             "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                             "value":  {
+                                           "groupNames":  [
+
+                                                          ],
+                                           "itemType":  "Switch",
+                                           "tags":  [
+
+                                                    ],
+                                           "label":  "TV de Sala - Silencio",
+                                           "category":  "soundvolume_mute"
+                                       }
+                         },
+    "TV_Sala_Tecla":  {
+                          "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                          "value":  {
+                                        "groupNames":  [
+
+                                                       ],
+                                        "itemType":  "String",
+                                        "tags":  [
+
+                                                 ],
+                                        "label":  "TV de Sala - Tecla",
+                                        "category":  "screen"
+                                    }
+                      },
+    "TV_Sala_Volumen":  {
+                            "class":  "org.openhab.core.items.ManagedItemProvider$PersistedItem",
+                            "value":  {
+                                          "groupNames":  [
+
+                                                         ],
+                                          "itemType":  "Dimmer",
+                                          "tags":  [
+
+                                                   ],
+                                          "label":  "TV de Sala - Volumen",
+                                          "category":  "soundvolume"
+                                      }
+                        }
+}

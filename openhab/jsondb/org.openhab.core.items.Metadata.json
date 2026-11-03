@@ -1,0 +1,370 @@
+{
+    "alexa:Module_102_CUARTO_PRINCIPAL_Output_1":  {
+                                                       "class":  "org.openhab.core.items.Metadata",
+                                                       "value":  {
+                                                                     "key":  {
+                                                                                 "segments":  [
+                                                                                                  "alexa",
+                                                                                                  "Module_102_CUARTO_PRINCIPAL_Output_1"
+                                                                                              ],
+                                                                                 "uid":  "alexa:Module_102_CUARTO_PRINCIPAL_Output_1"
+                                                                             },
+                                                                     "value":  "Light",
+                                                                     "configuration":  {
+
+                                                                                       }
+                                                                 }
+                                                   },
+    "alexa:Module_102_CUARTO_PRINCIPAL_Output_2":  {
+                                                       "class":  "org.openhab.core.items.Metadata",
+                                                       "value":  {
+                                                                     "key":  {
+                                                                                 "segments":  [
+                                                                                                  "alexa",
+                                                                                                  "Module_102_CUARTO_PRINCIPAL_Output_2"
+                                                                                              ],
+                                                                                 "uid":  "alexa:Module_102_CUARTO_PRINCIPAL_Output_2"
+                                                                             },
+                                                                     "value":  "Light",
+                                                                     "configuration":  {
+
+                                                                                       }
+                                                                 }
+                                                   },
+    "alexa:Module_5_ENTRADA_Output_1":  {
+                                            "class":  "org.openhab.core.items.Metadata",
+                                            "value":  {
+                                                          "key":  {
+                                                                      "segments":  [
+                                                                                       "alexa",
+                                                                                       "Module_5_ENTRADA_Output_1"
+                                                                                   ],
+                                                                      "uid":  "alexa:Module_5_ENTRADA_Output_1"
+                                                                  },
+                                                          "value":  "Light",
+                                                          "configuration":  {
+
+                                                                            }
+                                                      }
+                                        },
+    "alexa:Module_5_ENTRADA_Output_2":  {
+                                            "class":  "org.openhab.core.items.Metadata",
+                                            "value":  {
+                                                          "key":  {
+                                                                      "segments":  [
+                                                                                       "alexa",
+                                                                                       "Module_5_ENTRADA_Output_2"
+                                                                                   ],
+                                                                      "uid":  "alexa:Module_5_ENTRADA_Output_2"
+                                                                  },
+                                                          "value":  "Light",
+                                                          "configuration":  {
+
+                                                                            }
+                                                      }
+                                        },
+    "alexa:Module_6_COCINA_Output_1":  {
+                                           "class":  "org.openhab.core.items.Metadata",
+                                           "value":  {
+                                                         "key":  {
+                                                                     "segments":  [
+                                                                                      "alexa",
+                                                                                      "Module_6_COCINA_Output_1"
+                                                                                  ],
+                                                                     "uid":  "alexa:Module_6_COCINA_Output_1"
+                                                                 },
+                                                         "value":  "Light",
+                                                         "configuration":  {
+
+                                                                           }
+                                                     }
+                                       },
+    "alexa:Module_6_COCINA_Output_2":  {
+                                           "class":  "org.openhab.core.items.Metadata",
+                                           "value":  {
+                                                         "key":  {
+                                                                     "segments":  [
+                                                                                      "alexa",
+                                                                                      "Module_6_COCINA_Output_2"
+                                                                                  ],
+                                                                     "uid":  "alexa:Module_6_COCINA_Output_2"
+                                                                 },
+                                                         "value":  "Light",
+                                                         "configuration":  {
+
+                                                                           }
+                                                     }
+                                       },
+    "alexa:Module_7_COMEDOR_Output_1":  {
+                                            "class":  "org.openhab.core.items.Metadata",
+                                            "value":  {
+                                                          "key":  {
+                                                                      "segments":  [
+                                                                                       "alexa",
+                                                                                       "Module_7_COMEDOR_Output_1"
+                                                                                   ],
+                                                                      "uid":  "alexa:Module_7_COMEDOR_Output_1"
+                                                                  },
+                                                          "value":  "Light",
+                                                          "configuration":  {
+
+                                                                            }
+                                                      }
+                                        },
+    "alexa:Module_7_COMEDOR_Output_2":  {
+                                            "class":  "org.openhab.core.items.Metadata",
+                                            "value":  {
+                                                          "key":  {
+                                                                      "segments":  [
+                                                                                       "alexa",
+                                                                                       "Module_7_COMEDOR_Output_2"
+                                                                                   ],
+                                                                      "uid":  "alexa:Module_7_COMEDOR_Output_2"
+                                                                  },
+                                                          "value":  "Light",
+                                                          "configuration":  {
+
+                                                                            }
+                                                      }
+                                        },
+    "alexa:Module_8_PERSIANAS_Output_1":  {
+                                              "class":  "org.openhab.core.items.Metadata",
+                                              "value":  {
+                                                            "key":  {
+                                                                        "segments":  [
+                                                                                         "alexa",
+                                                                                         "Module_8_PERSIANAS_Output_1"
+                                                                                     ],
+                                                                        "uid":  "alexa:Module_8_PERSIANAS_Output_1"
+                                                                    },
+                                                            "value":  "Blind",
+                                                            "configuration":  {
+
+                                                                              }
+                                                        }
+                                          },
+    "alexa:Module_8_PERSIANAS_Output_2":  {
+                                              "class":  "org.openhab.core.items.Metadata",
+                                              "value":  {
+                                                            "key":  {
+                                                                        "segments":  [
+                                                                                         "alexa",
+                                                                                         "Module_8_PERSIANAS_Output_2"
+                                                                                     ],
+                                                                        "uid":  "alexa:Module_8_PERSIANAS_Output_2"
+                                                                    },
+                                                            "value":  "Blind",
+                                                            "configuration":  {
+
+                                                                              }
+                                                        }
+                                          },
+    "alexa:Module_9_SALA_Output_1":  {
+                                         "class":  "org.openhab.core.items.Metadata",
+                                         "value":  {
+                                                       "key":  {
+                                                                   "segments":  [
+                                                                                    "alexa",
+                                                                                    "Module_9_SALA_Output_1"
+                                                                                ],
+                                                                   "uid":  "alexa:Module_9_SALA_Output_1"
+                                                               },
+                                                       "value":  "Light",
+                                                       "configuration":  {
+
+                                                                         }
+                                                   }
+                                     },
+    "alexa:Module_9_SALA_Output_2":  {
+                                         "class":  "org.openhab.core.items.Metadata",
+                                         "value":  {
+                                                       "key":  {
+                                                                   "segments":  [
+                                                                                    "alexa",
+                                                                                    "Module_9_SALA_Output_2"
+                                                                                ],
+                                                                   "uid":  "alexa:Module_9_SALA_Output_2"
+                                                               },
+                                                       "value":  "Light",
+                                                       "configuration":  {
+
+                                                                         }
+                                                   }
+                                     },
+    "listWidget:Module_6_COCINA_Output_1":  {
+                                                "class":  "org.openhab.core.items.Metadata",
+                                                "value":  {
+                                                              "key":  {
+                                                                          "segments":  [
+                                                                                           "listWidget",
+                                                                                           "Module_6_COCINA_Output_1"
+                                                                                       ],
+                                                                          "uid":  "listWidget:Module_6_COCINA_Output_1"
+                                                                      },
+                                                              "value":  " ",
+                                                              "configuration":  {
+                                                                                    "icon":  ""
+                                                                                }
+                                                          }
+                                            },
+    "stateDescription:Module102Var4":  {
+                                           "class":  "org.openhab.core.items.Metadata",
+                                           "value":  {
+                                                         "key":  {
+                                                                     "segments":  [
+                                                                                      "stateDescription",
+                                                                                      "Module102Var4"
+                                                                                  ],
+                                                                     "uid":  "stateDescription:Module102Var4"
+                                                                 },
+                                                         "value":  " ",
+                                                         "configuration":  {
+                                                                               "pattern":  "%.1f C."
+                                                                           }
+                                                     }
+                                       },
+    "unit:Module102Var4":  {
+                               "class":  "org.openhab.core.items.Metadata",
+                               "value":  {
+                                             "key":  {
+                                                         "segments":  [
+                                                                          "unit",
+                                                                          "Module102Var4"
+                                                                      ],
+                                                         "uid":  "unit:Module102Var4"
+                                                     },
+                                             "value":  "°C",
+                                             "configuration":  {
+
+                                                               }
+                                         }
+                           },
+    "widgetOrder:CUARTO_ALEJANDRO":  {
+                                         "class":  "org.openhab.core.items.Metadata",
+                                         "value":  {
+                                                       "key":  {
+                                                                   "segments":  [
+                                                                                    "widgetOrder",
+                                                                                    "CUARTO_ALEJANDRO"
+                                                                                ],
+                                                                   "uid":  "widgetOrder:CUARTO_ALEJANDRO"
+                                                               },
+                                                       "value":  "2",
+                                                       "configuration":  {
+
+                                                                         }
+                                                   }
+                                     },
+    "widgetOrder:Gas_sensor_gas_sensor_value":  {
+                                                    "class":  "org.openhab.core.items.Metadata",
+                                                    "value":  {
+                                                                  "key":  {
+                                                                              "segments":  [
+                                                                                               "widgetOrder",
+                                                                                               "Gas_sensor_gas_sensor_value"
+                                                                                           ],
+                                                                              "uid":  "widgetOrder:Gas_sensor_gas_sensor_value"
+                                                                          },
+                                                                  "value":  "1",
+                                                                  "configuration":  {
+
+                                                                                    }
+                                                              }
+                                                },
+    "widgetOrder:Module102Var4":  {
+                                      "class":  "org.openhab.core.items.Metadata",
+                                      "value":  {
+                                                    "key":  {
+                                                                "segments":  [
+                                                                                 "widgetOrder",
+                                                                                 "Module102Var4"
+                                                                             ],
+                                                                "uid":  "widgetOrder:Module102Var4"
+                                                            },
+                                                    "value":  "1",
+                                                    "configuration":  {
+
+                                                                      }
+                                                }
+                                  },
+    "widgetOrder:Module_102_CUARTO_PRINCIPAL":  {
+                                                    "class":  "org.openhab.core.items.Metadata",
+                                                    "value":  {
+                                                                  "key":  {
+                                                                              "segments":  [
+                                                                                               "widgetOrder",
+                                                                                               "Module_102_CUARTO_PRINCIPAL"
+                                                                                           ],
+                                                                              "uid":  "widgetOrder:Module_102_CUARTO_PRINCIPAL"
+                                                                          },
+                                                                  "value":  "1",
+                                                                  "configuration":  {
+
+                                                                                    }
+                                                              }
+                                                },
+    "widgetOrder:Module_5_ENTRADA":  {
+                                         "class":  "org.openhab.core.items.Metadata",
+                                         "value":  {
+                                                       "key":  {
+                                                                   "segments":  [
+                                                                                    "widgetOrder",
+                                                                                    "Module_5_ENTRADA"
+                                                                                ],
+                                                                   "uid":  "widgetOrder:Module_5_ENTRADA"
+                                                               },
+                                                       "value":  "1",
+                                                       "configuration":  {
+
+                                                                         }
+                                                   }
+                                     },
+    "widgetOrder:Module_8_PERSIANAS_Output_1":  {
+                                                    "class":  "org.openhab.core.items.Metadata",
+                                                    "value":  {
+                                                                  "key":  {
+                                                                              "segments":  [
+                                                                                               "widgetOrder",
+                                                                                               "Module_8_PERSIANAS_Output_1"
+                                                                                           ],
+                                                                              "uid":  "widgetOrder:Module_8_PERSIANAS_Output_1"
+                                                                          },
+                                                                  "value":  "2",
+                                                                  "configuration":  {
+
+                                                                                    }
+                                                              }
+                                                },
+    "widgetOrder:Module_8_PERSIANAS_Output_2":  {
+                                                    "class":  "org.openhab.core.items.Metadata",
+                                                    "value":  {
+                                                                  "key":  {
+                                                                              "segments":  [
+                                                                                               "widgetOrder",
+                                                                                               "Module_8_PERSIANAS_Output_2"
+                                                                                           ],
+                                                                              "uid":  "widgetOrder:Module_8_PERSIANAS_Output_2"
+                                                                          },
+                                                                  "value":  "3",
+                                                                  "configuration":  {
+
+                                                                                    }
+                                                              }
+                                                },
+    "widgetOrder:Module_9_SALA":  {
+                                      "class":  "org.openhab.core.items.Metadata",
+                                      "value":  {
+                                                    "key":  {
+                                                                "segments":  [
+                                                                                 "widgetOrder",
+                                                                                 "Module_9_SALA"
+                                                                             ],
+                                                                "uid":  "widgetOrder:Module_9_SALA"
+                                                            },
+                                                    "value":  "2",
+                                                    "configuration":  {
+
+                                                                      }
+                                                }
+                                  }
+}
