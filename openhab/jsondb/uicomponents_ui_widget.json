@@ -43,7 +43,7 @@
                                                                           "config":  {
                                                                                          "hideControls":  false,
                                                                                          "startManually":  false,
-                                                                                         "url":  "=props.cameraBaseURL + items[props.camera + \u0027_MP4History\u0027].state.split(\",\")[vars.selected] +\".mp4\"",
+                                                                                         "url":  "=props.cameraBaseURL + items[props.camera + '_MP4History'].state.split(\",\")[vars.selected] +\".mp4\"",
                                                                                          "visible":  "=vars.archive == 2"
                                                                                      }
                                                                       },
@@ -51,7 +51,7 @@
                                                                           "component":  "oh-video-card",
                                                                           "config":  {
                                                                                          "hideControls":  false,
-                                                                                         "item":  "=[props.camera + \u0027_HLSURL\u0027]",
+                                                                                         "item":  "=[props.camera + '_HLSURL']",
                                                                                          "startManually":  false,
                                                                                          "visible":  "=vars.archive != 2"
                                                                                      }
@@ -81,7 +81,7 @@
                                                                                                                            "style":  {
                                                                                                                                          "margin":  "-2px"
                                                                                                                                      },
-                                                                                                                           "visible":  "=(items[props.camera + \u0027_MP4History\u0027].state !== NULL ? vars.archive !== 2 : false)",
+                                                                                                                           "visible":  "=(items[props.camera + '_MP4History'].state !== NULL ? vars.archive !== 2 : false)",
                                                                                                                            "z-index":  2
                                                                                                                        }
                                                                                                         },
@@ -96,8 +96,8 @@
                                                                                                                                          "top":  "12px",
                                                                                                                                          "z-index":  -1
                                                                                                                                      },
-                                                                                                                           "text":  "=items[props.camera+\u0027_MP4HistoryLength\u0027].state",
-                                                                                                                           "visible":  "=vars.archive != 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                           "text":  "=items[props.camera+'_MP4HistoryLength'].state",
+                                                                                                                           "visible":  "=vars.archive != 2 && items[props.camera+'_MP4HistoryLength'].state > 0"
                                                                                                                        }
                                                                                                         },
                                                                                                         {
@@ -135,14 +135,14 @@
                                                                                                             "config":  {
                                                                                                                            "action":  "variable",
                                                                                                                            "actionVariable":  "selected",
-                                                                                                                           "actionVariableValue":  "=(items[props.camera +\u0027_MP4HistoryLength\u0027].state-1)",
+                                                                                                                           "actionVariableValue":  "=(items[props.camera +'_MP4HistoryLength'].state-1)",
                                                                                                                            "iconColor":  "white",
                                                                                                                            "iconF7":  "backward_end",
                                                                                                                            "iconSize":  28,
                                                                                                                            "style":  {
                                                                                                                                          "margin":  "-2px"
                                                                                                                                      },
-                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                           "visible":  "=vars.archive == 2 && items[props.camera+'_MP4HistoryLength'].state > 0"
                                                                                                                        }
                                                                                                         },
                                                                                                         {
@@ -150,14 +150,14 @@
                                                                                                             "config":  {
                                                                                                                            "action":  "variable",
                                                                                                                            "actionVariable":  "selected",
-                                                                                                                           "actionVariableValue":  "=(vars.selected+1 \u003c items[props.camera +\u0027_MP4HistoryLength\u0027].state)?(vars.selected+1):(items[props.camera +\u0027_MP4HistoryLength\u0027].state-1)",
+                                                                                                                           "actionVariableValue":  "=(vars.selected+1 < items[props.camera +'_MP4HistoryLength'].state)?(vars.selected+1):(items[props.camera +'_MP4HistoryLength'].state-1)",
                                                                                                                            "iconColor":  "white",
                                                                                                                            "iconF7":  "arrowtriangle_left",
                                                                                                                            "iconSize":  28,
                                                                                                                            "style":  {
                                                                                                                                          "margin":  "-2px"
                                                                                                                                      },
-                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                           "visible":  "=vars.archive == 2 && items[props.camera+'_MP4HistoryLength'].state > 0"
                                                                                                                        }
                                                                                                         },
                                                                                                         {
@@ -172,7 +172,7 @@
                                                                                                                            "style":  {
                                                                                                                                          "margin":  "-2px"
                                                                                                                                      },
-                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                           "visible":  "=vars.archive == 2 && items[props.camera+'_MP4HistoryLength'].state > 0"
                                                                                                                        }
                                                                                                         },
                                                                                                         {
@@ -187,7 +187,7 @@
                                                                                                                            "style":  {
                                                                                                                                          "margin":  "-2px"
                                                                                                                                      },
-                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                           "visible":  "=vars.archive == 2 && items[props.camera+'_MP4HistoryLength'].state > 0"
                                                                                                                        }
                                                                                                         },
                                                                                                         {
@@ -195,7 +195,7 @@
                                                                                                             "config":  {
                                                                                                                            "action":  "toggle",
                                                                                                                            "actionCommand":  "0",
-                                                                                                                           "actionItem":  "=props.camera+\u0027_MP4HistoryLength\u0027",
+                                                                                                                           "actionItem":  "=props.camera+'_MP4HistoryLength'",
                                                                                                                            "iconColor":  "white",
                                                                                                                            "iconF7":  "clear",
                                                                                                                            "iconSize":  28,
@@ -203,7 +203,7 @@
                                                                                                                                          "margin":  "-2px"
                                                                                                                                      },
                                                                                                                            "tooltip":  "Clear cameras mp4 history",
-                                                                                                                           "visible":  "=vars.archive == 2 \u0026\u0026 items[props.camera+\u0027_MP4HistoryLength\u0027].state \u003e 0"
+                                                                                                                           "visible":  "=vars.archive == 2 && items[props.camera+'_MP4HistoryLength'].state > 0"
                                                                                                                        }
                                                                                                         }
                                                                                                     ]
@@ -304,7 +304,7 @@
                                                                                "config":  {
                                                                                               "class":  "card-opened-fade-out",
                                                                                               "style":  {
-                                                                                                            "background-image":  "=\"url(\u0027\"+items[props.camera + \"_MJPEGURL\"].state+\"\u0027)\"",
+                                                                                                            "background-image":  "=\"url('\"+items[props.camera + \"_MJPEGURL\"].state+\"')\"",
                                                                                                             "background-repeat":  "no-repeat",
                                                                                                             "background-size":  "17rem 10rem",
                                                                                                             "border-radius":  "6px",
@@ -318,7 +318,7 @@
                                                                                "config":  {
                                                                                               "class":  "card-opened-fade-in",
                                                                                               "style":  {
-                                                                                                            "background-image":  "=\"url(\u0027\"+items[props.camera + \"_MJPEGURL\"].state+\"\u0027)\"",
+                                                                                                            "background-image":  "=\"url('\"+items[props.camera + \"_MJPEGURL\"].state+\"')\"",
                                                                                                             "background-position":  "center",
                                                                                                             "background-repeat":  "no-repeat",
                                                                                                             "background-size":  "100% auto",
@@ -338,7 +338,7 @@
                                                                                               "iconF7":  "power",
                                                                                               "iconSize":  22,
                                                                                               "style":  {
-                                                                                                            "color":  "=(items[props.switchItem].state === \u0027OFF\u0027) ? \u0027white\u0027 : (items[props.switchItem].state === \u00270,0,0\u0027) ? \u0027white\u0027 : (items[props.switchItem].state === \u00270\u0027) ? \u0027white\u0027 : \u0027cyan\u0027",
+                                                                                                            "color":  "=(items[props.switchItem].state === 'OFF') ? 'white' : (items[props.switchItem].state === '0,0,0') ? 'white' : (items[props.switchItem].state === '0') ? 'white' : 'cyan'",
                                                                                                             "margin":  "0em 0.2em",
                                                                                                             "opacity":  0.5
                                                                                                         },
@@ -349,7 +349,7 @@
                                                                                "component":  "oh-link",
                                                                                "config":  {
                                                                                               "action":  "command",
-                                                                                              "actionCommand":  "=(props.invertPan) ? \u0027DECREASE\u0027 : \u0027INCREASE\u0027",
+                                                                                              "actionCommand":  "=(props.invertPan) ? 'DECREASE' : 'INCREASE'",
                                                                                               "actionItem":  "=props.camera + \"_Pan\"",
                                                                                               "class":  "card-prevent-open",
                                                                                               "iconF7":  "arrow_left",
@@ -366,7 +366,7 @@
                                                                                "component":  "oh-link",
                                                                                "config":  {
                                                                                               "action":  "command",
-                                                                                              "actionCommand":  "=(props.invertTilt) ? \u0027INCREASE\u0027 : \u0027DECREASE\u0027",
+                                                                                              "actionCommand":  "=(props.invertTilt) ? 'INCREASE' : 'DECREASE'",
                                                                                               "actionItem":  "=props.camera + \"_Tilt\"",
                                                                                               "class":  [
                                                                                                             "card-prevent-open"
@@ -404,7 +404,7 @@
                                                                                "component":  "oh-link",
                                                                                "config":  {
                                                                                               "action":  "command",
-                                                                                              "actionCommand":  "=(props.invertTilt) ? \u0027DECREASE\u0027 : \u0027INCREASE\u0027",
+                                                                                              "actionCommand":  "=(props.invertTilt) ? 'DECREASE' : 'INCREASE'",
                                                                                               "actionItem":  "=props.camera + \"_Tilt\"",
                                                                                               "class":  "card-prevent-open",
                                                                                               "iconF7":  "arrow_down",
@@ -421,7 +421,7 @@
                                                                                "component":  "oh-link",
                                                                                "config":  {
                                                                                               "action":  "command",
-                                                                                              "actionCommand":  "=(props.invertPan) ? \u0027INCREASE\u0027 : \u0027DECREASE\u0027",
+                                                                                              "actionCommand":  "=(props.invertPan) ? 'INCREASE' : 'DECREASE'",
                                                                                               "actionItem":  "=props.camera + \"_Pan\"",
                                                                                               "class":  "card-prevent-open",
                                                                                               "iconF7":  "arrow_right",
@@ -509,7 +509,7 @@
                                                                                               "iconSize":  18,
                                                                                               "style":  {
                                                                                                             "color":  "var(--f7-card-header-text-color)",
-                                                                                                            "opacity":  "=(items[props.camera + \u0027_MotionAlarm\u0027].state === \u0027ON\u0027) ? \u00270.5\u0027 : \u00270\u0027",
+                                                                                                            "opacity":  "=(items[props.camera + '_MotionAlarm'].state === 'ON') ? '0.5' : '0'",
                                                                                                             "position":  "absolute",
                                                                                                             "right":  "0.2rem",
                                                                                                             "top":  "7.8rem"
@@ -525,7 +525,7 @@
                                                                                               "style":  {
                                                                                                             "color":  "var(--f7-card-header-text-color)",
                                                                                                             "left":  "0rem",
-                                                                                                            "opacity":  "=(items[props.camera + \u0027_AudioAlarm\u0027].state === \u0027ON\u0027) ? \u00270.5\u0027 : \u00270\u0027",
+                                                                                                            "opacity":  "=(items[props.camera + '_AudioAlarm'].state === 'ON') ? '0.5' : '0'",
                                                                                                             "position":  "absolute",
                                                                                                             "top":  "7.7rem"
                                                                                                         },

@@ -858,7 +858,7 @@
                                                                                                       "itemType":  "String",
                                                                                                       "kind":  "STATE",
                                                                                                       "label":  "Album Artist",
-                                                                                                      "description":  "The name of the album\u0027s artist",
+                                                                                                      "description":  "The name of the album's artist",
                                                                                                       "defaultTags":  [
 
                                                                                                                       ],
@@ -1441,7 +1441,7 @@
                                                                                                       "itemType":  "String",
                                                                                                       "kind":  "STATE",
                                                                                                       "label":  "Album Artist",
-                                                                                                      "description":  "The name of the album\u0027s artist",
+                                                                                                      "description":  "The name of the album's artist",
                                                                                                       "defaultTags":  [
                                                                                                                           "Info",
                                                                                                                           "Status"
@@ -2356,7 +2356,7 @@
                                                                    ],
                                                       "label":  "Cámara Interior",
                                                       "configuration":  {
-                                                                            "ffmpegInput":  "rtsp://192.168.18.31:554/cam/realmonitor?channel=1\u0026subtype=0",
+                                                                            "ffmpegInput":  "rtsp://192.168.18.31:554/cam/realmonitor?channel=1&subtype=0",
                                                                             "ffmpegLocation":  "C:\\ffmpeg\\bin\\ffmpeg.exe",
                                                                             "gifOutOptions":  "-r 2 -filter_complex scale=-2:360:flags=lanczos,setpts=0.5*PTS,split[o1][o2];[o1]palettegen[p];[o2]fifo[o3];[o3][p]paletteuse",
                                                                             "gifPreroll":  0,
@@ -2369,13 +2369,13 @@
                                                                             "nvrChannel":  1,
                                                                             "onvifMediaProfile":  1,
                                                                             "onvifPort":  80,
-                                                                            "password":  "\u003cREDACTED\u003e",
+                                                                            "password":  "<REDACTED>",
                                                                             "pollTime":  1000,
                                                                             "port":  80,
                                                                             "ptzContinuous":  false,
                                                                             "snapshotOptions":  "-an -vsync vfr -q:v 2 -update 1",
                                                                             "updateImageWhen":  "0",
-                                                                            "username":  "\u003cREDACTED\u003e"
+                                                                            "username":  "<REDACTED>"
                                                                         },
                                                       "properties":  {
                                                                          "thingTypeVersion":  "1"
@@ -2935,7 +2935,7 @@
                                                                 ],
                                                    "label":  "Cámara Entrada",
                                                    "configuration":  {
-                                                                         "ffmpegInput":  "rtsp://192.168.18.31:554/cam/realmonitor?channel=3\u0026subtype=0",
+                                                                         "ffmpegInput":  "rtsp://192.168.18.31:554/cam/realmonitor?channel=3&subtype=0",
                                                                          "ffmpegLocation":  "C:\\ffmpeg\\bin\\ffmpeg.exe",
                                                                          "gifOutOptions":  "-r 2 -filter_complex scale=-2:360:flags=lanczos,setpts=0.5*PTS,split[o1][o2];[o1]palettegen[p];[o2]fifo[o3];[o3][p]paletteuse",
                                                                          "gifPreroll":  0,
@@ -2948,14 +2948,14 @@
                                                                          "nvrChannel":  3,
                                                                          "onvifMediaProfile":  0,
                                                                          "onvifPort":  80,
-                                                                         "password":  "\u003cREDACTED\u003e",
+                                                                         "password":  "<REDACTED>",
                                                                          "pollTime":  1000,
                                                                          "port":  80,
                                                                          "ptzContinuous":  false,
                                                                          "snapshotOptions":  "-an -vsync vfr -q:v 2 -update 1",
                                                                          "snapshotUrl":  "ffmpeg",
                                                                          "updateImageWhen":  "0",
-                                                                         "username":  "\u003cREDACTED\u003e"
+                                                                         "username":  "<REDACTED>"
                                                                      },
                                                    "properties":  {
                                                                       "thingTypeVersion":  "1"
@@ -3517,7 +3517,7 @@
                                                                 ],
                                                    "label":  "Cámara Calle",
                                                    "configuration":  {
-                                                                         "ffmpegInput":  "rtsp://192.168.18.31:554/cam/realmonitor?channel=4\u0026subtype=0",
+                                                                         "ffmpegInput":  "rtsp://192.168.18.31:554/cam/realmonitor?channel=4&subtype=0",
                                                                          "ffmpegLocation":  "C:\\ffmpeg\\bin\\ffmpeg.exe",
                                                                          "gifOutOptions":  "-r 2 -filter_complex scale=-2:360:flags=lanczos,setpts=0.5*PTS,split[o1][o2];[o1]palettegen[p];[o2]fifo[o3];[o3][p]paletteuse",
                                                                          "gifPreroll":  0,
@@ -3530,14 +3530,14 @@
                                                                          "nvrChannel":  4,
                                                                          "onvifMediaProfile":  0,
                                                                          "onvifPort":  80,
-                                                                         "password":  "\u003cREDACTED\u003e",
+                                                                         "password":  "<REDACTED>",
                                                                          "pollTime":  1000,
                                                                          "port":  80,
                                                                          "ptzContinuous":  false,
                                                                          "snapshotOptions":  "-an -vsync vfr -q:v 2 -update 1",
                                                                          "snapshotUrl":  "ffmpeg",
                                                                          "updateImageWhen":  "0",
-                                                                         "username":  "\u003cREDACTED\u003e"
+                                                                         "username":  "<REDACTED>"
                                                                      },
                                                    "properties":  {
                                                                       "thingTypeVersion":  "1"
@@ -21731,10 +21731,10 @@
                                                   "configuration":  {
                                                                         "hostname":  "192.168.18.30",
                                                                         "mode":  "native200",
-                                                                        "password":  "\u003cREDACTED\u003e",
+                                                                        "password":  "<REDACTED>",
                                                                         "port":  4114,
                                                                         "timeoutMs":  3500,
-                                                                        "username":  "\u003cREDACTED\u003e"
+                                                                        "username":  "<REDACTED>"
                                                                     },
                                                   "properties":  {
 
@@ -21752,13 +21752,13 @@
                                                                ],
                                                   "label":  "Tuya Cloud Project",
                                                   "configuration":  {
-                                                                        "accessId":  "\u003cREDACTED\u003e",
-                                                                        "accessSecret":  "\u003cREDACTED\u003e",
+                                                                        "accessId":  "<REDACTED>",
+                                                                        "accessSecret":  "<REDACTED>",
                                                                         "countryCode":  593,
                                                                         "dataCenter":  "https://openapi.tuyaus.com",
-                                                                        "password":  "\u003cREDACTED\u003e",
+                                                                        "password":  "<REDACTED>",
                                                                         "schema":  "smartLife",
-                                                                        "username":  "\u003cREDACTED\u003e"
+                                                                        "username":  "<REDACTED>"
                                                                     },
                                                   "properties":  {
 
@@ -21813,7 +21813,7 @@
                                                                "configuration":  {
                                                                                      "deviceId":  "022003606001947348b6",
                                                                                      "ip":  "192.168.18.104",
-                                                                                     "localKey":  "\u003cREDACTED\u003e",
+                                                                                     "localKey":  "<REDACTED>",
                                                                                      "pollingInterval":  0,
                                                                                      "port":  6668,
                                                                                      "productId":  "xRLBlgDAoYJP2Edx",
@@ -21858,7 +21858,7 @@
                                                                "configuration":  {
                                                                                      "deviceId":  "72016014bcddc2a368bf",
                                                                                      "ip":  "192.168.18.105",
-                                                                                     "localKey":  "\u003cREDACTED\u003e",
+                                                                                     "localKey":  "<REDACTED>",
                                                                                      "pollingInterval":  0,
                                                                                      "port":  6668,
                                                                                      "productId":  "bSXSSFArVKtc4DyC",
@@ -22042,7 +22042,7 @@
                                                                  "configuration":  {
                                                                                        "deviceId":  "eb1fa459e0e3dc1d98fxft",
                                                                                        "ip":  "192.168.18.199",
-                                                                                       "localKey":  "\u003cREDACTED\u003e",
+                                                                                       "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,
                                                                                        "productId":  "cadhf8u7spe6bmyl",
@@ -22300,7 +22300,7 @@
                                                                  "configuration":  {
                                                                                        "deviceId":  "eb7301b5776696aca8nhm3",
                                                                                        "ip":  "192.168.18.120",
-                                                                                       "localKey":  "\u003cREDACTED\u003e",
+                                                                                       "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,
                                                                                        "productId":  "ozcdjaqrxauonq1f",
@@ -22484,7 +22484,7 @@
                                                                  "configuration":  {
                                                                                        "deviceId":  "ebaa9a4c836c2261d0aobc",
                                                                                        "ip":  "",
-                                                                                       "localKey":  "\u003cREDACTED\u003e",
+                                                                                       "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,
                                                                                        "productId":  "cadhf8u7spe6bmyl",

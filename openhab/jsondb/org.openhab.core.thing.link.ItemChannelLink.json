@@ -1,5 +1,5 @@
 {
-    "Amcrest_Camera_with_API_HLS_URL -\u003e ipcamera:amcrest:5a78ecb7e8:hlsUrl":  {
+    "Amcrest_Camera_with_API_HLS_URL -> ipcamera:amcrest:5a78ecb7e8:hlsUrl":  {
                                                                                        "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                        "value":  {
                                                                                                      "channelUID":  {
@@ -19,7 +19,7 @@
                                                                                                      "itemName":  "Amcrest_Camera_with_API_HLS_URL"
                                                                                                  }
                                                                                    },
-    "CamaraPTZ -\u003e ipcamera:amcrest:5a78ecb7e8:mjpegUrl":  {
+    "CamaraPTZ -> ipcamera:amcrest:5a78ecb7e8:mjpegUrl":  {
                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                    "value":  {
                                                                                  "channelUID":  {
@@ -39,7 +39,7 @@
                                                                                  "itemName":  "CamaraPTZ"
                                                                              }
                                                                },
-    "Garaje_Luz -\u003e tuya:tuyaDevice:72016014bcddc2a368bf:bright_value":  {
+    "Garaje_Luz -> tuya:tuyaDevice:72016014bcddc2a368bf:bright_value":  {
                                                                                  "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                  "value":  {
                                                                                                "channelUID":  {
@@ -59,7 +59,7 @@
                                                                                                "itemName":  "Garaje_Luz"
                                                                                            }
                                                                              },
-    "Gas_sensor_gas_sensor_value -\u003e tuya:tuyaDevice:eb7301b5776696aca8nhm3:gas_sensor_value":  {
+    "Gas_sensor_gas_sensor_value -> tuya:tuyaDevice:eb7301b5776696aca8nhm3:gas_sensor_value":  {
                                                                                                         "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                         "value":  {
                                                                                                                       "channelUID":  {
@@ -79,7 +79,7 @@
                                                                                                                       "itemName":  "Gas_sensor_gas_sensor_value"
                                                                                                                   }
                                                                                                     },
-    "Interruptor_Alejandro_switch_1 -\u003e tuya:tuyaDevice:ebaa9a4c836c2261d0aobc:switch_1":  {
+    "Interruptor_Alejandro_switch_1 -> tuya:tuyaDevice:ebaa9a4c836c2261d0aobc:switch_1":  {
                                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                    "value":  {
                                                                                                                  "channelUID":  {
@@ -99,7 +99,7 @@
                                                                                                                  "itemName":  "Interruptor_Alejandro_switch_1"
                                                                                                              }
                                                                                                },
-    "Interruptor_Alejandro_switch_2 -\u003e tuya:tuyaDevice:ebaa9a4c836c2261d0aobc:switch_2":  {
+    "Interruptor_Alejandro_switch_2 -> tuya:tuyaDevice:ebaa9a4c836c2261d0aobc:switch_2":  {
                                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                    "value":  {
                                                                                                                  "channelUID":  {
@@ -119,7 +119,7 @@
                                                                                                                  "itemName":  "Interruptor_Alejandro_switch_2"
                                                                                                              }
                                                                                                },
-    "Interruptor_Julian_switch_1 -\u003e tuya:tuyaDevice:eb1fa459e0e3dc1d98fxft:switch_1":  {
+    "Interruptor_Julian_switch_1 -> tuya:tuyaDevice:eb1fa459e0e3dc1d98fxft:switch_1":  {
                                                                                                 "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                 "value":  {
                                                                                                               "channelUID":  {
@@ -139,7 +139,7 @@
                                                                                                               "itemName":  "Interruptor_Julian_switch_1"
                                                                                                           }
                                                                                             },
-    "Interruptor_Julian_switch_2 -\u003e tuya:tuyaDevice:eb1fa459e0e3dc1d98fxft:switch_2":  {
+    "Interruptor_Julian_switch_2 -> tuya:tuyaDevice:eb1fa459e0e3dc1d98fxft:switch_2":  {
                                                                                                 "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                 "value":  {
                                                                                                               "channelUID":  {
@@ -159,7 +159,7 @@
                                                                                                               "itemName":  "Interruptor_Julian_switch_2"
                                                                                                           }
                                                                                             },
-    "MIBOX3_App -\u003e androidtv:googletv:3CBD3E38DF23:app":  {
+    "MIBOX3_App -> androidtv:googletv:3CBD3E38DF23:app":  {
                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                    "value":  {
                                                                                  "channelUID":  {
@@ -179,7 +179,7 @@
                                                                                  "itemName":  "MIBOX3_App"
                                                                              }
                                                                },
-    "MIBOX3_Encendido -\u003e androidtv:googletv:3CBD3E38DF23:power":  {
+    "MIBOX3_Encendido -> androidtv:googletv:3CBD3E38DF23:power":  {
                                                                            "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                            "value":  {
                                                                                          "channelUID":  {
@@ -199,7 +199,7 @@
                                                                                          "itemName":  "MIBOX3_Encendido"
                                                                                      }
                                                                        },
-    "MIBOX3_PIN -\u003e androidtv:googletv:3CBD3E38DF23:pincode":  {
+    "MIBOX3_PIN -> androidtv:googletv:3CBD3E38DF23:pincode":  {
                                                                        "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                        "value":  {
                                                                                      "channelUID":  {
@@ -219,7 +219,7 @@
                                                                                      "itemName":  "MIBOX3_PIN"
                                                                                  }
                                                                    },
-    "MIBOX3_Reproductor -\u003e androidtv:googletv:3CBD3E38DF23:player":  {
+    "MIBOX3_Reproductor -> androidtv:googletv:3CBD3E38DF23:player":  {
                                                                               "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                               "value":  {
                                                                                             "channelUID":  {
@@ -239,7 +239,7 @@
                                                                                             "itemName":  "MIBOX3_Reproductor"
                                                                                         }
                                                                           },
-    "MIBOX3_Silencio -\u003e androidtv:googletv:3CBD3E38DF23:mute":  {
+    "MIBOX3_Silencio -> androidtv:googletv:3CBD3E38DF23:mute":  {
                                                                          "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                          "value":  {
                                                                                        "channelUID":  {
@@ -259,7 +259,7 @@
                                                                                        "itemName":  "MIBOX3_Silencio"
                                                                                    }
                                                                      },
-    "MIBOX3_Tecla -\u003e androidtv:googletv:3CBD3E38DF23:keypress":  {
+    "MIBOX3_Tecla -> androidtv:googletv:3CBD3E38DF23:keypress":  {
                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                           "value":  {
                                                                                         "channelUID":  {
@@ -279,7 +279,7 @@
                                                                                         "itemName":  "MIBOX3_Tecla"
                                                                                     }
                                                                       },
-    "MIBOX3_Volumen -\u003e androidtv:googletv:3CBD3E38DF23:volume":  {
+    "MIBOX3_Volumen -> androidtv:googletv:3CBD3E38DF23:volume":  {
                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                           "value":  {
                                                                                         "channelUID":  {
@@ -299,7 +299,7 @@
                                                                                         "itemName":  "MIBOX3_Volumen"
                                                                                     }
                                                                       },
-    "Module102Var4 -\u003e lcn:module:LCN-PCHK:S000M102:variable#4":  {
+    "Module102Var4 -> lcn:module:LCN-PCHK:S000M102:variable#4":  {
                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                           "value":  {
                                                                                         "channelUID":  {
@@ -320,7 +320,7 @@
                                                                                         "itemName":  "Module102Var4"
                                                                                     }
                                                                       },
-    "Module_102_CUARTO_PRINCIPAL_Output_1 -\u003e lcn:module:LCN-PCHK:S000M102:output#1":  {
+    "Module_102_CUARTO_PRINCIPAL_Output_1 -> lcn:module:LCN-PCHK:S000M102:output#1":  {
                                                                                                "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                "value":  {
                                                                                                              "channelUID":  {
@@ -341,7 +341,7 @@
                                                                                                              "itemName":  "Module_102_CUARTO_PRINCIPAL_Output_1"
                                                                                                          }
                                                                                            },
-    "Module_102_CUARTO_PRINCIPAL_Output_2 -\u003e lcn:module:LCN-PCHK:S000M102:output#2":  {
+    "Module_102_CUARTO_PRINCIPAL_Output_2 -> lcn:module:LCN-PCHK:S000M102:output#2":  {
                                                                                                "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                "value":  {
                                                                                                              "channelUID":  {
@@ -362,7 +362,7 @@
                                                                                                              "itemName":  "Module_102_CUARTO_PRINCIPAL_Output_2"
                                                                                                          }
                                                                                            },
-    "Module_10_ALARMA_Output_1 -\u003e lcn:module:LCN-PCHK:S000M010:output#1":  {
+    "Module_10_ALARMA_Output_1 -> lcn:module:LCN-PCHK:S000M010:output#1":  {
                                                                                     "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                     "value":  {
                                                                                                   "channelUID":  {
@@ -383,7 +383,7 @@
                                                                                                   "itemName":  "Module_10_ALARMA_Output_1"
                                                                                               }
                                                                                 },
-    "Module_5_ENTRADA_Output_1 -\u003e lcn:module:LCN-PCHK:S000M005:output#1":  {
+    "Module_5_ENTRADA_Output_1 -> lcn:module:LCN-PCHK:S000M005:output#1":  {
                                                                                     "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                     "value":  {
                                                                                                   "channelUID":  {
@@ -404,7 +404,7 @@
                                                                                                   "itemName":  "Module_5_ENTRADA_Output_1"
                                                                                               }
                                                                                 },
-    "Module_5_ENTRADA_Output_2 -\u003e lcn:module:LCN-PCHK:S000M005:output#2":  {
+    "Module_5_ENTRADA_Output_2 -> lcn:module:LCN-PCHK:S000M005:output#2":  {
                                                                                     "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                     "value":  {
                                                                                                   "channelUID":  {
@@ -425,7 +425,7 @@
                                                                                                   "itemName":  "Module_5_ENTRADA_Output_2"
                                                                                               }
                                                                                 },
-    "Module_6_COCINA_Output_1 -\u003e lcn:module:LCN-PCHK:S000M006:output#1":  {
+    "Module_6_COCINA_Output_1 -> lcn:module:LCN-PCHK:S000M006:output#1":  {
                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                    "value":  {
                                                                                                  "channelUID":  {
@@ -446,7 +446,7 @@
                                                                                                  "itemName":  "Module_6_COCINA_Output_1"
                                                                                              }
                                                                                },
-    "Module_6_COCINA_Output_2 -\u003e lcn:module:LCN-PCHK:S000M006:output#2":  {
+    "Module_6_COCINA_Output_2 -> lcn:module:LCN-PCHK:S000M006:output#2":  {
                                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                    "value":  {
                                                                                                  "channelUID":  {
@@ -467,7 +467,7 @@
                                                                                                  "itemName":  "Module_6_COCINA_Output_2"
                                                                                              }
                                                                                },
-    "Module_7_COMEDOR_Output_1 -\u003e lcn:module:LCN-PCHK:S000M007:output#1":  {
+    "Module_7_COMEDOR_Output_1 -> lcn:module:LCN-PCHK:S000M007:output#1":  {
                                                                                     "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                     "value":  {
                                                                                                   "channelUID":  {
@@ -488,7 +488,7 @@
                                                                                                   "itemName":  "Module_7_COMEDOR_Output_1"
                                                                                               }
                                                                                 },
-    "Module_7_COMEDOR_Output_2 -\u003e lcn:module:LCN-PCHK:S000M007:output#2":  {
+    "Module_7_COMEDOR_Output_2 -> lcn:module:LCN-PCHK:S000M007:output#2":  {
                                                                                     "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                     "value":  {
                                                                                                   "channelUID":  {
@@ -509,7 +509,7 @@
                                                                                                   "itemName":  "Module_7_COMEDOR_Output_2"
                                                                                               }
                                                                                 },
-    "Module_8_PERSIANAS_Output_1 -\u003e lcn:module:LCN-PCHK:S000M008:output#1":  {
+    "Module_8_PERSIANAS_Output_1 -> lcn:module:LCN-PCHK:S000M008:output#1":  {
                                                                                       "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                       "value":  {
                                                                                                     "channelUID":  {
@@ -530,7 +530,7 @@
                                                                                                     "itemName":  "Module_8_PERSIANAS_Output_1"
                                                                                                 }
                                                                                   },
-    "Module_8_PERSIANAS_Output_2 -\u003e lcn:module:LCN-PCHK:S000M008:output#2":  {
+    "Module_8_PERSIANAS_Output_2 -> lcn:module:LCN-PCHK:S000M008:output#2":  {
                                                                                       "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                       "value":  {
                                                                                                     "channelUID":  {
@@ -551,7 +551,7 @@
                                                                                                     "itemName":  "Module_8_PERSIANAS_Output_2"
                                                                                                 }
                                                                                   },
-    "Module_9_SALA_Output_1 -\u003e lcn:module:LCN-PCHK:S000M009:output#1":  {
+    "Module_9_SALA_Output_1 -> lcn:module:LCN-PCHK:S000M009:output#1":  {
                                                                                  "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                  "value":  {
                                                                                                "channelUID":  {
@@ -572,7 +572,7 @@
                                                                                                "itemName":  "Module_9_SALA_Output_1"
                                                                                            }
                                                                              },
-    "Module_9_SALA_Output_2 -\u003e lcn:module:LCN-PCHK:S000M009:output#2":  {
+    "Module_9_SALA_Output_2 -> lcn:module:LCN-PCHK:S000M009:output#2":  {
                                                                                  "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                  "value":  {
                                                                                                "channelUID":  {
@@ -593,7 +593,7 @@
                                                                                                "itemName":  "Module_9_SALA_Output_2"
                                                                                            }
                                                                              },
-    "Panel_Luz -\u003e tuya:tuyaDevice:022003606001947348b6:switch_1":  {
+    "Panel_Luz -> tuya:tuyaDevice:022003606001947348b6:switch_1":  {
                                                                             "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                             "value":  {
                                                                                           "channelUID":  {
@@ -613,7 +613,7 @@
                                                                                           "itemName":  "Panel_Luz"
                                                                                       }
                                                                         },
-    "TV_Ale_App -\u003e androidtv:googletv:F0B040516631:app":  {
+    "TV_Ale_App -> androidtv:googletv:F0B040516631:app":  {
                                                                    "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                    "value":  {
                                                                                  "channelUID":  {
@@ -633,7 +633,7 @@
                                                                                  "itemName":  "TV_Ale_App"
                                                                              }
                                                                },
-    "TV_Ale_CC_App -\u003e chromecast:chromecast:3b454289256b93f9c373004b38eec281:appName":  {
+    "TV_Ale_CC_App -> chromecast:chromecast:3b454289256b93f9c373004b38eec281:appName":  {
                                                                                                  "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                  "value":  {
                                                                                                                "channelUID":  {
@@ -653,7 +653,7 @@
                                                                                                                "itemName":  "TV_Ale_CC_App"
                                                                                                            }
                                                                                              },
-    "TV_Ale_CC_Control -\u003e chromecast:chromecast:3b454289256b93f9c373004b38eec281:control":  {
+    "TV_Ale_CC_Control -> chromecast:chromecast:3b454289256b93f9c373004b38eec281:control":  {
                                                                                                      "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                      "value":  {
                                                                                                                    "channelUID":  {
@@ -673,7 +673,7 @@
                                                                                                                    "itemName":  "TV_Ale_CC_Control"
                                                                                                                }
                                                                                                  },
-    "TV_Ale_CC_Titulo -\u003e chromecast:chromecast:3b454289256b93f9c373004b38eec281:title":  {
+    "TV_Ale_CC_Titulo -> chromecast:chromecast:3b454289256b93f9c373004b38eec281:title":  {
                                                                                                   "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                   "value":  {
                                                                                                                 "channelUID":  {
@@ -693,7 +693,7 @@
                                                                                                                 "itemName":  "TV_Ale_CC_Titulo"
                                                                                                             }
                                                                                               },
-    "TV_Ale_CC_Volumen -\u003e chromecast:chromecast:3b454289256b93f9c373004b38eec281:volume":  {
+    "TV_Ale_CC_Volumen -> chromecast:chromecast:3b454289256b93f9c373004b38eec281:volume":  {
                                                                                                     "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                                     "value":  {
                                                                                                                   "channelUID":  {
@@ -713,7 +713,7 @@
                                                                                                                   "itemName":  "TV_Ale_CC_Volumen"
                                                                                                               }
                                                                                                 },
-    "TV_Ale_Encendido -\u003e androidtv:googletv:F0B040516631:power":  {
+    "TV_Ale_Encendido -> androidtv:googletv:F0B040516631:power":  {
                                                                            "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                            "value":  {
                                                                                          "channelUID":  {
@@ -733,7 +733,7 @@
                                                                                          "itemName":  "TV_Ale_Encendido"
                                                                                      }
                                                                        },
-    "TV_Ale_PIN -\u003e androidtv:googletv:F0B040516631:pincode":  {
+    "TV_Ale_PIN -> androidtv:googletv:F0B040516631:pincode":  {
                                                                        "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                        "value":  {
                                                                                      "channelUID":  {
@@ -753,7 +753,7 @@
                                                                                      "itemName":  "TV_Ale_PIN"
                                                                                  }
                                                                    },
-    "TV_Ale_Reproductor -\u003e androidtv:googletv:F0B040516631:player":  {
+    "TV_Ale_Reproductor -> androidtv:googletv:F0B040516631:player":  {
                                                                               "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                               "value":  {
                                                                                             "channelUID":  {
@@ -773,7 +773,7 @@
                                                                                             "itemName":  "TV_Ale_Reproductor"
                                                                                         }
                                                                           },
-    "TV_Ale_Silencio -\u003e androidtv:googletv:F0B040516631:mute":  {
+    "TV_Ale_Silencio -> androidtv:googletv:F0B040516631:mute":  {
                                                                          "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                          "value":  {
                                                                                        "channelUID":  {
@@ -793,7 +793,7 @@
                                                                                        "itemName":  "TV_Ale_Silencio"
                                                                                    }
                                                                      },
-    "TV_Ale_Tecla -\u003e androidtv:googletv:F0B040516631:keypress":  {
+    "TV_Ale_Tecla -> androidtv:googletv:F0B040516631:keypress":  {
                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                           "value":  {
                                                                                         "channelUID":  {
@@ -813,7 +813,7 @@
                                                                                         "itemName":  "TV_Ale_Tecla"
                                                                                     }
                                                                       },
-    "TV_Ale_Volumen -\u003e androidtv:googletv:F0B040516631:volume":  {
+    "TV_Ale_Volumen -> androidtv:googletv:F0B040516631:volume":  {
                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                           "value":  {
                                                                                         "channelUID":  {
@@ -833,7 +833,7 @@
                                                                                         "itemName":  "TV_Ale_Volumen"
                                                                                     }
                                                                       },
-    "TV_Sala_App -\u003e androidtv:googletv:F09602C71E07:app":  {
+    "TV_Sala_App -> androidtv:googletv:F09602C71E07:app":  {
                                                                     "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                     "value":  {
                                                                                   "channelUID":  {
@@ -853,7 +853,7 @@
                                                                                   "itemName":  "TV_Sala_App"
                                                                               }
                                                                 },
-    "TV_Sala_Encendido -\u003e androidtv:googletv:F09602C71E07:power":  {
+    "TV_Sala_Encendido -> androidtv:googletv:F09602C71E07:power":  {
                                                                             "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                             "value":  {
                                                                                           "channelUID":  {
@@ -873,7 +873,7 @@
                                                                                           "itemName":  "TV_Sala_Encendido"
                                                                                       }
                                                                         },
-    "TV_Sala_PIN -\u003e androidtv:googletv:F09602C71E07:pincode":  {
+    "TV_Sala_PIN -> androidtv:googletv:F09602C71E07:pincode":  {
                                                                         "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                         "value":  {
                                                                                       "channelUID":  {
@@ -893,7 +893,7 @@
                                                                                       "itemName":  "TV_Sala_PIN"
                                                                                   }
                                                                     },
-    "TV_Sala_Reproductor -\u003e androidtv:googletv:F09602C71E07:player":  {
+    "TV_Sala_Reproductor -> androidtv:googletv:F09602C71E07:player":  {
                                                                                "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                                "value":  {
                                                                                              "channelUID":  {
@@ -913,7 +913,7 @@
                                                                                              "itemName":  "TV_Sala_Reproductor"
                                                                                          }
                                                                            },
-    "TV_Sala_Silencio -\u003e androidtv:googletv:F09602C71E07:mute":  {
+    "TV_Sala_Silencio -> androidtv:googletv:F09602C71E07:mute":  {
                                                                           "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                           "value":  {
                                                                                         "channelUID":  {
@@ -933,7 +933,7 @@
                                                                                         "itemName":  "TV_Sala_Silencio"
                                                                                     }
                                                                       },
-    "TV_Sala_Tecla -\u003e androidtv:googletv:F09602C71E07:keypress":  {
+    "TV_Sala_Tecla -> androidtv:googletv:F09602C71E07:keypress":  {
                                                                            "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                            "value":  {
                                                                                          "channelUID":  {
@@ -953,7 +953,7 @@
                                                                                          "itemName":  "TV_Sala_Tecla"
                                                                                      }
                                                                        },
-    "TV_Sala_Volumen -\u003e androidtv:googletv:F09602C71E07:volume":  {
+    "TV_Sala_Volumen -> androidtv:googletv:F09602C71E07:volume":  {
                                                                            "class":  "org.openhab.core.thing.link.ItemChannelLink",
                                                                            "value":  {
                                                                                          "channelUID":  {

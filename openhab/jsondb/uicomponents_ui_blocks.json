@@ -113,7 +113,7 @@
                                                                               "message0":  "Sendkey to Module %1 Table %2 Key %3 Action %4",
                                                                               "nextStatement":  "",
                                                                               "previousStatement":  "",
-                                                                              "tooltip":  "Hits a key of a key table in an LCN module.\ntable - The module\u0027s key table: A, B, C or D\nkey - The number of the key within the key table: 1-8\naction - The key\u0027s action: HIT (German: \"kurz\"), MAKE (\"lang\") or BREAK (\"los\")\n",
+                                                                              "tooltip":  "Hits a key of a key table in an LCN module.\ntable - The module's key table: A, B, C or D\nkey - The number of the key within the key table: 1-8\naction - The key's action: HIT (German: \"kurz\"), MAKE (\"lang\") or BREAK (\"los\")\n",
                                                                               "type":  "sendKey"
                                                                           },
                                                                "slots":  {
@@ -121,7 +121,7 @@
                                                                                           {
                                                                                               "component":  "BlockCodeTemplate",
                                                                                               "config":  {
-                                                                                                             "template":  "{{utility:things}}.getActions(\u0027lcn\u0027, {{input:THING}}).hitKey(\u0027{{field:TABLE}}\u0027, {{field:KEY}}, \u0027{{field:ACTION}}\u0027);\n"
+                                                                                                             "template":  "{{utility:things}}.getActions('lcn', {{input:THING}}).hitKey('{{field:TABLE}}', {{field:KEY}}, '{{field:ACTION}}');\n"
                                                                                                          }
                                                                                           }
                                                                                       ],
@@ -188,7 +188,7 @@
                                                                                           {
                                                                                               "component":  "BlockCodeTemplate",
                                                                                               "config":  {
-                                                                                                             "template":  "{{utility:things}}.getActions(\u0027lcn\u0027, {{input:THING}}).sendDynamicText({{field:ROW}}, {{input:MESSAGE}});\n"
+                                                                                                             "template":  "{{utility:things}}.getActions('lcn', {{input:THING}}).sendDynamicText({{field:ROW}}, {{input:MESSAGE}});\n"
                                                                                                          }
                                                                                           }
                                                                                       ],
@@ -363,7 +363,7 @@
                                                                                           {
                                                                                               "component":  "BlockCodeTemplate",
                                                                                               "config":  {
-                                                                                                             "template":  "{{utility:things}}.getActions(\u0027lcn\u0027, {{input:THING}}).flickerOutput({{field:Output}}, {{field:Depth}}, {{field:Ramp}}, {{field:Count}});\n"
+                                                                                                             "template":  "{{utility:things}}.getActions('lcn', {{input:THING}}).flickerOutput({{field:Output}}, {{field:Depth}}, {{field:Ramp}}, {{field:Count}});\n"
                                                                                                          }
                                                                                           }
                                                                                       ],
@@ -449,7 +449,7 @@
                                                                                           {
                                                                                               "component":  "BlockCodeTemplate",
                                                                                               "config":  {
-                                                                                                             "template":  "{{utility:things}}.getActions(\u0027lcn\u0027, {{input:THING}}).startRelayTimer({{field:RelayNumber}}, {{field:Duration}});\n"
+                                                                                                             "template":  "{{utility:things}}.getActions('lcn', {{input:THING}}).startRelayTimer({{field:RelayNumber}}, {{field:Duration}});\n"
                                                                                                          }
                                                                                           }
                                                                                       ],

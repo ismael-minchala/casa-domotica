@@ -29,7 +29,9 @@ function Copy-Json($src, $dst) {
     $obj = [IO.File]::ReadAllText($src, [Text.Encoding]::UTF8) | ConvertFrom-Json
     Clear-Secrets $obj
     New-Item -ItemType Directory -Force (Split-Path $dst) | Out-Null
-    [IO.File]::WriteAllText($dst, ($obj | ConvertTo-Json -Depth 100), (New-Object Text.UTF8Encoding $false))
+    # PowerShell 5.1 escapa < > & ' como \u00xx: se deshace (sigue siendo JSON válido)
+    $json = ($obj | ConvertTo-Json -Depth 100) -replace '\\u003c', '<' -replace '\\u003e', '>' -replace '\\u0026', '&' -replace '\\u0027', "'"
+    [IO.File]::WriteAllText($dst, $json, (New-Object Text.UTF8Encoding $false))
 }
 
 function Copy-Text($src, $dst) {
