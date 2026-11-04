@@ -67,6 +67,7 @@ Get-ChildItem 'C:\openhab\userdata\jsondb' -File -Filter *.json | Where-Object {
 $dstScr = Join-Path $repo 'helpers'
 if (Test-Path $dstScr) { Remove-Item $dstScr -Recurse -Force }
 Get-ChildItem 'C:\Users\Ismael\Documents\openhab-energia' -File -Filter *.ps1 | ForEach-Object { Copy-Text $_.FullName (Join-Path $dstScr $_.Name) }
+Get-ChildItem 'C:\Users\Ismael\Documents\openhab-energia' -File -Filter *.vbs | ForEach-Object { Copy-Text $_.FullName (Join-Path $dstScr $_.Name) }
 
 # --- 4. Proyecto LCN-PRO
 $dstLcn = Join-Path $repo 'lcn-pro'

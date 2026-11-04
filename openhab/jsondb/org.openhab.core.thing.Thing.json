@@ -21927,8 +21927,8 @@
                                                                                                      },
                                                                                       "configuration":  {
                                                                                                             "dp":  7,
-                                                                                                            "max":  86400.0,
-                                                                                                            "min":  0.0
+                                                                                                            "max":  86400,
+                                                                                                            "min":  0
                                                                                                         }
                                                                                   },
                                                                                   {
@@ -21946,8 +21946,8 @@
                                                                                                      },
                                                                                       "configuration":  {
                                                                                                             "dp":  8,
-                                                                                                            "max":  86400.0,
-                                                                                                            "min":  0.0
+                                                                                                            "max":  86400,
+                                                                                                            "min":  0
                                                                                                         }
                                                                                   },
                                                                                   {
@@ -22041,7 +22041,7 @@
                                                                  "label":  "Interruptor Julian",
                                                                  "configuration":  {
                                                                                        "deviceId":  "eb1fa459e0e3dc1d98fxft",
-                                                                                       "ip":  "192.168.18.199",
+                                                                                       "ip":  "192.168.18.222",
                                                                                        "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,
