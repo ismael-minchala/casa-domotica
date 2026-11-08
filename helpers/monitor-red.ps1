@@ -92,6 +92,20 @@ if ($senal)  { $campos += ",senal_pct=$senal" }
 if ($enlace) { $campos += ",enlace_mbps=$enlace" }
 [void]$lineas.Add("net_servidor $campos $ts")
 
+# --- Salud de openHAB: hilos de java, sockets a Google TV y actividad del bus LCN ---
+# Sirve para ver si los hilos crecen hasta que LCN deja de recibir estados (2026-11-04 20:43).
+try {
+    $java = Get-Process java -ErrorAction Stop | Select-Object -First 1
+    $hilos = $java.Threads.Count
+    $sockGtv = @(Get-NetTCPConnection -OwningProcess $java.Id -RemotePort 6467 -ErrorAction SilentlyContinue).Count
+    $eventos = Get-Content 'C:\openhab\userdata\logs\events.log' -Tail 4000 | Where-Object { $_ -match 'source: org\.openhab\.core\.thing\$lcn' }
+    $lcnCambios = @($eventos | Where-Object { $_.Substring(0, 19) -ge $desde }).Count
+    $lcnSeg = -1
+    if ($eventos) { $lcnSeg = [int]($inicio - [datetime]::ParseExact(@($eventos)[-1].Substring(0, 19), 'yyyy-MM-dd HH:mm:ss', $null)).TotalSeconds }
+    $lcnAvisos = @(Get-Content $openhabLog -Tail 3000 | Where-Object { $_ -match 'did not respond' -and $_.Substring(0, 19) -ge $desde }).Count
+    [void]$lineas.Add("oh_salud java_hilos=${hilos}i,gtv_sockets=${sockGtv}i,lcn_cambios=${lcnCambios}i,lcn_seg_ultimo=${lcnSeg}i,lcn_sin_respuesta=${lcnAvisos}i $ts")
+} catch { Registrar "salud openHAB: $($_.Exception.Message)" }
+
 # --- Velocidad: varios flujos simultaneos con tope de tiempo ---
 function Medir-Bajada([string]$etiqueta, [string]$url, [int]$flujos, [int]$tope, [string]$extra) {
     $tmp = Join-Path $env:TEMP ("monred_" + [guid]::NewGuid().ToString('N'))

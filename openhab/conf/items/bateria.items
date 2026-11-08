@@ -1,0 +1,11 @@
+// Autonomía estimada de la batería. Calculada por conf/automation/js/bateria-autonomia.js
+// Energía por cada 1 % de batería: medida en las noches del 1 al 4 de noviembre de 2026
+// (bajada del % frente al consumo estimado, sin sol): unos 45 Wh por % (~4,5 kWh en total).
+// El inversor pasa a la red al llegar a Bateria_SocMinimo, por eso la autonomía se cuenta hasta ese nivel.
+
+String                Bateria_Autonomia     "Autonomía estimada [%s]"                <time>          (gInversor)  ["Status"]
+Number:Time           Bateria_AutonomiaH    "Autonomía estimada [%.1f h]"            <time>          (gInversor)  ["Measurement"]  { unit="h" }
+Number:Power          Bateria_ConsumoNeto   "Consumo neto (promedio 30 min) [%.0f W]" <energy>     (gInversor)  ["Measurement", "Power"]
+Number:Energy         Bateria_Disponible    "Energía disponible [%.0f Wh]"           <batterylevel>  (gInversor)  ["Measurement"]  { unit="Wh" }
+Number:Energy         Bateria_WhPorPct     "Energía por 1 %% de batería [%.0f Wh]"  <batterylevel>  (gInversor)  { unit="Wh" }
+Number:Dimensionless  Bateria_SocMinimo     "Batería mínima del inversor [%.0f %%]"  <batterylevel>  (gInversor)  { unit="%" }

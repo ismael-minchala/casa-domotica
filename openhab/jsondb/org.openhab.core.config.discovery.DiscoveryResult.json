@@ -24,7 +24,7 @@
                                                                   "representationProperty":  "macAddress",
                                                                   "flag":  "NEW",
                                                                   "label":  "MIBOX3 (192.168.18.188)",
-                                                                  "timestamp":  "2026-11-03T06:07:07.666079Z",
+                                                                  "timestamp":  "2026-11-07T05:10:32.180190500Z",
                                                                   "timeToLive":  -1
                                                               }
                                                 },
@@ -105,13 +105,13 @@
                                                                                        "uid":  ""
                                                                                    },
                                                                   "properties":  {
-                                                                                     "ip":  "192.168.18.166",
+                                                                                     "ip":  "[fe80:0:0:0:f2b0:40ff:fe50:d7e9]",
                                                                                      "macAddress":  "f0:b0:40:51:66:31"
                                                                                  },
                                                                   "representationProperty":  "macAddress",
                                                                   "flag":  "NEW",
-                                                                  "label":  "tv_ale (192.168.18.166)",
-                                                                  "timestamp":  "2026-11-03T03:15:58.259240800Z",
+                                                                  "label":  "tv_ale ([fe80:0:0:0:f2b0:40ff:fe50:d7e9])",
+                                                                  "timestamp":  "2026-11-07T17:25:47.564645600Z",
                                                                   "timeToLive":  -1
                                                               }
                                                 },
@@ -262,6 +262,38 @@
                                                       "timeToLive":  -1
                                                   }
                                     },
+    "miio:generic:0705AB46":  {
+                                  "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
+                                  "value":  {
+                                                "thingUID":  {
+                                                                 "segments":  [
+                                                                                  "miio",
+                                                                                  "generic",
+                                                                                  "0705AB46"
+                                                                              ],
+                                                                 "uid":  "miio:generic:0705AB46"
+                                                             },
+                                                "thingTypeUID":  {
+                                                                     "segments":  [
+                                                                                      "miio",
+                                                                                      "generic"
+                                                                                  ],
+                                                                     "uid":  "miio:generic"
+                                                                 },
+                                                "properties":  {
+                                                                   "cloudServer":  "us",
+                                                                   "deviceId":  "117812038",
+                                                                   "host":  "192.168.18.142",
+                                                                   "model":  "roborock.vacuum.s5",
+                                                                   "token":  "<REDACTED>"
+                                                               },
+                                                "representationProperty":  "deviceId",
+                                                "flag":  "IGNORED",
+                                                "label":  "Roborock  117812038 (0705AB46) with token",
+                                                "timestamp":  "2026-11-08T07:57:08.650454300Z",
+                                                "timeToLive":  -1
+                                            }
+                              },
     "tuya:tuyaDevice:27106120bcff4d27014c":  {
                                                  "class":  "org.openhab.core.config.discovery.internal.DiscoveryResultImpl",
                                                  "value":  {
@@ -290,7 +322,7 @@
                                                                "representationProperty":  "deviceId",
                                                                "flag":  "NEW",
                                                                "label":  "Cargador",
-                                                               "timestamp":  "2026-11-04T00:08:39.945594200Z",
+                                                               "timestamp":  "2026-11-08T07:55:20.430968Z",
                                                                "timeToLive":  -1
                                                            }
                                              }

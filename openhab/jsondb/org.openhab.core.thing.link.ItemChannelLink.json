@@ -972,5 +972,65 @@
                                                                                                            },
                                                                                          "itemName":  "TV_Sala_Volumen"
                                                                                      }
-                                                                       }
+                                                                       },
+    "Xiaomi_Codigo2FA -> miio:cloud:xiaomi:two-fa":  {
+                                                              "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                              "value":  {
+                                                                            "channelUID":  {
+                                                                                               "segments":  [
+                                                                                                                "miio",
+                                                                                                                "cloud",
+                                                                                                                "xiaomi",
+                                                                                                                "two-fa"
+                                                                                                            ],
+                                                                                               "uid":  "miio:cloud:xiaomi:two-fa"
+                                                                                           },
+                                                                            "configuration":  {
+                                                                                                  "properties":  {
+
+                                                                                                                 }
+                                                                                              },
+                                                                            "itemName":  "Xiaomi_Codigo2FA"
+                                                                        }
+                                                          },
+    "Xiaomi_Login -> miio:cloud:xiaomi:trigger-login":  {
+                                                                 "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                                 "value":  {
+                                                                               "channelUID":  {
+                                                                                                  "segments":  [
+                                                                                                                   "miio",
+                                                                                                                   "cloud",
+                                                                                                                   "xiaomi",
+                                                                                                                   "trigger-login"
+                                                                                                               ],
+                                                                                                  "uid":  "miio:cloud:xiaomi:trigger-login"
+                                                                                              },
+                                                                               "configuration":  {
+                                                                                                     "properties":  {
+
+                                                                                                                    }
+                                                                                                 },
+                                                                               "itemName":  "Xiaomi_Login"
+                                                                           }
+                                                             },
+    "Xiaomi_QR -> miio:cloud:xiaomi:login-image":  {
+                                                            "class":  "org.openhab.core.thing.link.ItemChannelLink",
+                                                            "value":  {
+                                                                          "channelUID":  {
+                                                                                             "segments":  [
+                                                                                                              "miio",
+                                                                                                              "cloud",
+                                                                                                              "xiaomi",
+                                                                                                              "login-image"
+                                                                                                          ],
+                                                                                             "uid":  "miio:cloud:xiaomi:login-image"
+                                                                                         },
+                                                                          "configuration":  {
+                                                                                                "properties":  {
+
+                                                                                                               }
+                                                                                            },
+                                                                          "itemName":  "Xiaomi_QR"
+                                                                      }
+                                                        }
 }

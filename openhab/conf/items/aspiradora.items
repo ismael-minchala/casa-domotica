@@ -1,0 +1,21 @@
+// Aspiradora Roborock S5 (binding miio, Thing miio:vacuum:roborock, IP 192.168.18.142)
+// La clave del equipo la obtiene la "Cuenta Xiaomi" (miio:cloud:xiaomi, inicio de sesión con QR de Xiaomi Home).
+
+Group    gAspiradora               "Aspiradora"                          <cleaningrobot>
+
+String   Aspiradora_Control        "Aspiradora"                          <cleaningrobot>  (gAspiradora)  ["Control"]      { channel="miio:vacuum:roborock:actions#control" }
+Number   Aspiradora_Potencia       "Potencia de succión"                 <fan>            (gAspiradora)  ["Control"]      { channel="miio:vacuum:roborock:actions#fan" }
+String   Aspiradora_Estado         "Estado [%s]"                         <cleaningrobot>  (gAspiradora)  ["Status"]       { channel="miio:vacuum:roborock:status#state" }
+Number   Aspiradora_Bateria        "Batería [%d %%]"                     <batterylevel>   (gAspiradora)  ["Measurement"]  { channel="miio:vacuum:roborock:status#battery" }
+String   Aspiradora_Error          "Error [%s]"                          <error>          (gAspiradora)  ["Alarm"]        { channel="miio:vacuum:roborock:status#error_code" }
+Number   Aspiradora_AreaActual     "Área limpiada [%.1f m²]"             <cleaningrobot>  (gAspiradora)                   { channel="miio:vacuum:roborock:status#clean_area" }
+Number   Aspiradora_TiempoActual   "Tiempo limpiando [%d min]"           <time>           (gAspiradora)                   { channel="miio:vacuum:roborock:status#clean_time" }
+DateTime Aspiradora_UltimaInicio   "Última limpieza [%1$td/%1$tm %1$tH:%1$tM]" <time>     (gAspiradora)                   { channel="miio:vacuum:roborock:cleaning#last_clean_start_time" }
+Number:Area Aspiradora_UltimaArea  "Área última limpieza [%.1f m²]"      <cleaningrobot>  (gAspiradora)                   { channel="miio:vacuum:roborock:cleaning#last_clean_area" }
+Number:Time Aspiradora_UltimaDuracion "Duración última limpieza [%.0f min]" <time>        (gAspiradora)                   { channel="miio:vacuum:roborock:cleaning#last_clean_duration", unit="min" }
+Image    Aspiradora_Mapa           "Mapa"                                                 (gAspiradora)                   { channel="miio:vacuum:roborock:cleaning#map" }
+Number   Aspiradora_CepilloPpal    "Cepillo principal [%d %%]"           <cleaningrobot>  (gAspiradora)                   { channel="miio:vacuum:roborock:consumables#main_brush_percent" }
+Number   Aspiradora_CepilloLateral "Cepillo lateral [%d %%]"             <cleaningrobot>  (gAspiradora)                   { channel="miio:vacuum:roborock:consumables#side_brush_percent" }
+Number   Aspiradora_Filtro         "Filtro [%d %%]"                      <cleaningrobot>  (gAspiradora)                   { channel="miio:vacuum:roborock:consumables#filter_percent" }
+Number   Aspiradora_Sensores       "Sensores (limpieza) [%d %%]"         <cleaningrobot>  (gAspiradora)                   { channel="miio:vacuum:roborock:consumables#sensor_dirt_percent" }
+Number   Aspiradora_Wifi           "Señal Wi-Fi [%d dBm]"                <network>        (gAspiradora)                   { channel="miio:vacuum:roborock:network#rssi" }

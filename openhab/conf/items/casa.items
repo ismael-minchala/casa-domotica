@@ -1,0 +1,7 @@
+// Apagado general y monitor de luces. Lógica en conf/automation/js/casa-general.js
+
+Number  Luces_Encendidas    "Luces encendidas [%d]"  <light>
+String  Luces_Lista         "Encendidas [%s]"        <light>
+String  Luces_SinConexion   "Sin conexión [%s]"      <network>
+Switch  Casa_ApagarTodo     "Apagado general"        <switch>  { autoupdate="false" }
+String  Casa_ApagadoEstado  "Último apagado [%s]"    <text>

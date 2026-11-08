@@ -1,4 +1,63 @@
 {
+    "amazonechocontrol:account:amazon":  {
+                                             "class":  "org.openhab.core.thing.internal.ThingStorageEntity",
+                                             "value":  {
+                                                           "isBridge":  true,
+                                                           "channels":  [
+                                                                            {
+                                                                                "uid":  "amazonechocontrol:account:amazon:sendMessage",
+                                                                                "id":  "sendMessage",
+                                                                                "channelTypeUID":  "amazonechocontrol:sendMessage",
+                                                                                "itemType":  "String",
+                                                                                "kind":  "STATE",
+                                                                                "label":  "Send Message",
+                                                                                "description":  "Sends a message to the Echo devices (write-only).",
+                                                                                "defaultTags":  [
+
+                                                                                                ],
+                                                                                "properties":  {
+
+                                                                                               },
+                                                                                "configuration":  {
+
+                                                                                                  },
+                                                                                "autoUpdatePolicy":  "VETO"
+                                                                            },
+                                                                            {
+                                                                                "uid":  "amazonechocontrol:account:amazon:refreshActivity",
+                                                                                "id":  "refreshActivity",
+                                                                                "channelTypeUID":  "amazonechocontrol:refreshActivity",
+                                                                                "itemType":  "Switch",
+                                                                                "kind":  "STATE",
+                                                                                "label":  "Refresh Activity",
+                                                                                "description":  "A command send to this channel refreshes the customer history activity (write-only)",
+                                                                                "defaultTags":  [
+                                                                                                    "Mode",
+                                                                                                    "Switch"
+                                                                                                ],
+                                                                                "properties":  {
+
+                                                                                               },
+                                                                                "configuration":  {
+
+                                                                                                  },
+                                                                                "autoUpdatePolicy":  "VETO"
+                                                                            }
+                                                                        ],
+                                                           "label":  "Cuenta Amazon (Alexa)",
+                                                           "configuration":  {
+                                                                                 "activityRequestDelay":  10,
+                                                                                 "discoverSmartHome":  2,
+                                                                                 "pollingIntervalSmartHomeAlexa":  60.0,
+                                                                                 "pollingIntervalSmartSkills":  60.0
+                                                                             },
+                                                           "properties":  {
+                                                                              "thingTypeVersion":  "1"
+                                                                          },
+                                                           "UID":  "amazonechocontrol:account:amazon",
+                                                           "thingTypeUID":  "amazonechocontrol:account"
+                                                       }
+                                         },
     "androidtv:googletv:3CBD3E38DF23":  {
                                             "class":  "org.openhab.core.thing.internal.ThingStorageEntity",
                                             "value":  {
@@ -612,11 +671,12 @@
                                                                        ],
                                                           "label":  "tv_ale (F0B040516631)",
                                                           "configuration":  {
-                                                                                "delay":  0,
+                                                                                "delay":  0.0,
+                                                                                "googletvPort":  6466.0,
                                                                                 "gtvEnabled":  true,
-                                                                                "heartbeat":  5,
-                                                                                "ipAddress":  "192.168.18.166",
-                                                                                "reconnect":  60
+                                                                                "heartbeat":  5.0,
+                                                                                "ipAddress":  "192.168.18.173",
+                                                                                "reconnect":  60.0
                                                                             },
                                                           "properties":  {
                                                                              "androidVersion":  "unknown",
@@ -1798,7 +1858,7 @@
                                                                                  "configuration":  {
                                                                                                        "ipAddress":  "192.168.18.166",
                                                                                                        "port":  8009,
-                                                                                                       "refreshRate":  10
+                                                                                                       "refreshRate":  10.0
                                                                                                    },
                                                                                  "properties":  {
                                                                                                     "deviceId":  "3b454289256b93f9c373004b38eec281"
@@ -2373,7 +2433,8 @@
                                                                             "pollTime":  1000,
                                                                             "port":  80,
                                                                             "ptzContinuous":  false,
-                                                                            "snapshotOptions":  "-an -vsync vfr -q:v 2 -update 1",
+                                                                            "snapshotOptions":  "-an -vsync vfr -vf scale=1280:-2 -q:v 6 -update 1",
+                                                                            "snapshotUrl":  "ffmpeg",
                                                                             "updateImageWhen":  "0",
                                                                             "username":  "<REDACTED>"
                                                                         },
@@ -2952,7 +3013,7 @@
                                                                          "pollTime":  1000,
                                                                          "port":  80,
                                                                          "ptzContinuous":  false,
-                                                                         "snapshotOptions":  "-an -vsync vfr -q:v 2 -update 1",
+                                                                         "snapshotOptions":  "-an -vsync vfr -vf fps=2,scale=960:-2 -q:v 8 -update 1",
                                                                          "snapshotUrl":  "ffmpeg",
                                                                          "updateImageWhen":  "0",
                                                                          "username":  "<REDACTED>"
@@ -3534,7 +3595,7 @@
                                                                          "pollTime":  1000,
                                                                          "port":  80,
                                                                          "ptzContinuous":  false,
-                                                                         "snapshotOptions":  "-an -vsync vfr -q:v 2 -update 1",
+                                                                         "snapshotOptions":  "-an -vsync vfr -vf fps=2,scale=960:-2 -q:v 8 -update 1",
                                                                          "snapshotUrl":  "ffmpeg",
                                                                          "updateImageWhen":  "0",
                                                                          "username":  "<REDACTED>"
@@ -21743,6 +21804,1091 @@
                                                   "thingTypeUID":  "lcn:pckGateway"
                                               }
                                 },
+    "miio:cloud:xiaomi":  {
+                              "class":  "org.openhab.core.thing.internal.ThingStorageEntity",
+                              "value":  {
+                                            "isBridge":  false,
+                                            "channels":  [
+                                                             {
+                                                                 "uid":  "miio:cloud:xiaomi:login-image",
+                                                                 "id":  "login-image",
+                                                                 "channelTypeUID":  "miio:login-image",
+                                                                 "itemType":  "Image",
+                                                                 "kind":  "STATE",
+                                                                 "label":  "Login/Captcha Image",
+                                                                 "description":  "Scan QR code for login or Enter the captcha value in the captcha response channel.",
+                                                                 "defaultTags":  [
+
+                                                                                 ],
+                                                                 "properties":  {
+
+                                                                                },
+                                                                 "configuration":  {
+
+                                                                                   }
+                                                             },
+                                                             {
+                                                                 "uid":  "miio:cloud:xiaomi:captcha-response",
+                                                                 "id":  "captcha-response",
+                                                                 "channelTypeUID":  "miio:captcha-response",
+                                                                 "itemType":  "String",
+                                                                 "kind":  "STATE",
+                                                                 "label":  "Captcha Response",
+                                                                 "description":  "Enter in this channel the value as seen in the captcha.",
+                                                                 "defaultTags":  [
+
+                                                                                 ],
+                                                                 "properties":  {
+
+                                                                                },
+                                                                 "configuration":  {
+
+                                                                                   }
+                                                             },
+                                                             {
+                                                                 "uid":  "miio:cloud:xiaomi:two-fa",
+                                                                 "id":  "two-fa",
+                                                                 "channelTypeUID":  "miio:two-fa",
+                                                                 "itemType":  "String",
+                                                                 "kind":  "STATE",
+                                                                 "label":  "Two-Factor Response",
+                                                                 "description":  "Enter the 2 factor authentication code received by email.",
+                                                                 "defaultTags":  [
+
+                                                                                 ],
+                                                                 "properties":  {
+
+                                                                                },
+                                                                 "configuration":  {
+
+                                                                                   }
+                                                             },
+                                                             {
+                                                                 "uid":  "miio:cloud:xiaomi:trigger-login",
+                                                                 "id":  "trigger-login",
+                                                                 "channelTypeUID":  "miio:trigger-login",
+                                                                 "itemType":  "Switch",
+                                                                 "kind":  "STATE",
+                                                                 "label":  "Trigger Login",
+                                                                 "description":  "Turn ON to cancel any in-progress login and start a fresh login sequence (new QR code or captcha). Resets automatically. Has a 30-second cooldown to prevent rapid re-triggering.",
+                                                                 "defaultTags":  [
+
+                                                                                 ],
+                                                                 "properties":  {
+
+                                                                                },
+                                                                 "configuration":  {
+
+                                                                                   }
+                                                             }
+                                                         ],
+                                            "label":  "Cuenta Xiaomi",
+                                            "configuration":  {
+                                                                  "client-id":  "zgvtld",
+                                                                  "cloud-discovery-mode":  "supported",
+                                                                  "login-method":  "QRCODE",
+                                                                  "password":  "<REDACTED>",
+                                                                  "service-token":  "PXfKr6nQkotcayLEsE0yX7GvVTeiBPx61sm02zbwh6gNrVVkldeJ/VNXFOlGcYkXYMjoPFfAiy0ThQGcto/LVCvJM9ocIwRU/Re2hxXy11xtPDvBZIQKFW02gpuf+Epnk/gm9GAwVi1s2as7RwjW5SkAsww+H3JrpGJMatbnxj+9eX1VF2vWy/RnxDfz6ydr",
+                                                                  "ssecurity":  "3C8LZRzk10e6FuLr3A1TNA==",
+                                                                  "user-id":  "6196121752",
+                                                                  "username":  "<REDACTED>"
+                                                              },
+                                            "properties":  {
+
+                                                           },
+                                            "UID":  "miio:cloud:xiaomi",
+                                            "thingTypeUID":  "miio:cloud",
+                                            "semanticEquipmentTag":  "WebService"
+                                        }
+                          },
+    "miio:vacuum:roborock":  {
+                                 "class":  "org.openhab.core.thing.internal.ThingStorageEntity",
+                                 "value":  {
+                                               "isBridge":  false,
+                                               "channels":  [
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:actions#control",
+                                                                    "id":  "actions#control",
+                                                                    "channelTypeUID":  "miio:control",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Control Vacuum",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:actions#commands",
+                                                                    "id":  "actions#commands",
+                                                                    "channelTypeUID":  "miio:commands",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Execute Command",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:actions#rpc",
+                                                                    "id":  "actions#rpc",
+                                                                    "channelTypeUID":  "miio:rpc",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Execute RPC (cloud) Command",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:actions#fan",
+                                                                    "id":  "actions#fan",
+                                                                    "channelTypeUID":  "miio:fan",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Control Fan Level",
+                                                                    "defaultTags":  [
+                                                                                        "Control",
+                                                                                        "Speed"
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:actions#vacuum",
+                                                                    "id":  "actions#vacuum",
+                                                                    "channelTypeUID":  "miio:vacuum",
+                                                                    "itemType":  "Switch",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Vacuum On/Off",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:actions#segment",
+                                                                    "id":  "actions#segment",
+                                                                    "channelTypeUID":  "miio:segment",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Vacuum Room [room#]",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#battery",
+                                                                    "id":  "status#battery",
+                                                                    "channelTypeUID":  "system:battery-level",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Battery Level",
+                                                                    "description":  "Battery level as a percentage (0-100%)",
+                                                                    "defaultTags":  [
+                                                                                        "Energy",
+                                                                                        "Measurement"
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#clean_area",
+                                                                    "id":  "status#clean_area",
+                                                                    "channelTypeUID":  "miio:clean_area",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning Area",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#clean_time",
+                                                                    "id":  "status#clean_time",
+                                                                    "channelTypeUID":  "miio:clean_time",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning Time",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#error_code",
+                                                                    "id":  "status#error_code",
+                                                                    "channelTypeUID":  "miio:error_code",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Error Code",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#error_id",
+                                                                    "id":  "status#error_id",
+                                                                    "channelTypeUID":  "miio:error_id",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Error ID",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#fan_power",
+                                                                    "id":  "status#fan_power",
+                                                                    "channelTypeUID":  "miio:fan_power",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Fan Power",
+                                                                    "defaultTags":  [
+                                                                                        "Control",
+                                                                                        "Speed"
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#in_cleaning",
+                                                                    "id":  "status#in_cleaning",
+                                                                    "channelTypeUID":  "miio:in_cleaning",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "In Cleaning",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#dnd_enabled",
+                                                                    "id":  "status#dnd_enabled",
+                                                                    "channelTypeUID":  "miio:dnd_enabled",
+                                                                    "itemType":  "Switch",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Do Not Disturb",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#map_present",
+                                                                    "id":  "status#map_present",
+                                                                    "channelTypeUID":  "miio:map_present",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Map Present",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#state",
+                                                                    "id":  "status#state",
+                                                                    "channelTypeUID":  "miio:state",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "State",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#state_id",
+                                                                    "id":  "status#state_id",
+                                                                    "channelTypeUID":  "miio:state_id",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "State ID",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#segment_status",
+                                                                    "id":  "status#segment_status",
+                                                                    "channelTypeUID":  "miio:segment_status",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Segment Status",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#map_status",
+                                                                    "id":  "status#map_status",
+                                                                    "channelTypeUID":  "miio:map_status",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Map Status",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#led_status",
+                                                                    "id":  "status#led_status",
+                                                                    "channelTypeUID":  "miio:led_status",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "LED Status",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:consumables#main_brush_percent",
+                                                                    "id":  "consumables#main_brush_percent",
+                                                                    "channelTypeUID":  "miio:main_brush_percent",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Main Brush Remaining",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:consumables#side_brush_percent",
+                                                                    "id":  "consumables#side_brush_percent",
+                                                                    "channelTypeUID":  "miio:side_brush_percent",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Side Brush Remaining",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:consumables#filter_percent",
+                                                                    "id":  "consumables#filter_percent",
+                                                                    "channelTypeUID":  "miio:filter_percent",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Filter Usage Remaining",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:consumables#sensor_dirt_percent",
+                                                                    "id":  "consumables#sensor_dirt_percent",
+                                                                    "channelTypeUID":  "miio:sensor_dirt_percent",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Sensor Dirt Remaining",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:consumables#main_brush_time",
+                                                                    "id":  "consumables#main_brush_time",
+                                                                    "channelTypeUID":  "miio:main_brush_time",
+                                                                    "itemType":  "Number:Time",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Main Brush Time Until Replacement",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:consumables#side_brush_time",
+                                                                    "id":  "consumables#side_brush_time",
+                                                                    "channelTypeUID":  "miio:side_brush_time",
+                                                                    "itemType":  "Number:Time",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Side Brush Time Until Replacement",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:consumables#filter_time",
+                                                                    "id":  "consumables#filter_time",
+                                                                    "channelTypeUID":  "miio:filter_time",
+                                                                    "itemType":  "Number:Time",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Filter Time Until Replacement",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:consumables#sensor_dirt_time",
+                                                                    "id":  "consumables#sensor_dirt_time",
+                                                                    "channelTypeUID":  "miio:sensor_dirt_time",
+                                                                    "itemType":  "Number:Time",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Sensor Dirt Time Until Cleaning",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:consumables#consumable_reset",
+                                                                    "id":  "consumables#consumable_reset",
+                                                                    "channelTypeUID":  "miio:consumable_reset",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Reset Consumable",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:dnd#dnd_function",
+                                                                    "id":  "dnd#dnd_function",
+                                                                    "channelTypeUID":  "miio:dnd_function",
+                                                                    "itemType":  "Switch",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Do Not Disturb Functionality",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:dnd#dnd_start",
+                                                                    "id":  "dnd#dnd_start",
+                                                                    "channelTypeUID":  "miio:dnd_start",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Start Time DND",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:dnd#dnd_end",
+                                                                    "id":  "dnd#dnd_end",
+                                                                    "channelTypeUID":  "miio:dnd_end",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "End Time DND",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:history#total_clean_area",
+                                                                    "id":  "history#total_clean_area",
+                                                                    "channelTypeUID":  "miio:total_clean_area",
+                                                                    "itemType":  "Number:Area",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Total Cleaning Area",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:history#total_clean_time",
+                                                                    "id":  "history#total_clean_time",
+                                                                    "channelTypeUID":  "miio:total_clean_time",
+                                                                    "itemType":  "Number:Time",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Total Cleaning Time",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:history#total_clean_count",
+                                                                    "id":  "history#total_clean_count",
+                                                                    "channelTypeUID":  "miio:total_clean_count",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Total Cleanings",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#last_clean_start_time",
+                                                                    "id":  "cleaning#last_clean_start_time",
+                                                                    "channelTypeUID":  "miio:last_clean_start_time",
+                                                                    "itemType":  "DateTime",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning Start",
+                                                                    "description":  "Last Cleaning Start Time",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#last_clean_end_time",
+                                                                    "id":  "cleaning#last_clean_end_time",
+                                                                    "channelTypeUID":  "miio:last_clean_end_time",
+                                                                    "itemType":  "DateTime",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning End",
+                                                                    "description":  "Last Cleaning End Time",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#last_clean_area",
+                                                                    "id":  "cleaning#last_clean_area",
+                                                                    "channelTypeUID":  "miio:last_clean_area",
+                                                                    "itemType":  "Number:Area",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning Area",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#last_clean_duration",
+                                                                    "id":  "cleaning#last_clean_duration",
+                                                                    "channelTypeUID":  "miio:last_clean_duration",
+                                                                    "itemType":  "Number:Time",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning Duration",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#last_clean_error",
+                                                                    "id":  "cleaning#last_clean_error",
+                                                                    "channelTypeUID":  "miio:last_clean_error",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Error",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#last_clean_finish",
+                                                                    "id":  "cleaning#last_clean_finish",
+                                                                    "channelTypeUID":  "miio:last_clean_finish",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning Finished",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#last_clean_finish_reason",
+                                                                    "id":  "cleaning#last_clean_finish_reason",
+                                                                    "channelTypeUID":  "miio:last_clean_finish_reason",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning Finished Reason",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#last_clean_dustcollection_status",
+                                                                    "id":  "cleaning#last_clean_dustcollection_status",
+                                                                    "channelTypeUID":  "miio:last_clean_dustcollection_status",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Dust Collection Status",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#last_clean_record",
+                                                                    "id":  "cleaning#last_clean_record",
+                                                                    "channelTypeUID":  "miio:last_clean_record",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning Record",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:cleaning#map",
+                                                                    "id":  "cleaning#map",
+                                                                    "channelTypeUID":  "miio:map",
+                                                                    "itemType":  "Image",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Cleaning Map",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:network#ssid",
+                                                                    "id":  "network#ssid",
+                                                                    "channelTypeUID":  "miio:ssid",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "SSID",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:network#bssid",
+                                                                    "id":  "network#bssid",
+                                                                    "channelTypeUID":  "miio:bssid",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "BSSID",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:network#rssi",
+                                                                    "id":  "network#rssi",
+                                                                    "channelTypeUID":  "miio:rssi",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "RSSI",
+                                                                    "defaultTags":  [
+                                                                                        "Measurement",
+                                                                                        "RSSI"
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:network#life",
+                                                                    "id":  "network#life",
+                                                                    "channelTypeUID":  "miio:life",
+                                                                    "itemType":  "Number",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Life",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:info#multi_maps_list",
+                                                                    "id":  "info#multi_maps_list",
+                                                                    "channelTypeUID":  "miio:multi_maps_list",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Multi Map List",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:info#room_mapping",
+                                                                    "id":  "info#room_mapping",
+                                                                    "channelTypeUID":  "miio:room_mapping",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Room Mapping",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:info#fw_features",
+                                                                    "id":  "info#fw_features",
+                                                                    "channelTypeUID":  "miio:fw_features",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Firmware Features",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:info#customize_clean_mode",
+                                                                    "id":  "info#customize_clean_mode",
+                                                                    "channelTypeUID":  "miio:customize_clean_mode",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Customized Clean Mode",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:info#carpet_mode",
+                                                                    "id":  "info#carpet_mode",
+                                                                    "channelTypeUID":  "miio:carpet_mode",
+                                                                    "itemType":  "String",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Carpet Mode",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#lock_status",
+                                                                    "id":  "status#lock_status",
+                                                                    "channelTypeUID":  "miio:lock_status",
+                                                                    "itemType":  "Switch",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Lock Status",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                },
+                                                                {
+                                                                    "uid":  "miio:vacuum:roborock:status#water_box_status",
+                                                                    "id":  "status#water_box_status",
+                                                                    "channelTypeUID":  "miio:water_box_status",
+                                                                    "itemType":  "Switch",
+                                                                    "kind":  "STATE",
+                                                                    "label":  "Water Box State",
+                                                                    "defaultTags":  [
+
+                                                                                    ],
+                                                                    "properties":  {
+
+                                                                                   },
+                                                                    "configuration":  {
+
+                                                                                      }
+                                                                }
+                                                            ],
+                                               "label":  "Aspiradora Roborock",
+                                               "configuration":  {
+                                                                     "cloudServer":  "us",
+                                                                     "communication":  "direct",
+                                                                     "deviceId":  "117812038",
+                                                                     "host":  "192.168.18.142",
+                                                                     "model":  "roborock.vacuum.s5",
+                                                                     "refreshInterval":  30,
+                                                                     "timeout":  15000,
+                                                                     "token":  "<REDACTED>"
+                                                                 },
+                                               "properties":  {
+                                                                  "firmwareVersion":  "3.5.8_002034",
+                                                                  "hardwareVersion":  "Linux",
+                                                                  "modelId":  "roborock.vacuum.s5",
+                                                                  "vendor":  "Xiaomi"
+                                                              },
+                                               "UID":  "miio:vacuum:roborock",
+                                               "thingTypeUID":  "miio:vacuum",
+                                               "location":  "Casa",
+                                               "semanticEquipmentTag":  "CleaningRobot"
+                                           }
+                             },
     "tuya:project:5d9ea0cd17":  {
                                     "class":  "org.openhab.core.thing.internal.ThingStorageEntity",
                                     "value":  {
@@ -22041,7 +23187,7 @@
                                                                  "label":  "Interruptor Julian",
                                                                  "configuration":  {
                                                                                        "deviceId":  "eb1fa459e0e3dc1d98fxft",
-                                                                                       "ip":  "192.168.18.222",
+                                                                                       "ip":  "192.168.18.206",
                                                                                        "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,
@@ -22369,8 +23515,8 @@
                                                                                                      },
                                                                                       "configuration":  {
                                                                                                             "dp":  7,
-                                                                                                            "max":  86400.0,
-                                                                                                            "min":  0.0
+                                                                                                            "max":  86400,
+                                                                                                            "min":  0
                                                                                                         }
                                                                                   },
                                                                                   {
@@ -22388,8 +23534,8 @@
                                                                                                      },
                                                                                       "configuration":  {
                                                                                                             "dp":  8,
-                                                                                                            "max":  86400.0,
-                                                                                                            "min":  0.0
+                                                                                                            "max":  86400,
+                                                                                                            "min":  0
                                                                                                         }
                                                                                   },
                                                                                   {
@@ -22483,7 +23629,7 @@
                                                                  "label":  "Interruptor ale",
                                                                  "configuration":  {
                                                                                        "deviceId":  "ebaa9a4c836c2261d0aobc",
-                                                                                       "ip":  "",
+                                                                                       "ip":  "192.168.18.136",
                                                                                        "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,

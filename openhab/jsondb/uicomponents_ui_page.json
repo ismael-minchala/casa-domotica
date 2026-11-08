@@ -725,13 +725,78 @@
 
                                                                      ]
                                              },
-                                   "timestamp":  "Nov 1, 2026, 1:47:23 PM",
+                                   "timestamp":  "Nov 3, 2026, 8:38:37 PM",
                                    "component":  "oh-layout-page",
                                    "config":  {
                                                   "label":  "Overview"
                                               },
                                    "slots":  {
                                                  "default":  [
+                                                                 {
+                                                                     "component":  "oh-block",
+                                                                     "config":  {
+                                                                                    "title":  "Salir de casa"
+                                                                                },
+                                                                     "slots":  {
+                                                                                   "default":  [
+                                                                                                   {
+                                                                                                       "component":  "oh-grid-row",
+                                                                                                       "config":  {
+
+                                                                                                                  },
+                                                                                                       "slots":  {
+                                                                                                                     "default":  [
+                                                                                                                                     {
+                                                                                                                                         "component":  "oh-grid-col",
+                                                                                                                                         "config":  {
+                                                                                                                                                        "medium":  "50",
+                                                                                                                                                        "width":  "50"
+                                                                                                                                                    },
+                                                                                                                                         "slots":  {
+                                                                                                                                                       "default":  [
+                                                                                                                                                                       {
+                                                                                                                                                                           "component":  "oh-label-card",
+                                                                                                                                                                           "config":  {
+                                                                                                                                                                                          "fontSize":  "28px",
+                                                                                                                                                                                          "footer":  "=items.Luces_Lista.state",
+                                                                                                                                                                                          "icon":  "oh:light",
+                                                                                                                                                                                          "item":  "Luces_Encendidas",
+                                                                                                                                                                                          "title":  "Luces encendidas"
+                                                                                                                                                                                      }
+                                                                                                                                                                       }
+                                                                                                                                                                   ]
+                                                                                                                                                   }
+                                                                                                                                     },
+                                                                                                                                     {
+                                                                                                                                         "component":  "oh-grid-col",
+                                                                                                                                         "config":  {
+                                                                                                                                                        "medium":  "50",
+                                                                                                                                                        "width":  "50"
+                                                                                                                                                    },
+                                                                                                                                         "slots":  {
+                                                                                                                                                       "default":  [
+                                                                                                                                                                       {
+                                                                                                                                                                           "component":  "oh-label-card",
+                                                                                                                                                                           "config":  {
+                                                                                                                                                                                          "action":  "command",
+                                                                                                                                                                                          "actionCommand":  "ON",
+                                                                                                                                                                                          "actionItem":  "Casa_ApagarTodo",
+                                                                                                                                                                                          "fontSize":  "28px",
+                                                                                                                                                                                          "footer":  "=items.Casa_ApagadoEstado.state",
+                                                                                                                                                                                          "icon":  "oh:switch",
+                                                                                                                                                                                          "label":  "Apagar todo",
+                                                                                                                                                                                          "title":  "Apagado general"
+                                                                                                                                                                                      }
+                                                                                                                                                                       }
+                                                                                                                                                                   ]
+                                                                                                                                                   }
+                                                                                                                                     }
+                                                                                                                                 ]
+                                                                                                                 }
+                                                                                                   }
+                                                                                               ]
+                                                                               }
+                                                                 },
                                                                  {
                                                                      "component":  "oh-block",
                                                                      "config":  {

@@ -2,6 +2,31 @@ sitemap casa label="Casa" {
     Frame label="Energía" {
         Webview url="/static/flujo-energia.html?v=5" height=9
         Text item=Bateria_SOC label="Batería" icon="batterylevel" valuecolor=[<=20="red", <=30="orange", >30="green"]
+        Text item=Bateria_Autonomia label="Autonomía estimada" icon="time" valuecolor=[Bateria_AutonomiaH<2="red", Bateria_AutonomiaH<5="orange", Bateria_AutonomiaH>=5="green"] {
+            Frame label="Estimación actual" {
+                Text item=Bateria_Autonomia label="Autonomía estimada" icon="time"
+                Text item=Bateria_AutonomiaH label="Horas restantes" icon="time" valuecolor=[<2="red", <5="orange", >=5="green"]
+                Text item=Bateria_SOC label="Batería" icon="batterylevel"
+                Text item=Bateria_Disponible label="Energía disponible hasta el mínimo" icon="batterylevel"
+                Text item=Bateria_ConsumoNeto label="Consumo neto (promedio 30 min)" icon="energy"
+                Text item=Inversor_Modo label="Modo del inversor" icon="solarplant"
+            }
+            Frame label="Mensajes posibles" {
+                Text label="≈ X h Y min (con N W): tiempo hasta el mínimo con el consumo actual" icon="time"
+                Text label="Cargando: el sol cubre el consumo" icon="solarplant"
+                Text label="Usando la red eléctrica: el inversor no gasta batería" icon="energy"
+                Text label="Sin datos: falta lectura del inversor" icon="network"
+            }
+            Frame label="Cómo se calcula" {
+                Text label="(Batería − mínimo) × energía por 1 % ÷ consumo neto" icon="line"
+                Text item=Bateria_WhPorPct label="Energía por 1 % de batería" icon="batterylevel"
+                Text item=Bateria_SocMinimo label="Mínimo: el inversor pasa a la red" icon="batterylevel"
+                Text label="45 Wh por 1 % medido en las noches del 1 al 4 de noviembre (≈ 4,5 kWh)" icon="text"
+            }
+            Frame label="Historial" {
+                Chart item=Bateria_AutonomiaH period=D service="influxdb"
+            }
+        }
         Text item=Casa_Consumo label="Consumo de la casa" icon="energy"
         Text item=Solar_Potencia label="Generación solar" icon="solarplant"
         Text item=Inversor_Modo label="Modo del inversor" icon="solarplant"
@@ -161,24 +186,81 @@ sitemap casa label="Casa" {
             Frame label="Chromecast" {
                 Text item=TV_Ale_CC_App label="App [%s]" icon="screen"
                 Text item=TV_Ale_CC_Titulo label="Reproduciendo [%s]" icon="text"
-                Default item=TV_Ale_CC_Control label="Control" icon="mediacontrol"
+                Default item=TV_Ale_CC_Control label="Reproducción" icon="mediacontrol"
                 Slider item=TV_Ale_CC_Volumen label="Volumen Cast" icon="soundvolume"
             }
         }
     }
 
+    Frame label="Aspiradora" {
+        Text item=Aspiradora_Estado label="Roborock [%s]" icon="cleaningrobot" {
+            Frame label="Control" {
+                Switch item=Aspiradora_Control label="Acción" mappings=[vacuum="Limpiar", pause="Pausa", spot="Puntual", dock="A la base"]
+                Selection item=Aspiradora_Potencia label="Potencia" mappings=[101="Silenciosa", 102="Estándar", 103="Turbo", 104="Máxima", 105="Mopa"]
+                Text item=Aspiradora_Estado
+                Text item=Aspiradora_Bateria
+                Text item=Aspiradora_Error visibility=[Aspiradora_Error!="No error"]
+            }
+            Frame label="Limpieza" {
+                Text item=Aspiradora_AreaActual
+                Text item=Aspiradora_TiempoActual
+                Text item=Aspiradora_UltimaInicio
+                Text item=Aspiradora_UltimaArea
+                Text item=Aspiradora_UltimaDuracion
+                Image item=Aspiradora_Mapa
+            }
+            Frame label="Mantenimiento" {
+                Text item=Aspiradora_CepilloPpal
+                Text item=Aspiradora_CepilloLateral
+                Text item=Aspiradora_Filtro
+                Text item=Aspiradora_Sensores
+                Text item=Aspiradora_Wifi
+            }
+        }
+        Switch item=Aspiradora_Control label="Aspiradora" icon="cleaningrobot" mappings=[vacuum="Limpiar", dock="A la base"]
+    }
+
     Frame label="Seguridad" {
         Text label="Cámaras" icon="camera" {
             Frame label="Calle" {
-                Video url="http://127.0.0.1:8080/ipcamera/nvr_ch4/ipcamera.mjpeg" encoding="mjpeg"
+                Image url="http://127.0.0.1:8080/ipcamera/nvr_ch4/ipcamera.jpg" refresh=1000
             }
             Frame label="Entrada" {
-                Video url="http://127.0.0.1:8080/ipcamera/nvr_ch3/ipcamera.mjpeg" encoding="mjpeg"
+                Image url="http://127.0.0.1:8080/ipcamera/nvr_ch3/ipcamera.jpg" refresh=1000
             }
             Frame label="Interior" {
-                Video url="http://127.0.0.1:8080/ipcamera/5a78ecb7e8/ipcamera.mjpeg" encoding="mjpeg"
+                Image url="http://127.0.0.1:8080/ipcamera/5a78ecb7e8/ipcamera.jpg" refresh=1000
             }
         }
         Switch item=Module_10_ALARMA_Output_1 label="Sirena" icon="siren"
+    }
+
+    Frame label="Salir de casa" {
+        Switch item=Casa_ApagarTodo label="Apagado general" icon="switch" mappings=[ON="Apagar todo"]
+        Text item=Casa_ApagadoEstado label="Último apagado [%s]" icon="text"
+        Text item=Luces_Encendidas label="Luces encendidas [%d]" icon="light" valuecolor=[==0="green", >0="orange"] {
+            Frame label="Encendidas ahora" {
+                Text label="Todas apagadas" icon="light" visibility=[Luces_Encendidas==0]
+                Switch item=Module_5_ENTRADA_Output_1 label="Escalera baja" icon="light" visibility=[Module_5_ENTRADA_Output_1>0]
+                Switch item=Module_5_ENTRADA_Output_2 label="Laterales comedor" icon="light" visibility=[Module_5_ENTRADA_Output_2>0]
+                Switch item=Garaje_Luz label="Garaje []" icon="garage" visibility=[Garaje_Luz>0]
+                Switch item=Module_6_COCINA_Output_2 label="Luz cocina" icon="light" visibility=[Module_6_COCINA_Output_2>0]
+                Switch item=Module_6_COCINA_Output_1 label="Leds cocina" icon="light" visibility=[Module_6_COCINA_Output_1>0]
+                Switch item=Module_7_COMEDOR_Output_1 label="Comedor central" icon="light" visibility=[Module_7_COMEDOR_Output_1>0]
+                Switch item=Module_7_COMEDOR_Output_2 label="Comedor lateral" icon="light" visibility=[Module_7_COMEDOR_Output_2>0]
+                Switch item=Module_9_SALA_Output_2 label="Sala central" icon="light" visibility=[Module_9_SALA_Output_2>0]
+                Switch item=Module_9_SALA_Output_1 label="Sala lateral" icon="light" visibility=[Module_9_SALA_Output_1>0]
+                Switch item=Module_102_CUARTO_PRINCIPAL_Output_1 label="Dormitorio central" icon="light" visibility=[Module_102_CUARTO_PRINCIPAL_Output_1>0]
+                Switch item=Module_102_CUARTO_PRINCIPAL_Output_2 label="Dormitorio lateral" icon="light" visibility=[Module_102_CUARTO_PRINCIPAL_Output_2>0]
+                Switch item=Panel_Luz label="Panel" icon="light" visibility=[Panel_Luz==ON]
+                Switch item=Interruptor_Julian_switch_1 label="Julián central" icon="light" visibility=[Interruptor_Julian_switch_1==ON]
+                Switch item=Interruptor_Julian_switch_2 label="Julián lateral" icon="light" visibility=[Interruptor_Julian_switch_2==ON]
+                Switch item=Interruptor_Alejandro_switch_1 label="Alejandro central" icon="light" visibility=[Interruptor_Alejandro_switch_1==ON]
+                Switch item=Interruptor_Alejandro_switch_2 label="Alejandro lateral" icon="light" visibility=[Interruptor_Alejandro_switch_2==ON]
+            }
+            Frame label="Sin conexión (estado desconocido)" visibility=[Luces_SinConexion!="Ninguna"] {
+                Text item=Luces_SinConexion label="Luces [%s]" icon="network"
+            }
+        }
     }
 }
