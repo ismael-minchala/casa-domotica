@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eWeLink → openHAB</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #f5f6f8; color: #222; display: flex; min-height: 100vh; align-items: center; justify-content: center; margin: 0; padding: 16px; }
+  .card { background: #fff; border-radius: 12px; padding: 24px 28px; max-width: 420px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+  h1 { font-size: 1.2rem; margin: 0 0 12px; }
+  .ok { color: #1b7f3b; } .err { color: #b3261e; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Conexión de eWeLink con openHAB</h1>
+  <p id="msg">Procesando…</p>
+</div>
+<script>
+// Página de retorno del inicio de sesión OAuth de eWeLink.
+// Entrega el código de un solo uso a openHAB (item Ewelink_OAuthCode);
+// la regla ewelink.js lo canjea por el token al instante.
+(function () {
+  const q = new URLSearchParams(location.search);
+  const code = q.get('code');
+  const region = q.get('region') || '';
+  const msg = document.getElementById('msg');
+  if (!code) {
+    msg.className = 'err';
+    msg.textContent = 'No llegó ningún código de autorización. Vuelve a intentar el inicio de sesión.';
+    return;
+  }
+  fetch('/rest/items/Ewelink_OAuthCode', {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain' },
+    body: region + '|' + code,
+  }).then(function (r) {
+    if (r.ok) {
+      msg.className = 'ok';
+      msg.textContent = 'Listo: openHAB recibió la autorización. Ya puedes cerrar esta página.';
+      history.replaceState(null, '', location.pathname);
+    } else {
+      msg.className = 'err';
+      msg.textContent = 'openHAB rechazó el código (HTTP ' + r.status + ').';
+    }
+  }).catch(function () {
+    msg.className = 'err';
+    msg.textContent = 'No se pudo contactar con openHAB.';
+  });
+})();
+</script>
+</body>
+</html>

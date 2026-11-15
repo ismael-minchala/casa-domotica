@@ -96,6 +96,9 @@ sitemap casa label="Casa" {
                 Switch item=Garaje_Luz label="Garaje []" icon="garage"
                 Slider item=Garaje_Luz label="Intensidad [%d %%]" icon="slider"
             }
+            Frame label="Luz exterior" {
+                Switch item=Ewelink_10000f0c77_2 label="Luz exterior" icon="light"
+            }
         }
         Text label="Cocina" icon="kitchen" {
             Frame label="Luz cocina" {
@@ -207,7 +210,7 @@ sitemap casa label="Casa" {
                 Text item=Aspiradora_UltimaInicio
                 Text item=Aspiradora_UltimaArea
                 Text item=Aspiradora_UltimaDuracion
-                Image item=Aspiradora_Mapa
+                Image item=Aspiradora_Mapa icon="cleaningrobot"
             }
             Frame label="Mantenimiento" {
                 Text item=Aspiradora_CepilloPpal
@@ -218,6 +221,12 @@ sitemap casa label="Casa" {
             }
         }
         Switch item=Aspiradora_Control label="Aspiradora" icon="cleaningrobot" mappings=[vacuum="Limpiar", dock="A la base"]
+    }
+
+    Frame label="Portón" {
+        Switch item=Ewelink_1000ba53cf_1 label="Portón" icon="garagedoor" mappings=[ON="Abrir"]
+        Switch item=Ewelink_1000ba53cf_2 label="Portón" icon="garagedoor" mappings=[ON="Cerrar"]
+        Text item=Ewelink_Estado label="eWeLink [%s]" icon="network"
     }
 
     Frame label="Seguridad" {
@@ -244,6 +253,7 @@ sitemap casa label="Casa" {
                 Switch item=Module_5_ENTRADA_Output_1 label="Escalera baja" icon="light" visibility=[Module_5_ENTRADA_Output_1>0]
                 Switch item=Module_5_ENTRADA_Output_2 label="Laterales comedor" icon="light" visibility=[Module_5_ENTRADA_Output_2>0]
                 Switch item=Garaje_Luz label="Garaje []" icon="garage" visibility=[Garaje_Luz>0]
+                Switch item=Ewelink_10000f0c77_2 label="Luz exterior" icon="light" visibility=[Ewelink_10000f0c77_2==ON]
                 Switch item=Module_6_COCINA_Output_2 label="Luz cocina" icon="light" visibility=[Module_6_COCINA_Output_2>0]
                 Switch item=Module_6_COCINA_Output_1 label="Leds cocina" icon="light" visibility=[Module_6_COCINA_Output_1>0]
                 Switch item=Module_7_COMEDOR_Output_1 label="Comedor central" icon="light" visibility=[Module_7_COMEDOR_Output_1>0]

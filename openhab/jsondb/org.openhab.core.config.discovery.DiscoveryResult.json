@@ -18,13 +18,13 @@
                                                                                        "uid":  ""
                                                                                    },
                                                                   "properties":  {
-                                                                                     "ip":  "192.168.18.188",
+                                                                                     "ip":  "[fe80:0:0:0:3ebd:3eff:fe3a:65c2]",
                                                                                      "macAddress":  "3c:bd:3e:38:df:23"
                                                                                  },
                                                                   "representationProperty":  "macAddress",
                                                                   "flag":  "NEW",
-                                                                  "label":  "MIBOX3 (192.168.18.188)",
-                                                                  "timestamp":  "2026-11-07T05:10:32.180190500Z",
+                                                                  "label":  "MIBOX3 ([fe80:0:0:0:3ebd:3eff:fe3a:65c2])",
+                                                                  "timestamp":  "2026-11-14T03:42:32.031912400Z",
                                                                   "timeToLive":  -1
                                                               }
                                                 },
@@ -47,13 +47,13 @@
                                                                                        "uid":  ""
                                                                                    },
                                                                   "properties":  {
-                                                                                     "ip":  "[fe80:0:0:0:51f8:41c5:3213:69f6]",
+                                                                                     "ip":  "192.168.18.166",
                                                                                      "macAddress":  "4c:6b:b8:87:bc:95"
                                                                                  },
                                                                   "representationProperty":  "macAddress",
                                                                   "flag":  "NEW",
-                                                                  "label":  "Smart TV ([fe80:0:0:0:51f8:41c5:3213:69f6])",
-                                                                  "timestamp":  "2026-11-02T17:15:23.939547500Z",
+                                                                  "label":  "Smart TV (192.168.18.166)",
+                                                                  "timestamp":  "2026-11-15T07:56:17.056542200Z",
                                                                   "timeToLive":  -1
                                                               }
                                                 },
@@ -105,13 +105,13 @@
                                                                                        "uid":  ""
                                                                                    },
                                                                   "properties":  {
-                                                                                     "ip":  "[fe80:0:0:0:f2b0:40ff:fe50:d7e9]",
+                                                                                     "ip":  "192.168.18.166",
                                                                                      "macAddress":  "f0:b0:40:51:66:31"
                                                                                  },
                                                                   "representationProperty":  "macAddress",
                                                                   "flag":  "NEW",
-                                                                  "label":  "tv_ale ([fe80:0:0:0:f2b0:40ff:fe50:d7e9])",
-                                                                  "timestamp":  "2026-11-07T17:25:47.564645600Z",
+                                                                  "label":  "tv_ale (192.168.18.166)",
+                                                                  "timestamp":  "2026-11-15T07:38:42.117879400Z",
                                                                   "timeToLive":  -1
                                                               }
                                                 },
@@ -163,12 +163,12 @@
                                                                                "uid":  ""
                                                                            },
                                                           "properties":  {
-                                                                             "ipAddress":  "192.168.18.218"
+                                                                             "ipAddress":  "192.168.18.166"
                                                                          },
                                                           "representationProperty":  "ipAddress",
                                                           "flag":  "NEW",
                                                           "label":  "Smart TV (4C6BB887BC95)",
-                                                          "timestamp":  "2026-11-02T16:15:32.951561100Z",
+                                                          "timestamp":  "2026-11-15T07:56:17.057485900Z",
                                                           "timeToLive":  -1
                                                       }
                                         },
@@ -198,7 +198,7 @@
                                                                                  "representationProperty":  "deviceId",
                                                                                  "flag":  "NEW",
                                                                                  "label":  "Smart TV",
-                                                                                 "timestamp":  "2026-11-02T17:02:51.923963700Z",
+                                                                                 "timestamp":  "2026-11-15T02:35:34.495536800Z",
                                                                                  "timeToLive":  -1
                                                                              }
                                                                },
@@ -281,16 +281,13 @@
                                                                      "uid":  "miio:generic"
                                                                  },
                                                 "properties":  {
-                                                                   "cloudServer":  "us",
                                                                    "deviceId":  "117812038",
-                                                                   "host":  "192.168.18.142",
-                                                                   "model":  "roborock.vacuum.s5",
-                                                                   "token":  "<REDACTED>"
+                                                                   "host":  "192.168.18.142"
                                                                },
                                                 "representationProperty":  "deviceId",
                                                 "flag":  "IGNORED",
-                                                "label":  "Roborock  117812038 (0705AB46) with token",
-                                                "timestamp":  "2026-11-08T07:57:08.650454300Z",
+                                                "label":  "Xiaomi Mi Device  (117812038 / 0705AB46)",
+                                                "timestamp":  "2026-11-09T03:52:14.507406500Z",
                                                 "timeToLive":  -1
                                             }
                               },
@@ -322,7 +319,7 @@
                                                                "representationProperty":  "deviceId",
                                                                "flag":  "NEW",
                                                                "label":  "Cargador",
-                                                               "timestamp":  "2026-11-08T07:55:20.430968Z",
+                                                               "timestamp":  "2026-11-15T07:57:38.382801600Z",
                                                                "timeToLive":  -1
                                                            }
                                              }

@@ -671,12 +671,12 @@
                                                                        ],
                                                           "label":  "tv_ale (F0B040516631)",
                                                           "configuration":  {
-                                                                                "delay":  0.0,
-                                                                                "googletvPort":  6466.0,
+                                                                                "delay":  0,
+                                                                                "googletvPort":  6466,
                                                                                 "gtvEnabled":  true,
-                                                                                "heartbeat":  5.0,
-                                                                                "ipAddress":  "192.168.18.173",
-                                                                                "reconnect":  60.0
+                                                                                "heartbeat":  5,
+                                                                                "ipAddress":  "192.168.18.166",
+                                                                                "reconnect":  60
                                                                             },
                                                           "properties":  {
                                                                              "androidVersion":  "unknown",
@@ -21888,9 +21888,9 @@
                                                                   "cloud-discovery-mode":  "supported",
                                                                   "login-method":  "QRCODE",
                                                                   "password":  "<REDACTED>",
-                                                                  "service-token":  "PXfKr6nQkotcayLEsE0yX7GvVTeiBPx61sm02zbwh6gNrVVkldeJ/VNXFOlGcYkXYMjoPFfAiy0ThQGcto/LVCvJM9ocIwRU/Re2hxXy11xtPDvBZIQKFW02gpuf+Epnk/gm9GAwVi1s2as7RwjW5SkAsww+H3JrpGJMatbnxj+9eX1VF2vWy/RnxDfz6ydr",
-                                                                  "ssecurity":  "3C8LZRzk10e6FuLr3A1TNA==",
-                                                                  "user-id":  "6196121752",
+                                                                  "service-token":  "",
+                                                                  "ssecurity":  "",
+                                                                  "user-id":  "",
                                                                   "username":  "<REDACTED>"
                                                               },
                                             "properties":  {
@@ -22889,6 +22889,28 @@
                                                "semanticEquipmentTag":  "CleaningRobot"
                                            }
                              },
+    "sonoff:account:ewelink":  {
+                                   "class":  "org.openhab.core.thing.internal.ThingStorageEntity",
+                                   "value":  {
+                                                 "isBridge":  true,
+                                                 "channels":  [
+
+                                                              ],
+                                                 "label":  "Cuenta eWeLink",
+                                                 "configuration":  {
+                                                                       "accessmode":  "mixed",
+                                                                       "appId":  "0XTdaN6lYkUaVmTlVzyj7T8gELmPGr6e",
+                                                                       "appSecret":  "0rSMvhoyfOKDlHzpQSM0zONN5eMm3WWS",
+                                                                       "email":  "ismael.minchala@gmail.com",
+                                                                       "password":  "<REDACTED>"
+                                                                   },
+                                                 "properties":  {
+
+                                                                },
+                                                 "UID":  "sonoff:account:ewelink",
+                                                 "thingTypeUID":  "sonoff:account"
+                                             }
+                               },
     "tuya:project:5d9ea0cd17":  {
                                     "class":  "org.openhab.core.thing.internal.ThingStorageEntity",
                                     "value":  {
@@ -23187,7 +23209,7 @@
                                                                  "label":  "Interruptor Julian",
                                                                  "configuration":  {
                                                                                        "deviceId":  "eb1fa459e0e3dc1d98fxft",
-                                                                                       "ip":  "192.168.18.206",
+                                                                                       "ip":  "192.168.18.117",
                                                                                        "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,
@@ -23629,7 +23651,7 @@
                                                                  "label":  "Interruptor ale",
                                                                  "configuration":  {
                                                                                        "deviceId":  "ebaa9a4c836c2261d0aobc",
-                                                                                       "ip":  "192.168.18.136",
+                                                                                       "ip":  "192.168.18.120",
                                                                                        "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,

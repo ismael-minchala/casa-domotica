@@ -14,6 +14,7 @@ const LUCES = [
   { item: 'Module_5_ENTRADA_Output_1', nombre: 'Escalera baja', thing: 'lcn:module:LCN-PCHK:S000M005' },
   { item: 'Module_5_ENTRADA_Output_2', nombre: 'Laterales comedor', thing: 'lcn:module:LCN-PCHK:S000M005' },
   { item: 'Garaje_Luz', nombre: 'Garaje', thing: 'tuya:tuyaDevice:72016014bcddc2a368bf' },
+  { item: 'Ewelink_10000f0c77_2', nombre: 'Luz exterior', ewelink: true }, // nube eWeLink, regla ewelink.js
   { item: 'Module_6_COCINA_Output_2', nombre: 'Luz cocina', thing: 'lcn:module:LCN-PCHK:S000M006' },
   { item: 'Module_6_COCINA_Output_1', nombre: 'Leds cocina', thing: 'lcn:module:LCN-PCHK:S000M006' },
   { item: 'Module_7_COMEDOR_Output_1', nombre: 'Comedor central', thing: 'lcn:module:LCN-PCHK:S000M007' },
@@ -40,6 +41,10 @@ function encendida(luz) {
 }
 
 function enLinea(luz) {
+  if (luz.ewelink) {
+    // Sin Thing: la regla ewelink.js deja su estado en Ewelink_Estado ("Conectado: …")
+    return String(items.getItem('Ewelink_Estado').state).startsWith('Conectado');
+  }
   const thing = things.getThing(luz.thing);
   return !!thing && thing.status === 'ONLINE';
 }

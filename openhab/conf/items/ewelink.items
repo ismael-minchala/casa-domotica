@@ -1,0 +1,16 @@
+// eWeLink (nube, OAuth2) — regla conf/automation/js/ewelink.js
+Group gEwelink "eWeLink"
+Group gEwelinkSw "eWeLink: interruptores" (gEwelink)   // Switch Ewelink_<deviceid>[_<canal>]
+
+String Ewelink_OAuthCode  "Código OAuth eWeLink"            // lo escribe static/ewelink.html
+String Ewelink_LoginUrl   "Enlace de inicio de sesión eWeLink" // lo genera la regla
+String Ewelink_Estado     "eWeLink [%s]"
+
+// Portón — Sonoff DUAL R2 (deviceid 1000ba53cf). Canal 1 "Abrir", canal 2 "Cerrar";
+// ambos en modo pulso de 1 s configurado en eWeLink: ON da el pulso y el equipo vuelve solo a OFF.
+Switch Ewelink_1000ba53cf_1 "Portón: abrir"  <garagedoor> (gEwelinkSw) { autoupdate="false" }
+Switch Ewelink_1000ba53cf_2 "Portón: cerrar" <garagedoor> (gEwelinkSw) { autoupdate="false" }
+
+// Luz exterior — Sonoff 4CH (marca "Maker", deviceid 10000f0c77). Solo se usa el canal 2;
+// los canales 1, 3 y 4 no tienen nada conectado.
+Switch Ewelink_10000f0c77_2 "Luz exterior" <light> (gEwelinkSw) { autoupdate="false" }

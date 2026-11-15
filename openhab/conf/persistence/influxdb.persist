@@ -28,6 +28,6 @@ Items {
     Module_102_CUARTO_PRINCIPAL_Output_1, Module_102_CUARTO_PRINCIPAL_Output_2,
     Interruptor_Julian_switch_1, Interruptor_Julian_switch_2,
     Interruptor_Alejandro_switch_1, Interruptor_Alejandro_switch_2,
-    Panel_Luz, Garaje_Luz,
+    Panel_Luz, Garaje_Luz, Ewelink_10000f0c77_2,
     Gas_sensor_gas_sensor_value                      : strategy = everyChange
 }

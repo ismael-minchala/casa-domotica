@@ -199,6 +199,10 @@ function setStatus(text) {
   }
 }
 
+// A reading older than this is considered frozen (datalogger not uploading)
+const DATOS_VIEJOS_MIN = 15;
+let avisoViejos = false;
+
 function poll() {
   const cfg = loadConfig();
   if (!cfg || !cfg.usuario || !cfg.passwordSha1) {
@@ -220,6 +224,38 @@ function poll() {
       log.info('DessMonitor: ' + points.length + ' datos disponibles: ' +
         points.map((p) => p.title + '=' + p.val + (p.unit ? ' ' + p.unit : '')).join(' | '));
       titlesLogged = true;
+    }
+
+    // The cloud keeps answering with the last reading when the datalogger stops uploading:
+    // use the inverter's own timestamp, and don't repost a frozen reading as if it were new
+    const ts = findPoint(points, ['Timestamp']);
+    let tsDatos = null;
+    if (ts) {
+      try {
+        tsDatos = time.LocalDateTime.parse(String(ts.val).trim().replace(' ', 'T')).atZone(time.ZoneId.systemDefault());
+      } catch (e) {
+        tsDatos = null;
+      }
+    }
+    if (tsDatos) {
+      const edadMin = time.Duration.between(tsDatos, time.ZonedDateTime.now()).toMinutes();
+      if (edadMin > DATOS_VIEJOS_MIN) {
+        const ult = items.getItem('Energia_UltimaLectura');
+        if (String(ult.state) === 'NULL' || !time.toZDT(ult.state).isEqual(tsDatos)) {
+          ult.postUpdate(tsDatos);
+        }
+        const hhmm = String(ts.val).trim().substring(11, 16);
+        setStatus('Sin datos nuevos desde las ' + hhmm + ' (el datalogger no envía a la nube)');
+        if (!avisoViejos) {
+          log.warn('DessMonitor: la última lectura del inversor es de ' + ts.val + ' (' + edadMin + ' min); el datalogger dejó de enviar datos');
+          avisoViejos = true;
+        }
+        return;
+      }
+      if (avisoViejos) {
+        log.info('DessMonitor: datos del inversor actualizados de nuevo (' + ts.val + ')');
+        avisoViejos = false;
+      }
     }
 
     const map = Object.assign({}, DEFAULT_MAP, cfg.mapa || {});
@@ -246,7 +282,7 @@ function poll() {
     const snapshot = {};
     points.forEach((p) => { snapshot[p.title] = p.val + (p.unit ? ' ' + p.unit : ''); });
     items.getItem('Energia_Datos').postUpdate(JSON.stringify(snapshot));
-    items.getItem('Energia_UltimaLectura').postUpdate(time.ZonedDateTime.now());
+    items.getItem('Energia_UltimaLectura').postUpdate(tsDatos || time.ZonedDateTime.now());
     setStatus('OK');
   } catch (e) {
     // Force a fresh login and device lookup on the next run
