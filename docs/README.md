@@ -4,9 +4,12 @@
 - [`latex/documentacion-tecnica.tex`](latex/documentacion-tecnica.tex): fuente LaTeX; los diagramas están hechos con TikZ.
 
 Contenido: requisitos, arquitectura (contexto, capas, componentes, despliegue), topología y direccionamiento
-de red, puertos, subsistemas (LCN, energía solar, ahorro automático, cámaras, Tuya y TV) con diagramas de
-secuencia, flujo de datos y máquina de estados, modelo de datos, operación (respaldo, restauración,
-incidentes), seguridad, cronología y hoja de ruta.
+de red, puertos, subsistemas (LCN, energía solar y autonomía de la batería, ahorro automático, cámaras,
+Tuya y TV, portón y luz exterior por eWeLink, aspiradora, apagado general, monitor de red) con diagramas de
+secuencia, flujo de datos y máquina de estados, modelo de datos, catálogo de reglas, operación (respaldo,
+restauración, incidentes), seguridad, cronología y hoja de ruta.
+
+Versión actual: 1.1 (19/11/2026).
 
 ## Compilar
 

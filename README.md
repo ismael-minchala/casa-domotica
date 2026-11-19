@@ -1,7 +1,8 @@
 # Casa domótica — respaldo de configuración
 
 Respaldo de la configuración del servidor domótico (openHAB 5.2.3 en Windows, bus LCN vía LCN-PKE,
-Tuya, cámaras Amcrest por NVR, inversor solar vía DessMonitor, InfluxDB/Grafana).
+Tuya, Sonoff vía eWeLink, aspiradora Roborock, cámaras Amcrest por NVR, inversor solar vía DessMonitor,
+InfluxDB/Grafana). Documentación técnica en [`docs`](docs/README.md).
 
 | Carpeta | Contenido | Origen |
 |---|---|---|
