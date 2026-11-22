@@ -23209,7 +23209,7 @@
                                                                  "label":  "Interruptor Julian",
                                                                  "configuration":  {
                                                                                        "deviceId":  "eb1fa459e0e3dc1d98fxft",
-                                                                                       "ip":  "192.168.18.117",
+                                                                                       "ip":  "192.168.18.127",
                                                                                        "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,
@@ -23262,8 +23262,8 @@
                                                                                                      },
                                                                                       "configuration":  {
                                                                                                             "dp":  2,
-                                                                                                            "max":  100.0,
-                                                                                                            "min":  0.0
+                                                                                                            "max":  100,
+                                                                                                            "min":  0
                                                                                                         }
                                                                                   },
                                                                                   {
@@ -23281,8 +23281,8 @@
                                                                                                      },
                                                                                       "configuration":  {
                                                                                                             "dp":  7,
-                                                                                                            "max":  60.0,
-                                                                                                            "min":  0.0
+                                                                                                            "max":  60,
+                                                                                                            "min":  0
                                                                                                         }
                                                                                   },
                                                                                   {
@@ -23422,8 +23422,8 @@
                                                                                                      },
                                                                                       "configuration":  {
                                                                                                             "dp":  19,
-                                                                                                            "max":  125.0,
-                                                                                                            "min":  -55.0
+                                                                                                            "max":  125,
+                                                                                                            "min":  -55
                                                                                                         }
                                                                                   },
                                                                                   {
@@ -23441,8 +23441,8 @@
                                                                                                      },
                                                                                       "configuration":  {
                                                                                                             "dp":  101,
-                                                                                                            "max":  100.0,
-                                                                                                            "min":  0.0
+                                                                                                            "max":  100,
+                                                                                                            "min":  0
                                                                                                         }
                                                                                   },
                                                                                   {
@@ -23467,7 +23467,7 @@
                                                                  "label":  "Gas sensor",
                                                                  "configuration":  {
                                                                                        "deviceId":  "eb7301b5776696aca8nhm3",
-                                                                                       "ip":  "192.168.18.120",
+                                                                                       "ip":  "192.168.18.102",
                                                                                        "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,
@@ -23651,7 +23651,7 @@
                                                                  "label":  "Interruptor ale",
                                                                  "configuration":  {
                                                                                        "deviceId":  "ebaa9a4c836c2261d0aobc",
-                                                                                       "ip":  "192.168.18.120",
+                                                                                       "ip":  "192.168.18.116",
                                                                                        "localKey":  "<REDACTED>",
                                                                                        "pollingInterval":  0,
                                                                                        "port":  6668,
